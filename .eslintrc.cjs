@@ -11,11 +11,11 @@ module.exports = {
   ],
   parserOptions: {
     ecmaVersion: 'latest',
-    parser: '@typescript-eslint/parser', // Add this line
+    parser: '@typescript-eslint/parser', 
     sourceType: 'module'
   },
   plugins: [
-    '@typescript-eslint' // Add this line
+    '@typescript-eslint'
   ],
   rules: {
     // Add any custom rules here
