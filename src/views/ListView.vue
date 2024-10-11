@@ -1,6 +1,5 @@
 <script setup>
 import DragTrees from '../components/DragTrees.vue'
-import TextInput from '../components/TextInput.vue'
 </script>
 
 <template>

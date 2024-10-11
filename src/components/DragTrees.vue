@@ -12,7 +12,7 @@ interface Tree {
   label: string
   children?: Tree[]
 }
-let id = 1000
+
 
 const handleDragStart = (node: Node, ev: DragEvents) => {
   console.log('drag start', node)
@@ -51,71 +51,29 @@ const handleDrop = (
   console.log('tree drop:', dropNode.label, dropType)
 }
 
-const dataSource = ref<Tree[]>([
-  {
-    id: 1,
-    label: 'Level one 1',
-    children: [
-      {
-        id: 4,
-        label: 'Level two 1-1',
-        children: [
-          {
-            id: 9,
-            label: 'Level three 1-1-1',
-          },
-          {
-            id: 10,
-            label: 'Level three 1-1-2',
-          },
-        ],
-      },
-    ],
-  },
-  {
-    id: 2,
-    label: 'Level one 2',
-    children: [
-      {
-        id: 5,
-        label: 'Level two 2-1',
-      },
-      {
-        id: 6,
-        label: 'Level two 2-2',
-      },
-    ],
-  },
-  {
-    id: 3,
-    label: 'Level one 3',
-    children: [
-      {
-        id: 7,
-        label: 'Level two 3-1',
-      },
-      {
-        id: 8,
-        label: 'Level two 3-2',
-      },
-    ],
-  },
-])
+const dataSource = ref<Tree[]>([])
 
 const textFieldValue = ref('')
 
-const handleButtonClick = () => {
-  console.log('Text field value:', textFieldValue.value);
-  console.log(dataSource);
+const resetTextField = () => {
+  textFieldValue.value = ''
 }
 
 const append = (data: Tree) => {
-  const newChild = { id: id++, label: textFieldValue.value, children: [] }
+  const newChild = { id: Date.now(), label: textFieldValue.value, children: [] }
   if (!data.children) {
     data.children = []
   }
   data.children.push(newChild)
   dataSource.value = [...dataSource.value]
+  resetTextField()
+}
+
+const appendRoot = () => {
+  const newChild = { id: Date.now(), label: textFieldValue.value, children: [] }
+  dataSource.value.push(newChild)
+  console.log(dataSource.value)
+  resetTextField()
 }
 
 const remove = (node: Node, data: Tree) => {
@@ -125,6 +83,16 @@ const remove = (node: Node, data: Tree) => {
   children.splice(index, 1)
   dataSource.value = [...dataSource.value]
 }
+
+const getRandomIndex = (array: string[]) => {
+  return Math.floor(Math.random() * array.length)
+}
+
+const dynamicPlaceholder = () => {
+  const quotes = ["What is your Quest", "What is your Quest", "What is your Quest", "What is your Quest", "What is your Quest", "What is your Quest", "What is your Quest", "What is your Quest", "What is your Quest", "What Is the Airspeed Velocity of an Unladen Swallow"]
+  return quotes[getRandomIndex(quotes)]
+}
+
 </script>
 
 <template>
@@ -151,8 +119,8 @@ const remove = (node: Node, data: Tree) => {
         </span>
       </template>
   </el-tree>
-  <v-text-field v-model="textFieldValue" clearable label="" variant="underlined" placeholder="What Is Your Quest"></v-text-field>
-  <v-btn @click="handleButtonClick">
+  <v-text-field v-model="textFieldValue" clearable label="" variant="underlined" :placeholder="dynamicPlaceholder()" ></v-text-field>
+  <v-btn @click="appendRoot()">
     Butt!
   </v-btn>
 </template>
