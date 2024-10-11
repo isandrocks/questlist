@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import { Delete } from '@element-plus/icons-vue'
 import { ref } from 'vue'
 import type Node from 'element-plus/es/components/tree/src/model/node'
 import type { DragEvents } from 'element-plus/es/components/tree/src/model/useDragNode'
@@ -145,14 +146,33 @@ const remove = (node: Node, data: Tree) => {
           <span>{{ node.label }}</span>
           <span>
             <a @click="append(data)"> Append </a>
-            <a style="margin-left: 8px" @click="remove(node, data)"> Delete </a>
+            <el-button size="small" type="danger" :icon="Delete" circle @click="remove(node, data)"/>
           </span>
         </span>
       </template>
   </el-tree>
-  <v-text-field v-model="textFieldValue" clearable label="" variant="underlined" placeholder="What Is the Airspeed Velocity of an Unladen Swallow"></v-text-field>
+  <v-text-field v-model="textFieldValue" clearable label="" variant="underlined" placeholder="What Is Your Quest"></v-text-field>
   <v-btn @click="handleButtonClick">
     Butt!
   </v-btn>
 </template>
+
+<style scoped>
+
+.el-tree {
+  margin-top: 2rem;
+  background: var(--color-background-dark);
+  color: var(--color-text);
+  --el-tree-node-hover-bg-color: var(--color-background-mute);
+}
+
+.custom-tree-node {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding-bottom: 2px;
+}
+
+</style>
 
