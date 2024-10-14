@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import PlusIcon from './icons/IconPlus.vue'
 import { Delete } from '@element-plus/icons-vue'
 import { ref } from 'vue'
 import type Node from 'element-plus/es/components/tree/src/model/node'
@@ -12,7 +13,6 @@ interface Tree {
   label: string
   children?: Tree[]
 }
-
 
 const handleDragStart = (node: Node, ev: DragEvents) => {
   console.log('drag start', node)
@@ -96,37 +96,28 @@ const dynamicPlaceholder = () => {
 </script>
 
 <template>
-  <el-tree
-    style="max-width: 600px"
-    :data="dataSource"
-    draggable
-    default-expand-all
-    node-key="id"
-    @node-drag-start="handleDragStart"
-    @node-drag-enter="handleDragEnter"
-    @node-drag-leave="handleDragLeave"
-    @node-drag-over="handleDragOver"
-    @node-drag-end="handleDragEnd"
-    @node-drop="handleDrop"
-    >
+  <el-tree style="max-width: 600px" :data="dataSource" draggable default-expand-all node-key="id"
+    @node-drag-start="handleDragStart" @node-drag-enter="handleDragEnter" @node-drag-leave="handleDragLeave"
+    @node-drag-over="handleDragOver" @node-drag-end="handleDragEnd" @node-drop="handleDrop">
     <template #default="{ node, data }">
-        <span class="custom-tree-node">
-          <span>{{ node.label }}</span>
-          <span>
-            <a @click="append(data)"> Append </a>
-            <el-button size="small" type="danger" :icon="Delete" circle @click="remove(node, data)"/>
-          </span>
+      <span class="custom-tree-node">
+        <span>{{ node.label }}</span>
+        <span class="custom-icon">
+          <a @click="append(data)" > <plus-icon  /> </a>
+          <el-button size="small" type="danger" :icon="Delete" circle @click="remove(node, data)" />
         </span>
-      </template>
+      </span>
+    </template>
   </el-tree>
-  <v-text-field v-model="textFieldValue" clearable label="" variant="underlined" :placeholder="dynamicPlaceholder()" ></v-text-field>
+  <v-text-field v-model="textFieldValue" clearable label="" variant="underlined"
+    :placeholder="dynamicPlaceholder()"></v-text-field>
   <v-btn @click="appendRoot()">
     Butt!
   </v-btn>
+  <plus-icon />
 </template>
 
 <style scoped>
-
 .el-tree {
   margin-top: 2rem;
   background: var(--color-background-dark);
@@ -142,5 +133,9 @@ const dynamicPlaceholder = () => {
   padding-bottom: 2px;
 }
 
+.custom-icon {
+margin-top: 2px;
+display: flex;
+justify-content: center;
+}
 </style>
-
