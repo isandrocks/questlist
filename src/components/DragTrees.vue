@@ -1,9 +1,8 @@
 <script lang="ts" setup>
 import PlusIcon from './icons/IconPlus.vue'
-import { Delete } from '@element-plus/icons-vue'
+import TrashIcon from './icons/IconTrash.vue'
 import { ref } from 'vue'
 import type Node from 'element-plus/es/components/tree/src/model/node'
-import type { DragEvents } from 'element-plus/es/components/tree/src/model/useDragNode'
 import type {
   NodeDropType,
 } from 'element-plus/es/components/tree/src/tree.type'
@@ -14,39 +13,35 @@ interface Tree {
   children?: Tree[]
 }
 
-const handleDragStart = (node: Node, ev: DragEvents) => {
+const handleDragStart = (node: Node) => {
   console.log('drag start', node)
 }
 const handleDragEnter = (
   draggingNode: Node,
-  dropNode: Node,
-  ev: DragEvents
+  dropNode: Node
 ) => {
   console.log('tree drag enter:', dropNode.label)
 }
 const handleDragLeave = (
   draggingNode: Node,
   dropNode: Node,
-  ev: DragEvents
 ) => {
   console.log('tree drag leave:', dropNode.label)
 }
-const handleDragOver = (draggingNode: Node, dropNode: Node, ev: DragEvents) => {
+const handleDragOver = (draggingNode: Node, dropNode: Node) => {
   console.log('tree drag over:', dropNode.label)
 }
 const handleDragEnd = (
   draggingNode: Node,
   dropNode: Node,
-  dropType: NodeDropType,
-  ev: DragEvents
+  dropType: NodeDropType
 ) => {
   console.log('tree drag end:', dropNode && dropNode.label, dropType)
 }
 const handleDrop = (
   draggingNode: Node,
   dropNode: Node,
-  dropType: NodeDropType,
-  ev: DragEvents
+  dropType: NodeDropType
 ) => {
   console.log('tree drop:', dropNode.label, dropType)
 }
@@ -96,29 +91,27 @@ const dynamicPlaceholder = () => {
 </script>
 
 <template>
-  <el-tree style="max-width: 600px" :data="dataSource" draggable default-expand-all node-key="id"
+  <el-tree :data="dataSource" draggable default-expand-all show-checkbox node-key="id"
     @node-drag-start="handleDragStart" @node-drag-enter="handleDragEnter" @node-drag-leave="handleDragLeave"
     @node-drag-over="handleDragOver" @node-drag-end="handleDragEnd" @node-drop="handleDrop">
     <template #default="{ node, data }">
       <span class="custom-tree-node">
         <span>{{ node.label }}</span>
         <span class="custom-icon">
-          <a @click="append(data)" > <plus-icon  /> </a>
-          <el-button size="small" type="danger" :icon="Delete" circle @click="remove(node, data)" />
+          <a @click="append(data)" > <PlusIcon /> </a>
+          <a @click="remove(node, data)" > <TrashIcon /></a>
         </span>
       </span>
     </template>
   </el-tree>
-  <v-text-field v-model="textFieldValue" clearable label="" variant="underlined"
-    :placeholder="dynamicPlaceholder()"></v-text-field>
-  <v-btn @click="appendRoot()">
-    Butt!
-  </v-btn>
-  <plus-icon />
+  <v-text-field class="textField" v-model="textFieldValue" clearable label="" variant="solo-filled" density="compact"
+    :placeholder="dynamicPlaceholder()"><PlusIcon class="textFieldIcon" cursor="pointer" @click="appendRoot()" /></v-text-field>
 </template>
 
 <style scoped>
 .el-tree {
+  max-width: 100%;
+  height: 80%;
   margin-top: 2rem;
   background: var(--color-background-dark);
   color: var(--color-text);
@@ -128,14 +121,33 @@ const dynamicPlaceholder = () => {
 .custom-tree-node {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-self: stretch;
   width: 100%;
-  padding-bottom: 2px;
 }
 
 .custom-icon {
-margin-top: 2px;
-display: flex;
-justify-content: center;
+
+display: inline-flex;
+align-self: stretch;
+}
+.textField {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.textFieldIcon {
+  padding-left: .175ex;
+  padding-top: .2ex;
+  transition: 0.4s
+}
+
+@media (hover: hover) {
+  .textFieldIcon:hover {
+    background-color: #5a5a5a44;
+    border-radius: .5ex;
+  }
+  .custom-icon a:hover {
+    border-radius: 1em;
+  }
 }
 </style>

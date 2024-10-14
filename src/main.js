@@ -9,11 +9,16 @@ import 'vuetify/styles'
 import { createVuetify } from 'vuetify'
 import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
+import { darken } from 'element-plus/es/components/button/src/button-custom.mjs'
 
 const vuetify = createVuetify({
   components,
   directives,
+  theme: {
+    defaultTheme: 'dark',
+  },
 })
+
 
 const app = createApp(App)
 
