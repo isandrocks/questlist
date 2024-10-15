@@ -97,16 +97,24 @@ const dynamicPlaceholder = () => {
     <template #default="{ node, data }">
       <span class="custom-tree-node">
         <span>{{ node.label }}</span>
-        <span class="custom-icon">
-          <a @click="append(data)" > <PlusIcon /> </a>
-          <a @click="remove(node, data)" > <TrashIcon /></a>
+        <span class="tree-icon-box">
+          <a @click="append(data)" ><PlusIcon class="tree-icon"/></a>
+          <a @click="remove(node, data)" ><TrashIcon class="tree-icon" /></a>
         </span>
       </span>
     </template>
   </el-tree>
-  <v-text-field class="textField" v-model="textFieldValue" clearable label="" variant="solo-filled" density="compact"
-    :placeholder="dynamicPlaceholder()"><PlusIcon class="textFieldIcon" cursor="pointer" @click="appendRoot()" /></v-text-field>
-</template>
+    <v-text-field 
+    class="textField" 
+    v-model="textFieldValue" 
+    label="" 
+    variant="solo-filled"           
+    :placeholder="dynamicPlaceholder()"
+    :prepend-inner-icon="PlusIcon"
+    @click:prepend-inner="appendRoot()"
+    >
+    </v-text-field>
+    </template>
 
 <style scoped>
 .el-tree {
@@ -125,11 +133,16 @@ const dynamicPlaceholder = () => {
   width: 100%;
 }
 
-.custom-icon {
-
+.tree-icon-box {
 display: inline-flex;
 align-self: stretch;
 }
+
+.tree-icon {
+  height: 1em;
+  width: 1em;
+}
+
 .textField {
   width: 100%;
   margin-top: 1rem;
@@ -141,12 +154,17 @@ align-self: stretch;
   transition: 0.4s
 }
 
+.textField-icon-plus {
+  background-color: #5a5a5a44;
+  border-radius: .5ex;
+}
+
 @media (hover: hover) {
-  .textFieldIcon:hover {
-    background-color: #5a5a5a44;
+  .textField-icon-plus:hover {
+    background-color: #141414d3;
     border-radius: .5ex;
   }
-  .custom-icon a:hover {
+  .tree-icon-box a:hover {
     border-radius: 1em;
   }
 }

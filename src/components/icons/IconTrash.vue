@@ -1,5 +1,5 @@
 <template>
-  <svg xmlns="http://www.w3.org/2000/svg" height="1em" width="1em" fill="currentColor" stroke="currentColor" id="TrashIcon">
+  <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" stroke="currentColor" id="TrashIcon" viewBox="0 0 12.7 12.7">
     <g
      id="layer1">
     <path
