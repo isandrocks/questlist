@@ -108,11 +108,15 @@ const dynamicPlaceholder = () => {
     class="textField" 
     v-model="textFieldValue" 
     label="" 
-    variant="solo-filled"           
+    variant="outlined"  
+    type="text"
+    density="compact"         
     :placeholder="dynamicPlaceholder()"
-    :prepend-inner-icon="PlusIcon"
-    @click:prepend-inner="appendRoot()"
-    >
+    clearable
+        >
+      <template v-slot:prepend-inner>      
+        <PlusIcon class="textField-icon-plus" @click="appendRoot()"/>
+      </template>
     </v-text-field>
     </template>
 
@@ -146,23 +150,22 @@ align-self: stretch;
 .textField {
   width: 100%;
   margin-top: 1rem;
-}
-
-.textFieldIcon {
-  padding-left: .175ex;
-  padding-top: .2ex;
-  transition: 0.4s
+  background-color: var(--color-background-dark);
 }
 
 .textField-icon-plus {
-  background-color: #5a5a5a44;
-  border-radius: .5ex;
+  height: 4ex;
+  width: 4ex;
+  cursor: pointer;
+  transition: 0.4s;
+  padding: 0.5ex;
 }
 
 @media (hover: hover) {
+
   .textField-icon-plus:hover {
-    background-color: #141414d3;
-    border-radius: .5ex;
+    background-color: #121212;
+    border-radius: 5ex;
   }
   .tree-icon-box a:hover {
     border-radius: 1em;
