@@ -1,9 +1,10 @@
 <script lang="ts" setup>
+import CircleIcon from './icons/IconCircle.vue'
 import EditIcon from './icons/IconEdit.vue'
 import PlusIcon from './icons/IconPlus.vue'
 import TrashIcon from './icons/IconTrash.vue'
 import { ref } from 'vue'
-import {ElMessage, ElMessageBox } from 'element-plus'
+import { ElMessage, ElMessageBox } from 'element-plus'
 import type Node from 'element-plus/es/components/tree/src/model/node'
 import type {
   NodeDropType,
@@ -13,6 +14,10 @@ interface Tree {
   id: number
   label: string
   children?: Tree[]
+}
+
+const saveDataSource = () => {
+  localStorage.setItem("savedDataSource", JSON.stringify(dataSource.value));
 }
 
 const handleDragStart = (node: Node) => {
@@ -39,7 +44,7 @@ const handleDragEnd = (
   dropType: NodeDropType
 ) => {
   console.log('tree drag end:', dropNode && dropNode.label, dropType)
-  localStorage.setItem("savedDataSource", JSON.stringify(dataSource.value));
+  saveDataSource()
 }
 const handleDrop = (
   draggingNode: Node,
@@ -62,27 +67,31 @@ const resetTextField = () => {
   textFieldValue.value = ''
 }
 
+const createNewChild = (labeldata: string) => {
+  return { id: Date.now(), editable: false, isStrikethrough: false, label: labeldata, children: [] };
+}
+
 const append = (data: Tree) => {
-  const newChild = { id: Date.now(), editable: false, label: textFieldValue.value, children: [] }
+  const newChild = createNewChild(textFieldValue.value);
   if (!data.children) {
     data.children = []
   }
   data.children.push(newChild)
   dataSource.value = [...dataSource.value]
-  localStorage.setItem("savedDataSource", JSON.stringify(dataSource.value));
+  saveDataSource()
   resetTextField()
 }
 
 const appendRoot = () => {
-  const newChild = { id: Date.now(), editable: false, label: textFieldValue.value, children: [] }
+  const newChild = createNewChild(textFieldValue.value);
   dataSource.value.push(newChild)
-  localStorage.setItem("savedDataSource", JSON.stringify(dataSource.value));
+  saveDataSource()
   resetTextField()
 }
 
 const remove = (node: Node, data: Tree) => {
   if (!node.isLeaf) {
-      ElMessageBox.confirm("This quest has sub quests. Are you sure you want to delete it?", {
+    ElMessageBox.confirm("This quest has sub quests. Are you sure you want to delete it?", {
       customClass: 'tree-message-box',
       confirmButtonText: 'OK',
       cancelButtonText: 'Cancel',
@@ -92,28 +101,28 @@ const remove = (node: Node, data: Tree) => {
       const index = children.findIndex((d) => d.id === data.id);
       children.splice(index, 1);
       dataSource.value = [...dataSource.value];
-      localStorage.setItem("savedDataSource", JSON.stringify(dataSource.value));
+      saveDataSource()
       ElMessage({
         type: 'success',
         message: 'Delete completed',
       })
       return;
     })
-    .catch(() => {
-      ElMessage({
-        type: 'info',
-        message: 'Delete canceled',
+      .catch(() => {
+        ElMessage({
+          type: 'info',
+          message: 'Delete canceled',
+        })
       })
-    })
   } else {
-      const parent = node.parent;
-      const children: Tree[] = parent.data.children || parent.data;
-      const index = children.findIndex((d) => d.id === data.id);
-      children.splice(index, 1);
-      dataSource.value = [...dataSource.value];
-      localStorage.setItem("savedDataSource", JSON.stringify(dataSource.value));
+    const parent = node.parent;
+    const children: Tree[] = parent.data.children || parent.data;
+    const index = children.findIndex((d) => d.id === data.id);
+    children.splice(index, 1);
+    dataSource.value = [...dataSource.value];
+    saveDataSource()
   }
-};
+}
 
 const getRandomIndex = (array: string[]) => {
   return Math.floor(Math.random() * array.length)
@@ -134,6 +143,12 @@ const toggleEdit = (node: Node) => {
   }
 }
 
+const toggleStrikethrough = (node :Node) => {
+  node.data.isStrikethrough = !node.data.isStrikethrough;
+  dataSource.value = [...dataSource.value];
+  saveDataSource()
+}
+
 const vFocus = {
   mounted: (el) => el.focus()
 }
@@ -141,51 +156,41 @@ const vFocus = {
 </script>
 
 <template>
-  <el-tree 
-  :data="dataSource" 
-  :draggable="true"
-  :default-expand-all="true"
-  :show-checkbox="true" 
-  :expand-on-click-node="false"
-  node-key="id"
-  @node-drag-start="handleDragStart" 
-  @node-drag-enter="handleDragEnter" 
-  @node-drag-leave="handleDragLeave"
-  @node-drag-over="handleDragOver"
-  @node-drag-end="handleDragEnd" 
-  @node-drop="handleDrop"
-  >
-    <template #default="{ node, data }" >
-      <span class="custom-tree-node" >
-        <span >
+  <el-tree :data="dataSource" :draggable="true" :default-expand-all="true" :expand-on-click-node="false" node-key="id"
+    @node-drag-start="handleDragStart" @node-drag-enter="handleDragEnter" @node-drag-leave="handleDragLeave"
+    @node-drag-over="handleDragOver" @node-drag-end="handleDragEnd" @node-drop="handleDrop">
+    <template #default="{ node, data }">
+      <span class="custom-tree-node">
+        <span>
           <template v-if="node.data.editable">
-            <input type="text" v-model="node.data.label" v-focus @blur="toggleEdit(node)"/>
+            <input type="text" v-model="node.data.label" v-focus @blur="toggleEdit(node)" />
           </template>
-          <template v-else >
-            <div @dblclick="toggleEdit(node)">
+          <template v-else>
+            <div @dblclick="toggleEdit(node)" :class="{ 'strikethrough': node.data.isStrikethrough }">
+              <CircleIcon class="tree-icon" @click="toggleStrikethrough(node)"/>
               {{ node.label }}
             </div>
           </template>
         </span>
         <span class="tree-icon-box">
           <a @click="toggleEdit(node)">
-            <EditIcon class="tree-icon"/>
+            <EditIcon class="tree-icon" />
           </a>
-          <a @click="append(data)" >
-            <PlusIcon class="tree-icon"/>
+          <a @click="append(data)">
+            <PlusIcon class="tree-icon" />
           </a>
-          <a @click="remove(node, data)" >
-            <TrashIcon class="tree-icon"/>
+          <a @click="remove(node, data)">
+            <TrashIcon class="tree-icon" />
           </a>
         </span>
       </span>
     </template>
   </el-tree>
   <div class="textField-box">
-    <PlusIcon class="textField-icon-plus" @click="appendRoot()"/>
+    <PlusIcon class="textField-icon-plus" @click="appendRoot()" />
     <input class="textField" v-model="textFieldValue" :placeholder="dynamicPlaceholder()">
   </div>
- </template>
+</template>
 
 <style scoped>
 .el-tree {
@@ -205,8 +210,8 @@ const vFocus = {
 }
 
 .tree-icon-box {
-display: inline-flex;
-align-self: stretch;
+  display: inline-flex;
+  align-self: stretch;
 }
 
 .tree-icon {
@@ -216,7 +221,7 @@ align-self: stretch;
 
 .textField {
   position: relative;
-  width: 100%;  
+  width: 90%;
 }
 
 .textField-box {
@@ -229,7 +234,7 @@ align-self: stretch;
   background-color: var(--color-background-dark);
 }
 
-.textField-box:focus-within{
+.textField-box:focus-within {
   border-color: var(--color-background-mute);
 }
 
@@ -242,8 +247,8 @@ align-self: stretch;
   margin: 1ex;
 }
 
-.tree-message-box .el-button--primary {
-  --el-button-bg-color: #47A0A0;
+.strikethrough {
+  text-decoration: line-through;
 }
 
 @media (hover: hover) {
@@ -255,6 +260,7 @@ align-self: stretch;
     background-color: var(--color-background-mute);
     border-radius: 5ex;
   }
+
   .tree-icon-box a:hover {
     border-radius: 1em;
   }
