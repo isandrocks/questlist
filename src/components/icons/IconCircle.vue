@@ -1,5 +1,5 @@
 <template>
-  <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" stroke="currentColor" id="EditCircle" viewBox="0 0 12.7 12.7">
+  <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" stroke="currentColor" id="CircleIcon" viewBox="0 0 12.7 12.7">
     <g
      id="layer1">
     <circle

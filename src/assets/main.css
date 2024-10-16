@@ -11,7 +11,7 @@
 a,
 .red {
   text-decoration: none;
-  color: #A04747;
+  color: var(--isr-c-red);
   transition: 0.4s;
   padding: 3px;
 }

@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import CheckIcon from './icons/IconCheck.vue'
 import CircleIcon from './icons/IconCircle.vue'
 import EditIcon from './icons/IconEdit.vue'
 import PlusIcon from './icons/IconPlus.vue'
@@ -68,22 +69,24 @@ const resetTextField = () => {
 }
 
 const createNewChild = (labeldata: string) => {
-  return { id: Date.now(), editable: false, isStrikethrough: false, label: labeldata, children: [] };
+  return { id: Date.now(), editable: true, isStrikethrough: false, label: labeldata, children: [] };
 }
 
 const append = (data: Tree) => {
-  const newChild = createNewChild(textFieldValue.value);
+  const newChild = createNewChild('');
   if (!data.children) {
     data.children = []
   }
   data.children.push(newChild)
   dataSource.value = [...dataSource.value]
   saveDataSource()
-  resetTextField()
 }
 
 const appendRoot = () => {
   const newChild = createNewChild(textFieldValue.value);
+  if (textFieldValue.value != '') {
+    newChild.editable = false;
+  }
   dataSource.value.push(newChild)
   saveDataSource()
   resetTextField()
@@ -166,8 +169,13 @@ const vFocus = {
             <input type="text" v-model="node.data.label" v-focus @blur="toggleEdit(node)" />
           </template>
           <template v-else>
-            <div @dblclick="toggleEdit(node)" :class="{ 'strikethrough': node.data.isStrikethrough }">
-              <CircleIcon class="tree-icon" @click="toggleStrikethrough(node)"/>
+            <div @dblclick="toggleEdit(node)" :class="{ 'strikethrough': node.data.isStrikethrough, 'tree-textField': true }">
+              <template v-if="node.data.isStrikethrough">
+                <CheckIcon class="check-icon" @click="toggleStrikethrough(node)"/>
+              </template>
+              <template v-else>
+                <CircleIcon class="check-icon" @click="toggleStrikethrough(node)"/>
+              </template>
               {{ node.label }}
             </div>
           </template>
@@ -193,20 +201,27 @@ const vFocus = {
 </template>
 
 <style scoped>
+
+
 .el-tree {
   max-width: 100%;
   height: 80%;
-  margin-top: 2rem;
   background: var(--color-background-dark);
   color: var(--color-text);
   --el-tree-node-hover-bg-color: var(--color-background-mute);
 }
+
 
 .custom-tree-node {
   display: flex;
   justify-content: space-between;
   align-self: stretch;
   width: 100%;
+}
+
+.tree-textField {
+  display: inline-flex;
+  align-items: center;
 }
 
 .tree-icon-box {
@@ -219,9 +234,31 @@ const vFocus = {
   width: 1em;
 }
 
+.check-icon {
+  height: 1em;
+  width: 1em;
+  align-self: flex-end;
+  margin-bottom: 2px;
+  margin-right: 2px;
+  stroke: var(--isr-c-red);
+}
+
 .textField {
+  background-color: inherit;
+  border: none;
   position: relative;
   width: 90%;
+}
+
+.textField::placeholder {
+  color: var(--color-background-mute);
+}
+
+.textField:focus {
+  outline: none;
+  border: none;
+  background-color: var(--color-background-dark);
+  color: var(--color-text);
 }
 
 .textField-box {
