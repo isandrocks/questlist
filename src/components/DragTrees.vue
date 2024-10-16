@@ -2,7 +2,7 @@
 import PlusIcon from './icons/IconPlus.vue'
 import TrashIcon from './icons/IconTrash.vue'
 import { ref } from 'vue'
-import { ElButton, ElMessage, ElMessageBox } from 'element-plus'
+import {ElMessage, ElMessageBox } from 'element-plus'
 import type Node from 'element-plus/es/components/tree/src/model/node'
 import type {
   NodeDropType,
@@ -155,21 +155,11 @@ const dynamicPlaceholder = () => {
       </span>
     </template>
   </el-tree>
-    <v-text-field 
-    class="textField" 
-    v-model="textFieldValue" 
-    label="" 
-    variant="solo-filled"  
-    type="text"
-    density="compact"         
-    :placeholder="dynamicPlaceholder()"
-    clearable
-        >
-      <template v-slot:prepend-inner>      
-        <PlusIcon class="textField-icon-plus" @click="appendRoot()"/>
-      </template>
-    </v-text-field>
-    </template>
+    <div class="textField-box">
+      <PlusIcon class="textField-icon-plus" @click="appendRoot()"/>
+      <input class="textField" v-model="textFieldValue" :placeholder="dynamicPlaceholder()">
+    </div>
+ </template>
 
 <style scoped>
 .el-tree {
@@ -200,8 +190,21 @@ align-self: stretch;
 
 .textField {
   position: relative;
+  width: 100%;  
+}
+
+.textField-box {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 1rem;
   width: 100%;
-  margin-top: 1rem; 
+  border: 2px solid var(--color-background-soft);
+  border-radius: 1ex;
+  background-color: var(--color-background-dark);
+}
+
+.textField-box:focus-within{
+  border-color: var(--color-background-mute);
 }
 
 .textField-icon-plus {
@@ -210,6 +213,7 @@ align-self: stretch;
   cursor: pointer;
   transition: 0.4s;
   padding: 0.5ex;
+  margin: 1ex;
 }
 
 .tree-message-box .el-button--primary {
@@ -217,9 +221,12 @@ align-self: stretch;
 }
 
 @media (hover: hover) {
+  .textField-box:hover {
+    border-color: var(--color-background-mute);
+  }
 
   .textField-icon-plus:hover {
-    background-color: #121212;
+    background-color: var(--color-background-mute);
     border-radius: 5ex;
   }
   .tree-icon-box a:hover {

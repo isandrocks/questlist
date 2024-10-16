@@ -1,5 +1,5 @@
 # questlist
-a todo list style app.
+a tree style todo list style app.
 
 ## Recommended IDE Setup
 
