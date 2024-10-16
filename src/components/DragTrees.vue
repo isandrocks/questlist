@@ -2,6 +2,7 @@
 import PlusIcon from './icons/IconPlus.vue'
 import TrashIcon from './icons/IconTrash.vue'
 import { ref } from 'vue'
+import { ElButton, ElMessage, ElMessageBox } from 'element-plus'
 import type Node from 'element-plus/es/components/tree/src/model/node'
 import type {
   NodeDropType,
@@ -37,6 +38,7 @@ const handleDragEnd = (
   dropType: NodeDropType
 ) => {
   console.log('tree drag end:', dropNode && dropNode.label, dropType)
+  localStorage.setItem("savedDataSource", JSON.stringify(dataSource.value));
 }
 const handleDrop = (
   draggingNode: Node,
@@ -46,7 +48,13 @@ const handleDrop = (
   console.log('tree drop:', dropNode.label, dropType)
 }
 
+
 const dataSource = ref<Tree[]>([])
+
+const savedDataSource = localStorage.getItem("savedDataSource");
+if (savedDataSource) {
+  dataSource.value = JSON.parse(savedDataSource);
+}
 
 const textFieldValue = ref('')
 
@@ -61,23 +69,51 @@ const append = (data: Tree) => {
   }
   data.children.push(newChild)
   dataSource.value = [...dataSource.value]
+  localStorage.setItem("savedDataSource", JSON.stringify(dataSource.value));
   resetTextField()
 }
 
 const appendRoot = () => {
   const newChild = { id: Date.now(), label: textFieldValue.value, children: [] }
   dataSource.value.push(newChild)
-  console.log(dataSource.value)
+  localStorage.setItem("savedDataSource", JSON.stringify(dataSource.value));
   resetTextField()
 }
 
 const remove = (node: Node, data: Tree) => {
-  const parent = node.parent
-  const children: Tree[] = parent.data.children || parent.data
-  const index = children.findIndex((d) => d.id === data.id)
-  children.splice(index, 1)
-  dataSource.value = [...dataSource.value]
-}
+  if (!node.isLeaf) {
+    ElMessageBox.confirm("This quest has sub quests. Are you sure you want to delete it?", {
+      customClass: 'tree-message-box',
+      confirmButtonText: 'OK',
+      cancelButtonText: 'Cancel',
+    }).then(() => {
+      const parent = node.parent;
+      const children: Tree[] = parent.data.children || parent.data;
+      const index = children.findIndex((d) => d.id === data.id);
+      children.splice(index, 1);
+      dataSource.value = [...dataSource.value];
+      localStorage.setItem("savedDataSource", JSON.stringify(dataSource.value));
+      ElMessage({
+        type: 'success',
+        message: 'Delete completed',
+      })
+      return;
+    })
+    .catch(() => {
+      ElMessage({
+        type: 'info',
+        message: 'Delete canceled',
+      })
+    })
+  } else {
+    const parent = node.parent;
+      const children: Tree[] = parent.data.children || parent.data;
+      const index = children.findIndex((d) => d.id === data.id);
+      children.splice(index, 1);
+      dataSource.value = [...dataSource.value];
+      localStorage.setItem("savedDataSource", JSON.stringify(dataSource.value));
+  }
+};
 
 const getRandomIndex = (array: string[]) => {
   return Math.floor(Math.random() * array.length)
@@ -91,15 +127,30 @@ const dynamicPlaceholder = () => {
 </script>
 
 <template>
-  <el-tree :data="dataSource" draggable default-expand-all show-checkbox node-key="id"
-    @node-drag-start="handleDragStart" @node-drag-enter="handleDragEnter" @node-drag-leave="handleDragLeave"
-    @node-drag-over="handleDragOver" @node-drag-end="handleDragEnd" @node-drop="handleDrop">
-    <template #default="{ node, data }">
-      <span class="custom-tree-node">
-        <span>{{ node.label }}</span>
+  <el-tree 
+  :data="dataSource" 
+  :draggable="true"
+  :default-expand-all="true"
+  :show-checkbox="true" 
+  :expand-on-click-node="false"
+  node-key="id"
+  @node-drag-start="handleDragStart" 
+  @node-drag-enter="handleDragEnter" 
+  @node-drag-leave="handleDragLeave"
+  @node-drag-over="handleDragOver"
+  @node-drag-end="handleDragEnd" 
+  @node-drop="handleDrop"
+  >
+    <template #default="{ node, data }" >
+      <span class="custom-tree-node" >
+        <span >{{ node.label }}</span>
         <span class="tree-icon-box">
-          <a @click="append(data)" ><PlusIcon class="tree-icon"/></a>
-          <a @click="remove(node, data)" ><TrashIcon class="tree-icon" /></a>
+          <a @click="append(data)" >
+            <PlusIcon class="tree-icon"/>
+          </a>
+          <a @click="remove(node, data)" >
+            <TrashIcon class="tree-icon" />
+          </a>
         </span>
       </span>
     </template>
@@ -108,7 +159,7 @@ const dynamicPlaceholder = () => {
     class="textField" 
     v-model="textFieldValue" 
     label="" 
-    variant="outlined"  
+    variant="solo-filled"  
     type="text"
     density="compact"         
     :placeholder="dynamicPlaceholder()"
@@ -148,9 +199,9 @@ align-self: stretch;
 }
 
 .textField {
+  position: relative;
   width: 100%;
-  margin-top: 1rem;
-  background-color: var(--color-background-dark);
+  margin-top: 1rem; 
 }
 
 .textField-icon-plus {
@@ -159,6 +210,10 @@ align-self: stretch;
   cursor: pointer;
   transition: 0.4s;
   padding: 0.5ex;
+}
+
+.tree-message-box .el-button--primary {
+  --el-button-bg-color: #47A0A0;
 }
 
 @media (hover: hover) {
