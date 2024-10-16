@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import EditIcon from './icons/IconEdit.vue'
 import PlusIcon from './icons/IconPlus.vue'
 import TrashIcon from './icons/IconTrash.vue'
 import { ref } from 'vue'
@@ -48,7 +49,6 @@ const handleDrop = (
   console.log('tree drop:', dropNode.label, dropType)
 }
 
-
 const dataSource = ref<Tree[]>([])
 
 const savedDataSource = localStorage.getItem("savedDataSource");
@@ -63,7 +63,7 @@ const resetTextField = () => {
 }
 
 const append = (data: Tree) => {
-  const newChild = { id: Date.now(), label: textFieldValue.value, children: [] }
+  const newChild = { id: Date.now(), editable: false, label: textFieldValue.value, children: [] }
   if (!data.children) {
     data.children = []
   }
@@ -74,7 +74,7 @@ const append = (data: Tree) => {
 }
 
 const appendRoot = () => {
-  const newChild = { id: Date.now(), label: textFieldValue.value, children: [] }
+  const newChild = { id: Date.now(), editable: false, label: textFieldValue.value, children: [] }
   dataSource.value.push(newChild)
   localStorage.setItem("savedDataSource", JSON.stringify(dataSource.value));
   resetTextField()
@@ -82,7 +82,7 @@ const appendRoot = () => {
 
 const remove = (node: Node, data: Tree) => {
   if (!node.isLeaf) {
-    ElMessageBox.confirm("This quest has sub quests. Are you sure you want to delete it?", {
+      ElMessageBox.confirm("This quest has sub quests. Are you sure you want to delete it?", {
       customClass: 'tree-message-box',
       confirmButtonText: 'OK',
       cancelButtonText: 'Cancel',
@@ -106,7 +106,7 @@ const remove = (node: Node, data: Tree) => {
       })
     })
   } else {
-    const parent = node.parent;
+      const parent = node.parent;
       const children: Tree[] = parent.data.children || parent.data;
       const index = children.findIndex((d) => d.id === data.id);
       children.splice(index, 1);
@@ -122,6 +122,20 @@ const getRandomIndex = (array: string[]) => {
 const dynamicPlaceholder = () => {
   const quotes = ["What is your Quest", "What is your Quest", "What is your Quest", "What is your Quest", "What is your Quest", "What is your Quest", "What is your Quest", "What is your Quest", "What is your Quest", "What Is the Airspeed Velocity of an Unladen Swallow"]
   return quotes[getRandomIndex(quotes)]
+}
+
+const toggleEdit = (node: Node) => {
+  if (node.data.editable) {
+    node.data.editable = false;
+    dataSource.value = [...dataSource.value];
+
+  } else {
+    node.data.editable = true;
+  }
+}
+
+const vFocus = {
+  mounted: (el) => el.focus()
 }
 
 </script>
@@ -143,22 +157,34 @@ const dynamicPlaceholder = () => {
   >
     <template #default="{ node, data }" >
       <span class="custom-tree-node" >
-        <span >{{ node.label }}</span>
+        <span >
+          <template v-if="node.data.editable">
+            <input type="text" v-model="node.data.label" v-focus @blur="toggleEdit(node)"/>
+          </template>
+          <template v-else >
+            <div @dblclick="toggleEdit(node)">
+              {{ node.label }}
+            </div>
+          </template>
+        </span>
         <span class="tree-icon-box">
+          <a @click="toggleEdit(node)">
+            <EditIcon class="tree-icon"/>
+          </a>
           <a @click="append(data)" >
             <PlusIcon class="tree-icon"/>
           </a>
           <a @click="remove(node, data)" >
-            <TrashIcon class="tree-icon" />
+            <TrashIcon class="tree-icon"/>
           </a>
         </span>
       </span>
     </template>
   </el-tree>
-    <div class="textField-box">
-      <PlusIcon class="textField-icon-plus" @click="appendRoot()"/>
-      <input class="textField" v-model="textFieldValue" :placeholder="dynamicPlaceholder()">
-    </div>
+  <div class="textField-box">
+    <PlusIcon class="textField-icon-plus" @click="appendRoot()"/>
+    <input class="textField" v-model="textFieldValue" :placeholder="dynamicPlaceholder()">
+  </div>
  </template>
 
 <style scoped>
