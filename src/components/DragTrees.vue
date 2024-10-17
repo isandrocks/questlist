@@ -55,6 +55,10 @@ const handleDrop = (
   console.log('tree drop:', dropNode.label, dropType)
 }
 
+const allowDrag = (draggingNode: Node) => {
+  return !draggingNode.data.editable === true
+}
+
 const dataSource = ref<Tree[]>([])
 
 const savedDataSource = localStorage.getItem("savedDataSource");
@@ -140,6 +144,7 @@ const toggleEdit = (node: Node) => {
   if (node.data.editable) {
     node.data.editable = false;
     dataSource.value = [...dataSource.value];
+    saveDataSource()
 
   } else {
     node.data.editable = true;
@@ -161,7 +166,7 @@ const vFocus = {
 <template>
   <el-tree :data="dataSource" :draggable="true" :default-expand-all="true" :expand-on-click-node="false" node-key="id"
     @node-drag-start="handleDragStart" @node-drag-enter="handleDragEnter" @node-drag-leave="handleDragLeave"
-    @node-drag-over="handleDragOver" @node-drag-end="handleDragEnd" @node-drop="handleDrop">
+    @node-drag-over="handleDragOver" @node-drag-end="handleDragEnd" @node-drop="handleDrop" :allow-drag="allowDrag">
     <template #default="{ node, data }">
       <span class="custom-tree-node">
         <span>
@@ -209,8 +214,8 @@ const vFocus = {
   background: var(--color-background-dark);
   color: var(--color-text);
   --el-tree-node-hover-bg-color: var(--color-background-mute);
+  
 }
-
 
 .custom-tree-node {
   display: flex;
@@ -248,10 +253,12 @@ const vFocus = {
   border: none;
   position: relative;
   width: 90%;
+  font-size: 1.2rem
 }
 
 .textField::placeholder {
   color: var(--color-background-mute);
+  
 }
 
 .textField:focus {
