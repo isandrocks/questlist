@@ -145,7 +145,6 @@ const toggleEdit = (node: Node) => {
     node.data.editable = false;
     dataSource.value = [...dataSource.value];
     saveDataSource()
-
   } else {
     node.data.editable = true;
   }
@@ -164,14 +163,14 @@ const vFocus = {
 </script>
 
 <template>
-  <el-tree :data="dataSource" :draggable="true" :default-expand-all="true" :expand-on-click-node="false" node-key="id"
+  <el-tree :data="dataSource" draggable :default-expand-all="true" :expand-on-click-node="false" node-key="id"
     @node-drag-start="handleDragStart" @node-drag-enter="handleDragEnter" @node-drag-leave="handleDragLeave"
     @node-drag-over="handleDragOver" @node-drag-end="handleDragEnd" @node-drop="handleDrop" :allow-drag="allowDrag">
     <template #default="{ node, data }">
       <span class="custom-tree-node">
         <span>
           <template v-if="node.data.editable">
-            <input type="text" v-model="node.data.label" v-focus @blur="toggleEdit(node)" />
+            <input type="text" v-model="node.data.label" v-focus @blur="toggleEdit(node)" @keyup.enter="toggleEdit(node)"/>
           </template>
           <template v-else>
             <div @dblclick="toggleEdit(node)" :class="{ 'strikethrough': node.data.isStrikethrough, 'tree-textField': true }">
@@ -201,7 +200,7 @@ const vFocus = {
   </el-tree>
   <div class="textField-box">
     <PlusIcon class="textField-icon-plus" @click="appendRoot()" />
-    <input class="textField" v-model="textFieldValue" :placeholder="dynamicPlaceholder()">
+    <input class="textField" v-model="textFieldValue" :placeholder="dynamicPlaceholder()"  @keyup.enter="appendRoot()">
   </div>
 </template>
 
@@ -213,8 +212,7 @@ const vFocus = {
   height: 80%;
   background: var(--color-background-dark);
   color: var(--color-text);
-  --el-tree-node-hover-bg-color: var(--color-background-mute);
-  
+  --el-tree-node-hover-bg-color: var(--color-background-mute);  
 }
 
 .custom-tree-node {
