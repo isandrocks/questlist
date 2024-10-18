@@ -14,7 +14,7 @@ import type { NodeDropType } from 'element-plus/es/components/tree/src/tree.type
 interface Tree {
   id: number
   editable: boolean
-  isStrikethrough: boolean
+  completed: boolean
   label: string
   children?: Tree[]
 }
@@ -37,7 +37,7 @@ const resetTextField = () => {
 }
 
 const createNewChild = (labeldata: string) => {
-  return { id: Date.now(), editable: true, isStrikethrough: false, label: labeldata, children: [] };
+  return { id: Date.now(), editable: true, completed: false, label: labeldata, children: [] };
 }
 
 // Drag and Drop
@@ -152,8 +152,8 @@ const toggleEdit = (node: Node) => {
   }
 }
 
-const toggleStrikethrough = (node :Node) => {
-  node.data.isStrikethrough = !node.data.isStrikethrough;
+const toggleCompleted = (node :Node) => {
+  node.data.completed = !node.data.completed;
   dataSource.value = [...dataSource.value];
   saveDataSource()
 }
@@ -201,21 +201,28 @@ const containsEditable = (nodes) => {
       @node-drag-start="handleDragStart" @node-drag-enter="handleDragEnter" @node-drag-leave="handleDragLeave"
       @node-drag-over="handleDragOver" @node-drag-end="handleDragEnd" @node-drop="handleDrop" :allow-drag="allowDrag">
       <template #default="{ node, data }">
-        <span class="custom-tree-node">
+        <span class="custom-tree-node ">
           <span>
             <template v-if="node.data.editable">
               <input type="text" v-model="node.data.label" v-focus @blur="toggleEdit(node)" @keyup.enter="toggleEdit(node)"/>
             </template>
             <template v-else>
-              <div @dblclick="toggleEdit(node)" :class="{ 'strikethrough': node.data.isStrikethrough, 'tree-textField': true }">
-                <template v-if="node.data.isStrikethrough">
-                  <CheckIcon class="check-icon" @click="toggleStrikethrough(node)"/>
+              <span class="after:absolute after:left-0 after:translate-y-2.5
+                    after:h-[2px] after: after:transform after:bg-zinc-400
+                    after:transition-all after:duration-500 after:ease-in-out
+                    after:start-0" 
+                    :class="node.data.completed ? 'after:w-full' : 'after:w-0'">
+              </span>
+              <span @dblclick="toggleEdit(node)" class="tree-textField" >
+                <template v-if="node.data.completed">
+                  <CheckIcon class="check-icon" @click="toggleCompleted(node)"/>
                 </template>
                 <template v-else>
-                  <CircleIcon class="check-icon" @click="toggleStrikethrough(node)"/>
-                </template>
-                {{ node.label }}
-              </div>
+                  <CircleIcon class="check-icon" @click="toggleCompleted(node)"/>
+                </template>                  
+                    {{ node.label }}
+              </span>
+
             </template>
           </span>
           <span class="tree-icon-box">
