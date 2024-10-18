@@ -291,6 +291,7 @@ const containsEditable = (nodes) => {
   background-color: inherit;
   border: none;
   position: relative;
+  
   width: 90%;
   font-size: 1.2rem
 }
@@ -311,6 +312,7 @@ const containsEditable = (nodes) => {
   display: inline-flex;
   align-items: center;
   margin-top: 1rem;
+  height: 3rem;
   width: 100%;
   border: 2px solid var(--color-background-soft);
   border-radius: 1ex;
