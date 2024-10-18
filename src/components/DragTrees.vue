@@ -7,19 +7,40 @@ import TrashIcon from './icons/IconTrash.vue'
 import { ref } from 'vue'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import type Node from 'element-plus/es/components/tree/src/model/node'
-import type {
-  NodeDropType,
-} from 'element-plus/es/components/tree/src/tree.type'
+import type { NodeDropType } from 'element-plus/es/components/tree/src/tree.type'
+
+// Data and starting variables
 
 interface Tree {
   id: number
+  editable: boolean
+  isStrikethrough: boolean
   label: string
   children?: Tree[]
+}
+
+const dataSource = ref<Tree[]>([])
+
+const savedDataSource = localStorage.getItem("savedDataSource");
+if (savedDataSource) {
+  dataSource.value = JSON.parse(savedDataSource);
 }
 
 const saveDataSource = () => {
   localStorage.setItem("savedDataSource", JSON.stringify(dataSource.value));
 }
+
+const textFieldValue = ref('')
+
+const resetTextField = () => {
+  textFieldValue.value = ''
+}
+
+const createNewChild = (labeldata: string) => {
+  return { id: Date.now(), editable: true, isStrikethrough: false, label: labeldata, children: [] };
+}
+
+// Drag and Drop
 
 const handleDragStart = (node: Node) => {
   console.log('drag start', node)
@@ -59,22 +80,7 @@ const allowDrag = (draggingNode: Node) => {
   return !draggingNode.data.editable === true
 }
 
-const dataSource = ref<Tree[]>([])
-
-const savedDataSource = localStorage.getItem("savedDataSource");
-if (savedDataSource) {
-  dataSource.value = JSON.parse(savedDataSource);
-}
-
-const textFieldValue = ref('')
-
-const resetTextField = () => {
-  textFieldValue.value = ''
-}
-
-const createNewChild = (labeldata: string) => {
-  return { id: Date.now(), editable: true, isStrikethrough: false, label: labeldata, children: [] };
-}
+// Tree functions
 
 const append = (data: Tree) => {
   const newChild = createNewChild('');
@@ -82,6 +88,7 @@ const append = (data: Tree) => {
     data.children = []
   }
   data.children.push(newChild)
+  checkEditable()
   dataSource.value = [...dataSource.value]
   saveDataSource()
 }
@@ -91,6 +98,7 @@ const appendRoot = () => {
   if (textFieldValue.value != '') {
     newChild.editable = false;
   }
+  checkEditable()
   dataSource.value.push(newChild)
   saveDataSource()
   resetTextField()
@@ -131,22 +139,16 @@ const remove = (node: Node, data: Tree) => {
   }
 }
 
-const getRandomIndex = (array: string[]) => {
-  return Math.floor(Math.random() * array.length)
-}
-
-const dynamicPlaceholder = () => {
-  const quotes = ["What is your Quest", "What is your Quest", "What is your Quest", "What is your Quest", "What is your Quest", "What is your Quest", "What is your Quest", "What is your Quest", "What is your Quest", "What Is the Airspeed Velocity of an Unladen Swallow"]
-  return quotes[getRandomIndex(quotes)]
-}
-
 const toggleEdit = (node: Node) => {
   if (node.data.editable) {
     node.data.editable = false;
+    checkEditable();
     dataSource.value = [...dataSource.value];
     saveDataSource()
   } else {
     node.data.editable = true;
+    checkEditable();
+    dataSource.value = [...dataSource.value];
   }
 }
 
@@ -156,63 +158,102 @@ const toggleStrikethrough = (node :Node) => {
   saveDataSource()
 }
 
+//Misc functions
+
+const getRandomIndex = (array: string[]) => {
+  return Math.floor(Math.random() * array.length)
+}
+
+const dynamicPlaceholder = () => {
+  const quotes = ["What is your Quest", "What is your Quest", "What is your Quest", "What is your Quest", "What is your Quest", "What is your Quest", "What is your Quest", "What is your Quest", "What is your Quest", "What Is the Airspeed Velocity of an Unladen Swallow"]
+  return quotes[getRandomIndex(quotes)]
+}
+
 const vFocus = {
   mounted: (el) => el.focus()
 }
 
+const hasEditable = ref(false);
+
+const checkEditable = () => {
+  hasEditable.value = containsEditable(dataSource.value);
+}
+
+const containsEditable = (nodes) => {
+  for (const node of nodes) {
+    if (node.editable) {
+      return true;
+    }
+    if (node.children && node.children.length > 0) {
+      if (containsEditable(node.children)) {
+        return true;
+      }
+    }
+  }
+
+  return false;
+}
 </script>
 
 <template>
-  <el-tree :data="dataSource" draggable :default-expand-all="true" :expand-on-click-node="false" node-key="id"
-    @node-drag-start="handleDragStart" @node-drag-enter="handleDragEnter" @node-drag-leave="handleDragLeave"
-    @node-drag-over="handleDragOver" @node-drag-end="handleDragEnd" @node-drop="handleDrop" :allow-drag="allowDrag">
-    <template #default="{ node, data }">
-      <span class="custom-tree-node">
-        <span>
-          <template v-if="node.data.editable">
-            <input type="text" v-model="node.data.label" v-focus @blur="toggleEdit(node)" @keyup.enter="toggleEdit(node)"/>
-          </template>
-          <template v-else>
-            <div @dblclick="toggleEdit(node)" :class="{ 'strikethrough': node.data.isStrikethrough, 'tree-textField': true }">
-              <template v-if="node.data.isStrikethrough">
-                <CheckIcon class="check-icon" @click="toggleStrikethrough(node)"/>
-              </template>
-              <template v-else>
-                <CircleIcon class="check-icon" @click="toggleStrikethrough(node)"/>
-              </template>
-              {{ node.label }}
-            </div>
-          </template>
+  <div class="dragTrees">
+    <el-tree :data="dataSource" :draggable="!hasEditable" :default-expand-all="true" :expand-on-click-node="false" node-key="id"
+      @node-drag-start="handleDragStart" @node-drag-enter="handleDragEnter" @node-drag-leave="handleDragLeave"
+      @node-drag-over="handleDragOver" @node-drag-end="handleDragEnd" @node-drop="handleDrop" :allow-drag="allowDrag">
+      <template #default="{ node, data }">
+        <span class="custom-tree-node">
+          <span>
+            <template v-if="node.data.editable">
+              <input type="text" v-model="node.data.label" v-focus @blur="toggleEdit(node)" @keyup.enter="toggleEdit(node)"/>
+            </template>
+            <template v-else>
+              <div @dblclick="toggleEdit(node)" :class="{ 'strikethrough': node.data.isStrikethrough, 'tree-textField': true }">
+                <template v-if="node.data.isStrikethrough">
+                  <CheckIcon class="check-icon" @click="toggleStrikethrough(node)"/>
+                </template>
+                <template v-else>
+                  <CircleIcon class="check-icon" @click="toggleStrikethrough(node)"/>
+                </template>
+                {{ node.label }}
+              </div>
+            </template>
+          </span>
+          <span class="tree-icon-box">
+            <a @click="toggleEdit(node)">
+              <EditIcon class="tree-icon" />
+            </a>
+            <a @click="append(data)">
+              <PlusIcon class="tree-icon" />
+            </a>
+            <a @click="remove(node, data)">
+              <TrashIcon class="tree-icon" />
+            </a>
+          </span>
         </span>
-        <span class="tree-icon-box">
-          <a @click="toggleEdit(node)">
-            <EditIcon class="tree-icon" />
-          </a>
-          <a @click="append(data)">
-            <PlusIcon class="tree-icon" />
-          </a>
-          <a @click="remove(node, data)">
-            <TrashIcon class="tree-icon" />
-          </a>
-        </span>
-      </span>
-    </template>
-  </el-tree>
-  <div class="textField-box">
-    <PlusIcon class="textField-icon-plus" @click="appendRoot()" />
-    <input class="textField" v-model="textFieldValue" :placeholder="dynamicPlaceholder()"  @keyup.enter="appendRoot()">
+      </template>
+    </el-tree>
+    <div class="textField-box">
+      <PlusIcon class="textField-icon-plus" @click="appendRoot()" />
+      <input class="textField" v-model="textFieldValue" :placeholder="dynamicPlaceholder()"  @keyup.enter="appendRoot()">
+    </div>
   </div>
 </template>
 
 <style scoped>
-
+.dragTrees {
+  display:grid;
+  height: 100%;
+  width: 100%;
+}
 
 .el-tree {
-  max-width: 100%;
-  height: 80%;
+  width: 100%;
+  height: 100%;
+  overflow-y:auto;
   background: var(--color-background-dark);
   color: var(--color-text);
-  --el-tree-node-hover-bg-color: var(--color-background-mute);  
+  --el-tree-node-hover-bg-color: var(--color-background-mute);
+  --el-tree-node-content-height: auto;  
 }
 
 .custom-tree-node {
@@ -223,8 +264,10 @@ const vFocus = {
 }
 
 .tree-textField {
-  display: inline-flex;
-  align-items: center;
+  display: grid;
+  grid: auto-flow dense / 1rem 1fr;
+  align-self: center;
+  
 }
 
 .tree-icon-box {
@@ -240,9 +283,7 @@ const vFocus = {
 .check-icon {
   height: 1em;
   width: 1em;
-  align-self: flex-end;
-  margin-bottom: 2px;
-  margin-right: 2px;
+  align-self: center;
   stroke: var(--isr-c-red);
 }
 
