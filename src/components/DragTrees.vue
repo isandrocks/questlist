@@ -211,7 +211,7 @@ const containsEditable = (nodes) => {
       class="h-full w-full overflow-y-auto"
     >
       <template #default="{ node, data }">
-        <span class="custom-tree-node">
+        <span class="flex self-stretch justify-between w-full">
           <span>
             <template v-if="node.data.editable">
               <input
@@ -274,13 +274,6 @@ const containsEditable = (nodes) => {
   background: var(--color-background-dark);
   --el-tree-node-content-height: auto;
   --el-tree-node-hover-bg-color: var(--color-background-mute);
-}
-
-.custom-tree-node {
-  display: flex;
-  justify-content: space-between;
-  align-self: stretch;
-  width: 100%;
 }
 
 .tree-icon-box {
