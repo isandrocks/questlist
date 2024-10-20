@@ -208,10 +208,10 @@ const containsEditable = (nodes) => {
       @node-drag-end="handleDragEnd"
       @node-drop="handleDrop"
       :allow-drag="allowDrag"
-      class="h-full w-full overflow-y-auto"
+      class="h-full w-full overflow-y-auto rounded bg-[--color-background-dark]"
     >
       <template #default="{ node, data }">
-        <span class="flex self-stretch justify-between w-full">
+        <span class="flex w-full justify-between self-stretch">
           <span>
             <template v-if="node.data.editable">
               <input
@@ -220,13 +220,13 @@ const containsEditable = (nodes) => {
                 v-focus
                 @blur="toggleEdit(node)"
                 @keyup.enter="toggleEdit(node)"
-                class="h-full bg-transparent"
+                class="bg-transparent w-full outline-none border-none text-base"
               />
             </template>
             <template v-else>
               <span
                 @dblclick="toggleEdit(node)"
-                class="grid-cols-[repeat(2, minmax(0, 1.5rem)] grid text-[--color-text]"
+                class="grid-cols-[repeat(2, minmax(0, 1.5rem)] grid text-base text-[--color-text]"
               >
                 <template v-if="node.data.completed">
                   <CheckIcon class="check-icon" @click="toggleCompleted(node)" />
@@ -243,24 +243,23 @@ const containsEditable = (nodes) => {
               </span>
             </template>
           </span>
-          <span class="tree-icon-box">
-            <a @click="toggleEdit(node)">
-              <EditIcon class="tree-icon" />
-            </a>
-            <a @click="append(data)">
-              <PlusIcon class="tree-icon" />
-            </a>
-            <a @click="remove(node, data)">
-              <TrashIcon class="tree-icon" />
-            </a>
+          <span class="inline-flex self-stretch">
+            <EditIcon class="tree-icon" @click="toggleEdit(node)" />
+            <PlusIcon class="tree-icon" @click="append(data)" />
+            <TrashIcon class="tree-icon" @click="remove(node, data)" />
           </span>
         </span>
       </template>
     </el-tree>
-    <div class="textField-box">
-      <PlusIcon class="textField-icon-plus" @click="appendRoot()" />
+    <div
+      class="mt-[1rem] inline-flex h-[3rem] w-full items-center rounded border-2 border-solid border-[--color-background-soft] bg-[--color-background-dark] hover:border-[--color-background-mute]"
+    >
+      <PlusIcon
+        class="m-[1ex] h-[4ex] w-[4ex] cursor-pointer p-[0.5ex] transition-all duration-300 hover:rounded-xl hover:bg-[--color-background-mute]"
+        @click="appendRoot()"
+      />
       <input
-        class="textField"
+        class="relative w-[90%] border-none bg-inherit font-[1.2rem] placeholder-[--color-background-mute] focus:border-none focus:bg-[--color-background-dark] focus:text-[--color-text] focus:outline-none"
         v-model="textFieldValue"
         :placeholder="dynamicPlaceholder()"
         @keyup.enter="appendRoot()"
@@ -271,19 +270,9 @@ const containsEditable = (nodes) => {
 
 <style scoped>
 .el-tree {
-  background: var(--color-background-dark);
+  background-color: var(--color-background-dark);
   --el-tree-node-content-height: auto;
   --el-tree-node-hover-bg-color: var(--color-background-mute);
-}
-
-.tree-icon-box {
-  display: inline-flex;
-  align-self: stretch;
-}
-
-.tree-icon {
-  height: 1em;
-  width: 1em;
 }
 
 .check-icon {
@@ -291,66 +280,22 @@ const containsEditable = (nodes) => {
   width: 1em;
   align-self: center;
   stroke: var(--isr-c-red);
+  margin-right: 4px;
+  margin-top: 4px;
 }
 
-.textField {
-  background-color: inherit;
-  border: none;
-  position: relative;
-  width: 90%;
-  font-size: 1.2rem;
-}
-
-.textField::placeholder {
-  color: var(--color-background-mute);
-}
-
-.textField:focus {
-  outline: none;
-  border: none;
-  background-color: var(--color-background-dark);
-  color: var(--color-text);
-}
-
-.textField-box {
-  display: inline-flex;
-  align-items: center;
-  margin-top: 1rem;
-  height: 3rem;
-  width: 100%;
-  border: 2px solid var(--color-background-soft);
-  border-radius: 1ex;
-  background-color: var(--color-background-dark);
-}
-
-.textField-box:focus-within {
-  border-color: var(--color-background-mute);
-}
-
-.textField-icon-plus {
-  height: 4ex;
-  width: 4ex;
-  cursor: pointer;
+.tree-icon {
+  height: 1.5rem;
+  width: 1.5rem;
+  color: var(--isr-c-red);
   transition: 0.4s;
-  padding: 0.5ex;
-  margin: 1ex;
-}
-
-.strikethrough {
-  text-decoration: line-through;
+  padding: 3px;
+  background-color: transparent;
 }
 
 @media (hover: hover) {
-  .textField-box:hover {
-    border-color: var(--color-background-mute);
-  }
-
-  .textField-icon-plus:hover {
-    background-color: var(--color-background-mute);
-    border-radius: 5ex;
-  }
-
-  .tree-icon-box a:hover {
+  .tree-icon:hover {
+    background-color: var(--isr-c-bg-red);
     border-radius: 1em;
   }
 }

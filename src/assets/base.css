@@ -26,6 +26,7 @@
 /* added custon colors */
 :root {
   --isr-c-red: #A04747;
+  --isr-c-bg-red: #b95f5f44;
 }
 
 /* semantic color variables for this project */
