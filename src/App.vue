@@ -80,4 +80,20 @@ nav a:first-of-type {
     margin-top: 1rem;
   }
 }
+
+a,
+.red {
+  text-decoration: none;
+  color: var(--isr-c-red);
+  transition: 0.4s;
+}
+
+
+
+@media (hover: hover) {
+  a:hover {
+    background-color: var(--isr-c-bg-red);
+  }
+}
+
 </style>
