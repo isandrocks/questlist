@@ -6,22 +6,17 @@ import HelloWorld from './components/HelloWorld.vue'
 <template>
   <header>
     <img alt="Con-Save logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
     <div class="wrapper">
       <HelloWorld msg="Quest List" />
 
       <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-        <RouterLink to="/list">List</RouterLink>
+        <RouterLink to="/">List</RouterLink>
         <RouterLink to="/todo">Todo</RouterLink>
       </nav>
     </div>
   </header>
-
   <RouterView />
 </template>
-
 <style scoped>
 header {
   line-height: 1.5;

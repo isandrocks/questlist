@@ -7,8 +7,8 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: HomeView
+      name: 'list',
+      component:  () => import('../views/ListView.vue')
     },
     {
       path: '/about',
@@ -16,9 +16,9 @@ const router = createRouter({
       component: () => import('../views/AboutView.vue')
     },
     {
-      path: '/list',
-      name: 'list',
-      component: () => import('../views/ListView.vue')
+      path: '/home',
+      name: 'home',
+      component: HomeView
     },
     {
       path: '/todo',

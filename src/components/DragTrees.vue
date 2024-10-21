@@ -191,6 +191,45 @@ const containsEditable = (nodes) => {
 
   return false
 }
+
+const downloadJson = () => {
+  const jsonData = JSON.stringify(dataSource.value, null, 2)
+  const blob = new Blob([jsonData], { type: 'application/json' })
+  const url = URL.createObjectURL(blob)
+  const a = document.createElement('a')
+  a.href = url
+  a.download = 'QuestList.json'
+  document.body.appendChild(a)
+  a.click()
+  document.body.removeChild(a)
+  URL.revokeObjectURL(url)
+}
+
+const loadJson = (event: Event) => {
+      const input = event.target as HTMLInputElement
+      const file = input.files ? input.files[0] : null
+      if (!file) return
+
+      const reader = new FileReader()
+      reader.onload = (e) => {
+        const result = e.target?.result
+        if (typeof result === 'string') {
+          try {
+            const jsonData = JSON.parse(result)
+            dataSource.value = jsonData
+            dataSource.value = [...dataSource.value]
+          } catch (error) {
+            console.error("Invalid JSON file", error)
+            alert("Error loading file: Invalid JSON")
+          }
+        } else {
+          console.error("FileReader result is not a string")
+          alert("Error loading file: FileReader result is not a string")
+        }
+      }
+      reader.readAsText(file)
+    }
+
 </script>
 
 <template>
@@ -208,7 +247,7 @@ const containsEditable = (nodes) => {
       @node-drag-end="handleDragEnd"
       @node-drop="handleDrop"
       :allow-drag="allowDrag"
-      class="h-full w-full overflow-y-auto rounded bg-[--color-background-dark]"
+      class="h-full w-full overflow-y-auto rounded border-2 border-solid border-[--color-background-soft] bg-[--color-background-dark]"
     >
       <template #default="{ node, data }">
         <span class="flex w-full justify-between self-stretch">
@@ -220,7 +259,7 @@ const containsEditable = (nodes) => {
                 v-focus
                 @blur="toggleEdit(node)"
                 @keyup.enter="toggleEdit(node)"
-                class="bg-transparent w-full outline-none border-none text-base"
+                class="w-full border-none bg-transparent text-base outline-none"
               />
             </template>
             <template v-else>
@@ -265,6 +304,8 @@ const containsEditable = (nodes) => {
         @keyup.enter="appendRoot()"
       />
     </div>
+    <a @click="downloadJson" >download</a>
+    <input type="file" @change="loadJson" accept=".json" />
   </div>
 </template>
 
