@@ -234,7 +234,7 @@ const loadJson = (event: Event) => {
 </script>
 
 <template>
-  <div class="grid h-full w-full">
+  <div class="flex flex-col h-full w-full">
     <el-tree
       :data="dataSource"
       :draggable="!hasEditable"
@@ -248,7 +248,7 @@ const loadJson = (event: Event) => {
       @node-drag-end="handleDragEnd"
       @node-drop="handleDrop"
       :allow-drag="allowDrag"
-      class="h-full w-full overflow-y-auto rounded border-2 border-solid border-[--color-background-soft] bg-[--color-background-dark]"
+      class="grow w-full sm:grow-0 overflow-y-auto rounded border-2 border-solid border-[--color-background-soft] bg-[--color-background-dark]"
     >
       <template #default="{ node, data }">
         <span class="flex w-full justify-between self-stretch">
