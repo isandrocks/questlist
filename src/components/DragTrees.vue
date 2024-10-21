@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+import UploadIcon from './icons/IconUpload.vue'
+import SaveIcon from './icons/IconSave.vue'
 import CheckIcon from './icons/IconCheck.vue'
 import CircleIcon from './icons/IconCircle.vue'
 import EditIcon from './icons/IconEdit.vue'
@@ -206,30 +208,29 @@ const downloadJson = () => {
 }
 
 const loadJson = (event: Event) => {
-      const input = event.target as HTMLInputElement
-      const file = input.files ? input.files[0] : null
-      if (!file) return
+  const input = event.target as HTMLInputElement
+  const file = input.files ? input.files[0] : null
+  if (!file) return
 
-      const reader = new FileReader()
-      reader.onload = (e) => {
-        const result = e.target?.result
-        if (typeof result === 'string') {
-          try {
-            const jsonData = JSON.parse(result)
-            dataSource.value = jsonData
-            dataSource.value = [...dataSource.value]
-          } catch (error) {
-            console.error("Invalid JSON file", error)
-            alert("Error loading file: Invalid JSON")
-          }
-        } else {
-          console.error("FileReader result is not a string")
-          alert("Error loading file: FileReader result is not a string")
-        }
+  const reader = new FileReader()
+  reader.onload = (e) => {
+    const result = e.target?.result
+    if (typeof result === 'string') {
+      try {
+        const jsonData = JSON.parse(result)
+        dataSource.value = jsonData
+        dataSource.value = [...dataSource.value]
+      } catch (error) {
+        console.error('Invalid JSON file', error)
+        alert('Error loading file: Invalid JSON')
       }
-      reader.readAsText(file)
+    } else {
+      console.error('FileReader result is not a string')
+      alert('Error loading file: FileReader result is not a string')
     }
-
+  }
+  reader.readAsText(file)
+}
 </script>
 
 <template>
@@ -303,9 +304,18 @@ const loadJson = (event: Event) => {
         :placeholder="dynamicPlaceholder()"
         @keyup.enter="appendRoot()"
       />
+      <SaveIcon
+        class="p-1 h-[1.6rem] w-[1.6rem] cursor-pointer transition-all duration-300 hover:rounded hover:bg-[--color-background-mute]"
+        @click="downloadJson"
+      />
+      <label
+        class="cursor-pointer p-[0.5ex] transition-all duration-300 hover:rounded-xl hover:bg-[--color-background-mute]"
+        for="upload"
+      >
+        <UploadIcon class="h-[1.5rem] w-[1.5rem]" />
+      </label>
+      <input type="file" @change="loadJson" accept=".json" id="upload" class="hidden" />
     </div>
-    <a @click="downloadJson" >download</a>
-    <input type="file" @change="loadJson" accept=".json" />
   </div>
 </template>
 
