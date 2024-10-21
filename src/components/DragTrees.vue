@@ -305,11 +305,11 @@ const loadJson = (event: Event) => {
         @keyup.enter="appendRoot()"
       />
       <SaveIcon
-        class="p-1 h-[1.6rem] w-[1.6rem] cursor-pointer transition-all duration-300 hover:rounded hover:bg-[--color-background-mute]"
+        class="p-1 h-[1.6rem] w-[1.6rem] cursor-pointer transition-all duration-300 hover:rounded hover:bg-[--color-background-mute] end-2"
         @click="downloadJson"
       />
       <label
-        class="cursor-pointer p-[0.5ex] transition-all duration-300 hover:rounded-xl hover:bg-[--color-background-mute]"
+        class="cursor-pointer p-[0.5ex] transition-all duration-300 hover:rounded-xl hover:bg-[--color-background-mute] "
         for="upload"
       >
         <UploadIcon class="h-[1.5rem] w-[1.5rem]" />

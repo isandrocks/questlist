@@ -48,6 +48,13 @@ nav a {
   display: inline-block;
   padding: 0 1rem;
   border-left: 1px solid var(--color-border);
+  text-decoration: none;
+  color: var(--isr-c-red);
+  transition: 0.4s;
+}
+
+nav a:hover {
+  background-color: var(--isr-c-bg-red)
 }
 
 nav a:first-of-type {
