@@ -248,7 +248,7 @@ const loadJson = (event: Event) => {
       @node-drag-end="handleDragEnd"
       @node-drop="handleDrop"
       :allow-drag="allowDrag"
-      class="h-full w-full overflow-y-auto rounded border-2 border-solid border-[--color-background-soft] bg-[--color-background-dark]"
+      class="h-full w-[98%] ml-[1%] mr-[1%] overflow-y-auto rounded border-2 border-solid border-[--color-background-soft] bg-[--color-background-dark]"
     >
       <template #default="{ node, data }">
         <span class="flex w-full justify-between self-stretch">
@@ -292,24 +292,23 @@ const loadJson = (event: Event) => {
       </template>
     </el-tree>
     <div
-      class="mt-[1rem] inline-flex h-[3rem] w-full items-center rounded border-2 border-solid border-[--color-background-soft] bg-[--color-background-dark] hover:border-[--color-background-mute]"
+      class="ml-[1%] mr-[1%] mt-[1rem] inline-flex h-[3rem] w-[98%] self-center rounded border-2 border-solid border-[--color-background-soft] bg-[--color-background-dark] hover:border-[--color-background-mute]"
     >
       <PlusIcon
         class="m-[1ex] h-[4ex] w-[4ex] cursor-pointer p-[0.5ex] transition-all duration-300 hover:rounded-xl hover:bg-[--color-background-mute]"
         @click="appendRoot()"
       />
       <input
-        class="relative w-[90%] border-none bg-inherit font-[1.2rem] placeholder-[--color-background-mute] focus:border-none focus:bg-[--color-background-dark] focus:text-[--color-text] focus:outline-none"
+        class="relative w-full border-none bg-inherit font-[1.2rem] placeholder-[--color-background-mute] focus:border-none focus:bg-[--color-background-dark] focus:text-[--color-text] focus:outline-none"
         v-model="textFieldValue"
         :placeholder="dynamicPlaceholder()"
         @keyup.enter="appendRoot()"
       />
-      <SaveIcon
-        class="p-1 h-[1.6rem] w-[1.6rem] cursor-pointer transition-all duration-300 hover:rounded hover:bg-[--color-background-mute] end-2"
-        @click="downloadJson"
-      />
+      <a @click="downloadJson" class="cursor-pointer self-center transition-all duration-300 hover:rounded hover:bg-[--color-background-mute] p-[0.5ex]">
+      <SaveIcon class="h-[1.5rem] w-[1.5rem] p-[0.3ex]"/>
+      </a>
       <label
-        class="cursor-pointer p-[0.5ex] transition-all duration-300 hover:rounded-xl hover:bg-[--color-background-mute] "
+        class="cursor-pointer self-center p-[0.5ex] transition-all duration-300 hover:rounded hover:bg-[--color-background-mute]"
         for="upload"
       >
         <UploadIcon class="h-[1.5rem] w-[1.5rem]" />
