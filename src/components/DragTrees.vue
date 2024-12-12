@@ -42,7 +42,7 @@ const createNewChild = (labeldata: string) => {
   return { id: Date.now(), editable: true, completed: false, label: labeldata, children: [] }
 }
 
-// Drag and Drop
+// Drag and Drop handlers
 
 const handleDragStart = (node: Node) => {
   console.log('drag start', node)
@@ -236,7 +236,7 @@ const loadJson = (event: Event) => {
 <template>
   <div class="flex h-full w-full flex-col">
     <div
-      class="sticky min-h-[80%] rounded border-2 border-solid border-[--color-background-soft]
+      class="sticky min-h-[93%] rounded border-2 border-solid border-[--color-background-soft]
         bg-[--color-background-dark]"
     >
       <el-tree
