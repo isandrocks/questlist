@@ -1,12 +1,12 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+
 
 const router = createRouter({
   // @ts-expect-error env is defined in vite
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: '/',
+      path: '/list',
       name: 'list',
       component:  () => import('../views/ListView.vue')
     },
@@ -16,14 +16,9 @@ const router = createRouter({
       component: () => import('../views/AboutView.vue')
     },
     {
-      path: '/home',
+      path: '/',
       name: 'home',
-      component: HomeView
-    },
-    {
-      path: '/todo',
-      name: 'todo',
-      component: () => import('../views/TodoView.vue')
+      component: () => import('../views/HomeView.vue')
     },
     {
       path: '/game',

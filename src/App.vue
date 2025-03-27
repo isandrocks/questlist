@@ -1,44 +1,53 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
 </script>
 
 <template>
-  <header>
-    <img alt="Con-Save logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-    <div class="wrapper">
-      <HelloWorld msg="Con-Save" />
+  <el-container>
+    <el-aside
+      width="200px"
+      class="flex flex-col border-r border-[var(--color-border)]">
+      <h1
+        class="mr-2 ml-2 text-[--isr-c-red] font-medium text-4xl relative self-stretch text-center border-b
+          border-[var(--color-border)]">
+        Con-Save
+      </h1>
+      <p class="ml-2 mr-2 py-2 border-b border-[var(--color-border)]">
+        I'm  <span class="text-[--isr-c-red] cursor-pointer" @click="$router.push('/about')">Sean</span>, a Senior Analyst by day and a programmer, maker, and designer whenever I have time.
+      </p>
+      <p class="ml-2 mr-2 mt-2 pb-2 border-b border-[var(--color-border)]">
+        This site showcases my various projects and may eventually serve as a storefront if I decide
+        to set one up.
+      </p>
+      <img
+        alt="Con-Save logo"
+        class="fixed self-center bottom-2"
+        src="@/assets/logo.svg"
+        width="125"
+        height="125" />
+    </el-aside>
 
-      <nav>
-        <RouterLink to="/">List</RouterLink>
-        <RouterLink to="/todo">Todo</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-        <RouterLink to="/game">Game</RouterLink>
-      </nav>
-    </div>
-  </header>
-  <RouterView />
+    <el-container class="pl-2">
+      <el-header
+        height="41px"
+        class="flex border-b border-[var(--color-border)]">
+        <nav class="relative self-end text-xl pb-1">
+          <RouterLink to="/">Home</RouterLink>
+          <RouterLink to="/list">List</RouterLink>
+          <RouterLink to="/about">About</RouterLink>
+          <RouterLink to="/game">Game</RouterLink>
+        </nav>
+      </el-header>
+      <el-main >
+        <div class=" overflow-auto h-[90vh]">
+        <RouterView />
+      </div>
+      </el-main>
+    </el-container>
+  </el-container>
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
-  display: inline-flex;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-nav {
-  width: 100%;
-  font-size: 12px;
-  text-align: left;
-  margin-top: 2rem;
-}
-
 nav a.router-link-exact-active {
   color: var(--color-text);
 }
@@ -57,33 +66,6 @@ nav a:first-of-type {
   border: 0;
 }
 
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
-}
-
 a,
 .red {
   text-decoration: none;
@@ -91,12 +73,9 @@ a,
   transition: 0.4s;
 }
 
-
-
 @media (hover: hover) {
   a:hover {
     background-color: var(--isr-c-bg-red);
   }
 }
-
 </style>

@@ -1,50 +1,15 @@
 <script setup>
-import WelcomeItem from './WelcomeItem.vue'
-import DocumentationIcon from './icons/IconDocumentation.vue'
-import ToolingIcon from './icons/IconTooling.vue'
-import EcosystemIcon from './icons/IconEcosystem.vue'
-import CommunityIcon from './icons/IconCommunity.vue'
-import SupportIcon from './icons/IconSupport.vue'
+import projectArt from './projects/projectArt.vue'
+import projectCode from './projects/projectCode.vue'
+import projectFab from './projects/projectFab.vue'
 </script>
 
 <template>
-  <WelcomeItem>
-    <template #icon>
-      <DocumentationIcon />
-    </template>
-    <template #heading>Booty</template>
-    *Booty*
-  </WelcomeItem>
-
-  <WelcomeItem>
-    <template #icon>
-      <ToolingIcon />
-    </template>
-    <template #heading>Booty</template>
-    *Booty*
-  </WelcomeItem>
-
-  <WelcomeItem>
-    <template #icon>
-      <EcosystemIcon />
-    </template>
-    <template #heading>Booty</template>
-    *Booty*
-  </WelcomeItem>
-
-  <WelcomeItem>
-    <template #icon>
-      <CommunityIcon />
-    </template>
-    <template #heading>Booty</template>
-    *Booty*
-  </WelcomeItem>
-
-  <WelcomeItem>
-    <template #icon>
-      <SupportIcon />
-    </template>
-    <template #heading>Rockin</template>
-    Everywhere!
-  </WelcomeItem>
+  <div class="grid grid-flow-col grid-cols-3 grid-rows-2 gap-3 content-between relative">
+    <projectCode class="row-span-2 grid" />
+    <projectFab class="row-span-2 grid" />
+    <projectArt class="row-span-2 grid" />
+  </div>
 </template>
+
+<style scoped></style>

@@ -234,7 +234,7 @@ const loadJson = (event: Event) => {
 </script>
 
 <template>
-  <div class="flex h-full w-full flex-col">
+  <div class="flex h-[98%] w-full flex-col">
     <div
       class="sticky min-h-[93%] rounded border-2 border-solid border-[--color-background-soft]
         bg-[--color-background-dark]"
