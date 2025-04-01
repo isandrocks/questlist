@@ -1,12 +1,12 @@
 <script setup>
 import artVtubers from '../blog/cards/artVtubers.vue'
-import artPaint from '../blog/cards/artPaint.vue'
+import artPaint from '../blog/cards/artPaintT.vue'
 import artPSG from '../blog/cards/artPSG.vue'
 </script>
 
 <template>
   <el-carousel
-    height="90vh"
+    height="87vh"
     direction="vertical"
     autoplay="true"
     interval="8500"

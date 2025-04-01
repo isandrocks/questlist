@@ -19,6 +19,9 @@ import { RouterLink, RouterView } from 'vue-router'
         This site showcases my various projects and may eventually serve as a storefront if I decide
         to set one up.
       </p>
+      <p class="ml-2 mr-2 mt-2 pb-2 border-b border-[var(--color-border)]">
+        This site is still very much a work in progress, so please be patient with me as I add more content.
+      </p>
       <img
         alt="Con-Save logo"
         class="fixed self-center bottom-2"

@@ -29,3 +29,5 @@ coverage
 
 *.tsbuildinfo
 src/assets/projectImgs
+upload.bat
+uploadToGCloud.bat

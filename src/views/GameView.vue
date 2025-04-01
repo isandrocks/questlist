@@ -1,7 +1,7 @@
 <template>
   <div>
     <iframe
-      src="public/Lightsout/lightsout.html"
+      src="Lightsout/lightsout.html"
       width="800"
       height="460"
       frameborder="0"

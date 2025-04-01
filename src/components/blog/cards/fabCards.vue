@@ -28,7 +28,7 @@
         class="pb-2 p-1" />
     </div>
     <p class="text-center border-t border-[var(--color-border)]">
-      I made some fake (unofficial) aluminum business cards to go with Nerissa Ravencroft new office
+      I made some fake (unofficial) aluminum business cards to go with Nerissa Ravencroft's new office
       lady outfit! The Art is from the Team Tomodachi cover MV illustrated by 33aalloonnhd
     </p>
   </el-card>
