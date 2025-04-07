@@ -20,13 +20,6 @@ import artPSG from '../blog/cards/artPSG.vue'
     <el-carousel-item>
       <artPaint />
     </el-carousel-item>
-    <el-carousel-item>
-      <artVtubers />
-    </el-carousel-item>
-
-    <el-carousel-item>
-      <artPSG />
-    </el-carousel-item>
   </el-carousel>
 </template>
 

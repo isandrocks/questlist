@@ -6,7 +6,9 @@ const items = ref([
   { src: new URL('@/assets/projectImgs/PXL_20250115_0222481342.jpg', import.meta.url).href },
   { src: new URL('@/assets/projectImgs/PXL_20250122_023421255.MP2.jpg', import.meta.url).href },
   { src: new URL('@/assets/projectImgs/PXL_20250126_210133486.jpg', import.meta.url).href },
-
+  { src: new URL('@/assets/projectImgs/PXL_20250118_0705277512.jpg', import.meta.url).href },
+  { src: new URL('@/assets/projectImgs/PXL_20250112_2006439412.jpg', import.meta.url).href },
+  { src: new URL('@/assets/projectImgs/PXL_20250206_0518485652.jpg', import.meta.url).href }
 ])
 
 const selectedImage = ref(null)
@@ -67,7 +69,7 @@ function layoutMasonry() {
         Spray Paint projects
       </h1>
     </div>
-    <div >
+    <div>
       <div
         ref="masonry"
         class="masonry-container"
