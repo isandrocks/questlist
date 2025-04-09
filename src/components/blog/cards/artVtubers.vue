@@ -11,7 +11,7 @@
     </template>
     <div class="grid grid-cols-2 max-w-[60vh]">
     <img
-      src="@/assets/projectImgs/nimi.png"
+      src="@/assets/projectImgs/2kDt8q9T.png"
       alt="a little doodle of Nimi i made while watching her cursed sims 4 stream."
       class="p-2" />
     <img
@@ -19,7 +19,7 @@
       alt="a semi-chibi doodle of Ina"
       class="pb-2" />
     <img
-      src="@/assets/projectImgs/letmeinpebble.png"
+      src="@/assets/projectImgs/C3yVuZEE.png"
       alt="biboo in the art style of the monitoring MV by deco*27"
       class="p-2" />
     <img

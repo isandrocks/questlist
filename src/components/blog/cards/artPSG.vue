@@ -11,7 +11,7 @@
     </template>
     <div class="grid grid-cols-2 max-w-[60vh]">
       <img
-        src="@/assets/projectImgs/2025211130trans.png"
+        src="@/assets/projectImgs/kP3v3xly.png"
         alt="scanty and knee socks from the beach volly ball episode"
         class="p-2" />
       <img

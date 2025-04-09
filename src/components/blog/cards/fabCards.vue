@@ -11,19 +11,19 @@
     </template>
     <div class="grid grid-cols-2 max-w-[60vh] max-h-[60vh] overflow-auto justify-around">
       <img
-        src="@/assets/projectImgs/PXL_20250131_014812253.PORTRAIT4.jpg"
+        src="@/assets/projectImgs/efWBJhtP.jpg"
         alt="aluminum business cards to go with Nerissa Ravencroft new office lady outfit"
         class="p-1" />
       <img
-        src="@/assets/projectImgs/PXL_20250131_021305172.PORTRAIT6.jpg"
+        src="@/assets/projectImgs/8ChDHPWu.jpg"
         alt="aluminum business card front"
         class="p-1 max-h-[35vh]" />
       <img
-        src="@/assets/projectImgs/PXL_20250131_014735850.PORTRAIT2.jpg"
+        src="@/assets/projectImgs/ABIDtw0d.jpg"
         alt="aluminum business cards to go with Nerissa Ravencroft new office lady outfit"
         class="pb-2 p-1" />
       <img
-        src="@/assets/projectImgs/PXL_20250131_0214301862.jpg"
+        src="@/assets/projectImgs/N9fsT5pW.jpg"
         alt="aluminum business card back"
         class="pb-2 p-1" />
     </div>

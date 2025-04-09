@@ -6,7 +6,7 @@
         <h1
           class="text-white text-center text-4xl md:text-3xl font-extrabold
             [text-shadow:_-1px_-1px_0_black,1px_-1px_0_black,-1px_1px_0_black,1px_1px_0_black]">
-          This website
+          Vue 3 Site
         </h1>
       </template>
       <div class="grid grid-cols-2 max-w-[60vh] max-h-[60vh] overflow-auto">
@@ -20,7 +20,7 @@
           class="pb-2" />
       </div>
       <p class="text-center border-t border-[var(--color-border)]">
-        Makeing this website was a fun project. I used Vue 3 and Vite to make it.
+        Makeing this website was a fun project. I used Vue 3 and Vite.
         I also used Tailwind CSS for styling and Element Plus for the UI components.
       </p>
     </el-card>

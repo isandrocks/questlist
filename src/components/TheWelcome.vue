@@ -1,7 +1,7 @@
 <script setup>
-import projectArt from './projects/projectArt.vue'
-import projectCode from './projects/projectCode.vue'
-import projectFab from './projects/projectFab.vue'
+import projectArt from './projects/project-3.vue'
+import projectCode from './projects/project-1.vue'
+import projectFab from './projects/project-2.vue'
 </script>
 
 <template>

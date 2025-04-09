@@ -1,7 +1,8 @@
 <template>
           <el-card
         style="max-width: 60vh"
-        shadow="hover">
+        shadow="hover"
+        @click="$router.push('/blog/sprayArt1')">
         <template #header>
           <h1
             class="text-white text-center text-4xl md:text-3xl font-extrabold
@@ -11,15 +12,15 @@
         </template>
         <div class="grid grid-cols-2 max-w-[60vh]">
         <img
-          src="@/assets/projectImgs/PXL_20250224_1819497242.jpg"
+          src="@/assets/projectImgs/p8vcvwsG.jpg"
           alt="skateboard deck with a plauge doctors face on it"
           class="pb-2 pr-1 row-span-2" />
         <img
-          src="@/assets/projectImgs/PXL_20250126_210133486.jpg"
+          src="@/assets/projectImgs/bSDPqMEL.jpg"
           alt="pikachu made with spray paint and a stencil"
           class="pb-1" />
         <img
-          src="@/assets/projectImgs/PXL_20250206_0518485652.jpg"
+          src="@/assets/projectImgs/r7BpBDyP.jpg"
           alt="skanty and knee socks from psg made with spray paint and a stencil"
           class="pb-2" />        
         </div>
