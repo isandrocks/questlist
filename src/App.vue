@@ -8,8 +8,8 @@ import { RouterLink, RouterView } from 'vue-router'
       width="200px"
       class="flex flex-col border-r border-[var(--color-border)]">
       <h1
-        class="mr-2 ml-2 text-[--isr-c-red] font-medium text-4xl relative self-stretch text-center border-b
-          border-[var(--color-border)]">
+        class="h-[41px] mr-2 ml-2 text-[--isr-c-red] text-2xl text-nowrap relative justify-self-end self-center border-b
+          border-[var(--color-border)] sixtyfour-convergence-isr">
         Con-Save
       </h1>
       <p class="ml-2 mr-2 py-2 border-b border-[var(--color-border)]">
@@ -20,7 +20,7 @@ import { RouterLink, RouterView } from 'vue-router'
         to set one up.
       </p>
       <p class="ml-2 mr-2 mt-2 pb-2 border-b border-[var(--color-border)]">
-        This site is still very much a work in progress, so please be patient with me as I add more content.
+        This site is still very much a work in progress and is currently not very mobile- or vertical-screen-friendly, so please be patient with me as I continue adding more content.
       </p>
       <img
         alt="Con-Save logo"
@@ -34,7 +34,7 @@ import { RouterLink, RouterView } from 'vue-router'
       <el-header
         height="41px"
         class="flex border-b border-[var(--color-border)]">
-        <nav class="relative self-end text-xl pb-1">
+        <nav class="relative self-end text-xl pb-2">
           <RouterLink to="/">Home</RouterLink>
           <RouterLink to="/list">List</RouterLink>
           <RouterLink to="/about">About</RouterLink>

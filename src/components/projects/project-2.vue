@@ -5,7 +5,7 @@ import fabCards from '../blog/cards/fabCards.vue';
 
 <template>
   <el-carousel
-    height="90vh"
+    height="84vh"
     direction="vertical"
     autoplay="true"
     interval="9500"

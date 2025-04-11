@@ -1,12 +1,12 @@
 <script setup>
 import artPaint from '../blog/cards/artPaint.vue'
-import causewayTHT from '../blog/cards/causewayTHT.vue';
+import causewayTHT from '../blog/cards/causewayTHTc.vue';
 
 </script>
 
 <template>
   <el-carousel
-    height="80svh"
+    height="84vh"
     direction="vertical"
     autoplay="true"
     interval="8500"

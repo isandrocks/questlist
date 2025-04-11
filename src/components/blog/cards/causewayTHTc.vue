@@ -1,7 +1,9 @@
 <template>
   <el-card
     style="max-width: 60vh"
-    shadow="hover">
+    shadow="hover"
+    @click="$router.push('/blog/causeway_THT')"
+    class="cursor-pointer">
     <template #header>
       <h1
         class="text-white text-center text-4xl md:text-3xl font-extrabold

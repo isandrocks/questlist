@@ -144,6 +144,17 @@
   font-style: italic;
 }
 
+.sixtyfour-convergence-isr {
+  font-family: "Sixtyfour Convergence", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+    "BLED" 5,
+    "SCAN" -40,
+    "XELA" -10,
+    "YELA" -10;
+}
 
 /* semantic color variables for this project */
 :root {
@@ -214,4 +225,8 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+h1 {
+  font-family: "Voltaire";
 }
