@@ -4,7 +4,7 @@
     shadow="hover">
     <template #header>
       <h1
-        class="text-white text-center text-4xl md:text-3xl font-extrabold
+        class="text-white text-center text-4xl lg:text-3xl font-extrabold
           [text-shadow:_-1px_-1px_0_black,1px_-1px_0_black,-1px_1px_0_black,1px_1px_0_black]">
         Vtuber Doodles
       </h1>

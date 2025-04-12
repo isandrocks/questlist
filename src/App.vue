@@ -11,7 +11,7 @@ const isOpen = ref(false)
       width="200px"
       class="flex flex-col border-r border-[var(--color-border)] overflow-hidden">
       <h1
-        class="h-[41px] text-[--isr-c-red] text-2xl text-nowrap relative justify-self-end self-center border-b
+        class="h-[41px] text-[--isr-c-red] md:text-2xl lg:text-2xl text-nowrap relative justify-self-end self-center border-b
           border-[var(--color-border)] sixtyfour-convergence-isr overflow-clip">
         Con-Save
       </h1>
@@ -42,10 +42,11 @@ const isOpen = ref(false)
     <el-container class="pl-2">
       <el-header
         height="41px"
-        class="flex border-b border-[var(--color-border)]">
+        class="flex flex-row-reverse lg:flex-row border-b border-[var(--color-border)]">
+
 
         <!-- Desktop Navigation -->
-        <nav class="hidden md:flex gap-4 text-xl pb-2">
+        <nav class="hidden lg:flex gap-4 text-xl pb-2">
           <RouterLink to="/">Home</RouterLink>
           <RouterLink to="/list">List</RouterLink>
           <RouterLink to="/about">About</RouterLink>
@@ -53,12 +54,12 @@ const isOpen = ref(false)
         </nav>
 
         <!-- Burger Icon -->
-        <button
-          @click="isOpen = !isOpen"
-          class="md:hidden pb-2">
-          <!-- Simple burger icon -->
-          <svg
-            class="w-6 h-6"
+
+        <div class="toolbar inline-flex lg:hidden text-right">
+          <el-dropdown size="large">
+           
+              <svg
+            class="w-8 h-8 self-center justify-self-centercenter"
             fill="none"
             stroke="currentColor"
             stroke-width="2"
@@ -67,13 +68,24 @@ const isOpen = ref(false)
             stroke-linejoin="round">
             <path d="M4 6h16M4 12h16M4 18h16" />
           </svg>
-        </button>
+            
+            <template #dropdown>
+              <el-dropdown-menu>
+                <el-dropdown-item @click="$router.push('/')">Home</el-dropdown-item>
+                <el-dropdown-item @click="$router.push('/list')">List</el-dropdown-item>
+                <el-dropdown-item @click="$router.push('/about')">About</el-dropdown-item>
+                <el-dropdown-item @click="$router.push('/game')">Game</el-dropdown-item>
+              </el-dropdown-menu>
+            </template>
+          </el-dropdown>
+
+        </div>
       </el-header>
 
       <!-- Mobile Dropdown Menu -->
       <div
         v-if="isOpen"
-        class="md:hidden fixed flex-col top-[41px] z-20 px-4 my-2 rounded bg-[#121212] bg-opacity-95 text-xl
+        class="lg:hidden fixed flex-col top-[41px] z-20 px-4 my-2 rounded bg-[#121212] bg-opacity-95 text-xl
           space-y-2">
         <RouterLink
           @click="isOpen = false"
@@ -144,4 +156,23 @@ a,
 .el-main {
   max-height: calc(100% - 41px);
 }
+
+.el-aside {
+    width: 30vw;
+  }
+
+@media (min-width: 768px) {
+  .el-aside {
+    width: 200px;
+  }
+}
+
+.toolbar {
+
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  right: 20px;
+}
+
 </style>

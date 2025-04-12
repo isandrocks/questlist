@@ -4,12 +4,12 @@
     shadow="hover">
     <template #header>
       <h1
-        class="text-white text-center text-4xl md:text-3xl font-extrabold
+        class="text-white text-center text-xl lg:text-3xl font-extrabold
           [text-shadow:_-1px_-1px_0_black,1px_-1px_0_black,-1px_1px_0_black,1px_1px_0_black]">
         Laser engraving and cutting
       </h1>
     </template>
-    <div class="grid grid-cols-2 max-w-[60vh] max-h-[60vh] overflow-auto">
+    <div class="grid grid-cols-2 max-w-full max-h-[45vh] lg:max-h-[60vh] overflow-auto">
       <img
         src="@/assets/projectImgs/UbniaMGN.jpg"
         alt="a laser cut image of salior jupitor"

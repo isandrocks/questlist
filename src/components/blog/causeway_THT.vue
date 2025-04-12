@@ -16,7 +16,7 @@ const closeImage = () => {
   <div class="bg-[#1d1e1f] rounded-s shadow-lg border border-[var(--color-border)] overflow-hidden">
     <div>
       <h1
-        class="text-white text-center text-4xl md:text-3xl font-extrabold
+        class="text-white text-center text-4xl lg:text-3xl font-extrabold
           [text-shadow:_-1px_-1px_0_black,1px_-1px_0_black,-1px_1px_0_black,1px_1px_0_black] border-b
           border-[var(--color-border)] py-[18px]">
           <a

@@ -6,7 +6,7 @@
     class="cursor-pointer">
     <template #header>
       <h1
-        class="text-white text-center text-4xl md:text-3xl font-extrabold
+        class="text-white text-center text-xl lg:text-3xl font-extrabold
           [text-shadow:_-1px_-1px_0_black,1px_-1px_0_black,-1px_1px_0_black,1px_1px_0_black]">
         Causeway_THT
       </h1>
