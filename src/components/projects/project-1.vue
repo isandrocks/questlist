@@ -5,15 +5,16 @@ import LLMInterface from '../blog/cards/LLMInterface.vue';
 
 <template>
   <el-carousel
-    height="84vh"
+    height="100%"
     direction="vertical"
     autoplay="true"
     interval="9000"
     motion-blur>
     <el-carousel-item>
+      <div class="flex flex-col h-full w-full justify-center items-center">
       <LLMInterface />
       <div> <br></div>
-      <codeSite />
+      <codeSite /></div>
     </el-carousel-item>
   </el-carousel>
 </template>

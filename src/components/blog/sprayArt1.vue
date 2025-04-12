@@ -142,8 +142,7 @@ function layoutMasonry() {
 <style scoped>
 .masonry-container {
   position: relative;
-  width: 100%;
-  height: masonryHeight + 'px';
+  width: 100%;;
   padding: 10px;
 }
 

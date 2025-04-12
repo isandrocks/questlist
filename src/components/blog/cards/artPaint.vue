@@ -1,6 +1,6 @@
 <template>
           <el-card
-        style="max-width: 60vh"
+        style="width: 100%;"
         shadow="hover"
         @click="$router.push('/blog/sprayArt1')"
         class="cursor-pointer">

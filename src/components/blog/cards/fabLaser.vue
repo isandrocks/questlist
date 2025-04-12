@@ -1,6 +1,6 @@
 <template>
   <el-card
-    style="max-width: 60vh"
+    style="max-width: 100%"
     shadow="hover">
     <template #header>
       <h1

@@ -36,6 +36,6 @@ import LogoConsave from '../components/icons/LogoConsave.vue'
       you’re the DM) is at risk. A save’s result is detailed in the effect that caused it." - DnD
       Beyond
     </h3>
-    <LogoConsave class="self-center" />
+    <LogoConsave class="self-center max-w-[100%]" />
   </div>
 </template>

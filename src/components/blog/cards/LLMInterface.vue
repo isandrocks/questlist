@@ -1,6 +1,6 @@
 <template>
   <el-card
-    style="max-width: 60vh"
+    style="max-width: 100%"
     shadow="hover">
     <template #header>
       <h1
@@ -9,7 +9,7 @@
         LLM Interface
       </h1>
     </template>
-    <div class="grid grid-cols-2 max-w-[60vh] max-h-[60vh] overflow-auto">
+    <div class="grid grid-cols-2 max-w-[100vw] max-h-[60vh] overflow-auto">
       <img
         src="@/assets/projectImgs/1615342.png"
         class="p-2" />

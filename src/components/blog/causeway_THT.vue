@@ -34,7 +34,7 @@ const closeImage = () => {
     <div class="flex-row flex">
       <img
         src="@/assets/projectImgs/WSpeWCg.png"
-        class="p-2 max-w-[30vw] rounded-s shadow-md cursor-zoom-in hover:scale-105 transition-transform"
+        class="p-2 max-w-[30vw] object-contain rounded-s shadow-md cursor-zoom-in hover:scale-105 transition-transform"
         @click="
           // @ts-ignore
           openImage($event.target.src)
@@ -78,7 +78,7 @@ const closeImage = () => {
       </p>
       <img
         src="@/assets/projectImgs/decpwZhH.png"
-        class="p-2 max-w-[30vw] rounded-s shadow-md cursor-zoom-in hover:scale-105 transition-transform"
+        class="p-2 max-w-[30vw] object-contain rounded-s shadow-md cursor-zoom-in hover:scale-105 transition-transform"
         @click="
           // @ts-ignore
           openImage($event.target.src)
