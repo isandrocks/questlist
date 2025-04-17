@@ -55,6 +55,9 @@ const closeImage = () => {
 onMounted(async () => {
   await nextTick()
   layoutMasonry()
+  window.addEventListener('resize', () => {
+    layoutMasonry()
+  })
 })
 
 function layoutMasonry() {
@@ -130,9 +133,9 @@ function layoutMasonry() {
     <div class="relative flex">
       <img
         :src="selectedImage.src"
-        class="max-w-[60vw] max-h-[85vh] rounded-lg"
+        class="max-w-[60vw] object-contain max-h-[85vh] rounded-lg"
         @click="closeImage" />
-      <p class="text-center p-12 text-white text-xl font-bold self-center max-w-[40vw]">
+      <p class="text-center p-12 text-white md:text-xl md:font-bold self-center ">
         {{ selectedImage.alt }}
       </p>
     </div>

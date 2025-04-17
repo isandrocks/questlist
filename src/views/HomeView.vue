@@ -1,9 +1,9 @@
 <script setup>
-import TheWelcome from '../components/TheWelcome.vue'
+import cardWall from '../components/cardWall.vue';
 </script>
 
 <template>
   <main>
-    <TheWelcome />
+    <cardWall />
   </main>
 </template>

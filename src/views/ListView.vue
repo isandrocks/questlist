@@ -3,7 +3,10 @@ import DragTrees from '../components/DragTrees.vue'
 </script>
 
 <template>
-  <DragTrees />
+  <main class="overflow-hidden h-[89vh]">
+    <DragTrees />
+  </main>
+
 </template>
 
 

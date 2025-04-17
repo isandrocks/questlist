@@ -9,7 +9,7 @@ const isOpen = ref(false)
   <el-container class="overflow-hidden">
     <el-aside
       width="200px"
-      class="flex flex-col border-r border-[var(--color-border)] overflow-hidden">
+      class="hidden md:flex flex-col border-r border-[var(--color-border)] overflow-hidden">
       <h1
         class="h-[41px] text-[--isr-c-red] md:text-2xl lg:text-2xl text-nowrap relative justify-self-end self-center border-b
           border-[var(--color-border)] sixtyfour-convergence-isr overflow-clip">
@@ -28,12 +28,11 @@ const isOpen = ref(false)
         to set one up.
       </p>
       <p class="ml-2 mr-2 mt-2 pb-2 border-b border-[var(--color-border)]">
-        This site is still very much a work in progress and is currently not very mobile- or
-        vertical-screen-friendly, so please be patient with me as I continue adding more content.
+        This site is still very much a work in progress and not all of the cards on the Home page take you to the full article when clicked, so please be patient with me as I continue adding more content.
       </p>
       <img
         alt="Con-Save logo"
-        class="fixed self-center bottom-2"
+        class="hidden md:fixed self-center bottom-2"
         src="@/assets/logo.svg"
         width="125"
         height="125" />
@@ -45,6 +44,7 @@ const isOpen = ref(false)
         class="flex flex-row-reverse lg:flex-row border-b border-[var(--color-border)]">
 
 
+
         <!-- Desktop Navigation -->
         <nav class="hidden lg:flex gap-4 text-xl pb-2">
           <RouterLink to="/">Home</RouterLink>
@@ -52,6 +52,8 @@ const isOpen = ref(false)
           <RouterLink to="/about">About</RouterLink>
           <RouterLink to="/game">Game</RouterLink>
         </nav>
+
+
 
         <!-- Burger Icon -->
 
@@ -70,7 +72,7 @@ const isOpen = ref(false)
           </svg>
             
             <template #dropdown>
-              <el-dropdown-menu>
+              <el-dropdown-menu >
                 <el-dropdown-item @click="$router.push('/')">Home</el-dropdown-item>
                 <el-dropdown-item @click="$router.push('/list')">List</el-dropdown-item>
                 <el-dropdown-item @click="$router.push('/about')">About</el-dropdown-item>
@@ -80,6 +82,10 @@ const isOpen = ref(false)
           </el-dropdown>
 
         </div>
+        <h1
+        class=" md:hidden text-[--isr-c-red] text-4xl text-nowrap relative justify-self-center self-center sixtyfour-convergence-isr pr-3">
+        Con-Save
+      </h1>
       </el-header>
 
       <!-- Mobile Dropdown Menu -->
