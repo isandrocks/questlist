@@ -46,7 +46,7 @@ const isOpen = ref(false)
 
 
         <!-- Desktop Navigation -->
-        <nav class="hidden lg:flex gap-4 text-xl pb-2">
+        <nav class="hidden lg:flex text-xl mb-2">
           <RouterLink to="/">Home</RouterLink>
           <RouterLink to="/list">List</RouterLink>
           <RouterLink to="/about">About</RouterLink>

@@ -113,10 +113,11 @@ function layoutMasonry() {
 .card-item {
   padding: 8px;
   box-sizing: border-box;
-  transition: all 0.3s ease-in-out;
+  
 }
 
 .card-item:hover {
+  transition: all 0.3s ease-in-out;
   transform: translateY(-5px);
 }
 </style>

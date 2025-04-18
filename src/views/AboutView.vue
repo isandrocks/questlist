@@ -36,6 +36,18 @@ import LogoConsave from '../components/icons/LogoConsave.vue'
       you’re the DM) is at risk. A save’s result is detailed in the effect that caused it." - DnD
       Beyond
     </h3>
+    <div class="about flex flex-col gap-4 text-center my-10">
+      <h1 class="text-5xl self-center">
+        <span class="text-[--isr-c-red]">Contact Me</span>
+      </h1>
+      <h3 class="self-center">
+        If you're interested in custom electronics, keyboards, controllers, or just want to say hello,
+        feel free to reach out!
+      </h3>
+      <h3 class="self-center">
+        Email: <a href="mailto:consavecustoms@gmail.com" class="text-[--isr-c-red]">consavecustoms@gmail.com</a>
+      </h3>
+    </div>
     <LogoConsave class="self-center max-w-[100%]" />
   </div>
 </template>

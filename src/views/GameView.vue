@@ -6,13 +6,9 @@
       height="460"
       frameborder="0"
       allowfullscreen
+      class="flex m-auto"
     ></iframe>
   </div>
 </template>
 
-<style scoped>
-iframe {
-  display: block;
-  margin: auto;
-}
-</style>
+
