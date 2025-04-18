@@ -3,6 +3,7 @@ import { ref, onMounted, onUnmounted } from 'vue'
 
 const selectedImage = ref(null)
 const windowWidth = ref(0)
+const zoomLevel = ref(1) // Add zoom level tracking
 
 const updateWidth = () => {
   windowWidth.value = window.innerWidth
@@ -23,9 +24,17 @@ const openImage = (image) => {
 
 const closeImage = () => {
   selectedImage.value = null
+  zoomLevel.value = 1
 }
 
-// Create array of image URLs with individually wrapped paths
+const handleWheel = (event) => {
+  event.preventDefault()
+
+  const zoomFactor = event.deltaY < 0 ? 1.1 : 0.9
+
+  zoomLevel.value = Math.min(Math.max(zoomLevel.value * zoomFactor, 0.5), 5)
+}
+
 const images = [
   new URL('@/assets/projectImgs/fNqepYMF.jpg', import.meta.url).href,
   new URL('@/assets/projectImgs/WSpeWCg.png', import.meta.url).href,
@@ -38,7 +47,7 @@ const images = [
 </script>
 
 <template>
-  <article class="prose prose-lg max-w-3xl mx-auto px-4 py-8">
+  <article class="prose prose-lg max-w-3xl mx-auto px-4 py-4">
     <div>
       <h1
         class="text-white text-center text-4xl lg:text-3xl font-extrabold
@@ -63,10 +72,12 @@ const images = [
       interval="9000"
       class="carousel-container"
       motion-blur>
-      <el-carousel-item v-for="(image, index) in images" :key="index">
+      <el-carousel-item
+        v-for="(image, index) in images"
+        :key="index">
         <img
           :src="image"
-          class="object-contain  w-full top-0 rounded-s shadow-md cursor-zoom-in hover:scale-102 transition-transform"
+          class="object-contain w-full top-0 rounded-s shadow-md cursor-zoom-in hover:scale-102 transition-transform"
           @click="openImage(image)" />
       </el-carousel-item>
     </el-carousel>
@@ -111,16 +122,15 @@ const images = [
   <div
     v-if="selectedImage"
     class="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50"
-    @click="closeImage">
+    @click="closeImage"
+    @wheel="handleWheel">
     <div class="relative flex">
       <img
         :src="selectedImage"
-        class="max-w-[60vw] max-h-[85vh] rounded-lg"
-        @click="closeImage" />
+        class="max-w-[99vw] max-h-[85vh] rounded-lg"
+        :style="{ transform: `scale(${zoomLevel})`, transition: 'transform 0.1s ease' }" />
     </div>
   </div>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

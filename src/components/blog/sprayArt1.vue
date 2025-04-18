@@ -130,12 +130,12 @@ function layoutMasonry() {
     v-if="selectedImage"
     class="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50"
     @click="closeImage">
-    <div class="relative flex">
+    <div class="relative flex flex-col md:flex-row px-2">
       <img
         :src="selectedImage.src"
-        class="max-w-[60vw] object-contain max-h-[85vh] rounded-lg"
+        class="max-w-[60vw] object-contain self-center max-h-[85vh] rounded-lg"
         @click="closeImage" />
-      <p class="text-center p-12 text-white md:text-xl md:font-bold self-center ">
+      <p class="text-center py-3 text-white md:text-xl md:font-bold self-center mx-auto">
         {{ selectedImage.alt }}
       </p>
     </div>
