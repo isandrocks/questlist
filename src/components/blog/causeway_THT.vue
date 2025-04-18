@@ -32,7 +32,7 @@ const closeImage = () => {
     </div>
 
     <el-carousel
-      height="60vh"
+      height="450px"
       autoplay="true"
       interval="9000"
       motion-blur>

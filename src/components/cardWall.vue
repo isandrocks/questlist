@@ -99,7 +99,7 @@ function layoutMasonry() {
       v-for="(card, index) in cards" 
       :key="index"
       :is="card"
-      class="card-item transition-transform"
+      class="card-item"
     />
   </div>
 </template>

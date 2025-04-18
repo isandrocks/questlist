@@ -32,7 +32,7 @@ const isOpen = ref(false)
       </p>
       <img
         alt="Con-Save logo"
-        class="hidden md:fixed self-center bottom-2"
+        class="hidden md:flex fixed self-center bottom-2"
         src="@/assets/logo.svg"
         width="125"
         height="125" />
