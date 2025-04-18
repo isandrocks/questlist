@@ -12,7 +12,7 @@ const isOpen = ref(false)
       class="hidden md:flex flex-col border-r border-[var(--color-border)] overflow-hidden">
       <h1
         class="h-[41px] text-[--isr-c-red] md:text-2xl lg:text-2xl text-nowrap relative justify-self-end self-center border-b
-          border-[var(--color-border)] sixtyfour-convergence-isr overflow-clip">
+          border-[var(--color-border)] sixtyfour-convergence-isr overflow-clip cursor-pointer" @click="$router.push('/')">
         Con-Save
       </h1>
       <p class="ml-2 mr-2 py-2 border-b border-[var(--color-border)]">
@@ -57,7 +57,7 @@ const isOpen = ref(false)
 
         <!-- Burger Icon -->
 
-        <div class="toolbar inline-flex lg:hidden text-right">
+        <div class="toolbar inline-flex lg:hidden text-right fixed z-20">
           <el-dropdown size="large">
            
               <svg
@@ -72,7 +72,7 @@ const isOpen = ref(false)
           </svg>
             
             <template #dropdown>
-              <el-dropdown-menu >
+              <el-dropdown-menu style="--el-dropdown-menuItem-hover-fill:var(--isr-c-bg-red); --el-dropdown-menuItem-hover-color:var(--isr-c-red)">
                 <el-dropdown-item @click="$router.push('/')">Home</el-dropdown-item>
                 <el-dropdown-item @click="$router.push('/list')">List</el-dropdown-item>
                 <el-dropdown-item @click="$router.push('/about')">About</el-dropdown-item>
@@ -83,7 +83,7 @@ const isOpen = ref(false)
 
         </div>
         <h1
-        class=" md:hidden text-[--isr-c-red] text-4xl text-nowrap relative justify-self-center self-center sixtyfour-convergence-isr pr-3">
+        class=" md:hidden text-[--isr-c-red] text-4xl text-nowrap fixed justify-self-center self-center sixtyfour-convergence-isr pr-3 cursor-pointer left-7" @click="$router.push('/')">
         Con-Save
       </h1>
       </el-header>
@@ -177,8 +177,7 @@ a,
 
   align-items: center;
   justify-content: center;
-  height: 100%;
-  right: 20px;
+  right: 14px;
 }
 
 </style>

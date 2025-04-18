@@ -1,7 +1,21 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 
 const selectedImage = ref(null)
+const windowWidth = ref(0)
+
+const updateWidth = () => {
+  windowWidth.value = window.innerWidth
+}
+
+onMounted(() => {
+  updateWidth()
+  window.addEventListener('resize', updateWidth)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('resize', updateWidth)
+})
 
 const openImage = (image) => {
   selectedImage.value = image
@@ -10,6 +24,17 @@ const openImage = (image) => {
 const closeImage = () => {
   selectedImage.value = null
 }
+
+// Create array of image URLs with individually wrapped paths
+const images = [
+  new URL('@/assets/projectImgs/fNqepYMF.jpg', import.meta.url).href,
+  new URL('@/assets/projectImgs/WSpeWCg.png', import.meta.url).href,
+  new URL('@/assets/projectImgs/vy02HwZ.jpg', import.meta.url).href,
+  new URL('@/assets/projectImgs/decpwZhH.png', import.meta.url).href,
+  new URL('@/assets/projectImgs/yj4mHjwU.jpg', import.meta.url).href,
+  new URL('@/assets/projectImgs/1tNBtoA.png', import.meta.url).href,
+  new URL('@/assets/projectImgs/gtjLou9c.jpg', import.meta.url).href
+]
 </script>
 
 <template>
@@ -32,64 +57,17 @@ const closeImage = () => {
     </div>
 
     <el-carousel
-      height="450px"
+      :style="{ height: windowWidth < 768 ? '250px' : '500px' }"
+      height="500px"
       autoplay="true"
       interval="9000"
+      class="carousel-container"
       motion-blur>
-      <el-carousel-item>
+      <el-carousel-item v-for="(image, index) in images" :key="index">
         <img
-          src="@/assets/projectImgs/fNqepYMF.jpg"
-          class="rounded-s shadow-md cursor-zoom-in hover:scale-102 transition-transform"
-          @click="
-            // @ts-ignore
-            openImage($event.target.src)
-          " />
-      </el-carousel-item>
-      <el-carousel-item>
-        <img
-          src="@/assets/projectImgs/WSpeWCg.png"
-          class="rounded-s shadow-md cursor-zoom-in hover:scale-102 transition-transform"
-          @click="
-            // @ts-ignore
-            openImage($event.target.src)
-          " />
-      </el-carousel-item>
-      <el-carousel-item>
-        <img
-          src="@/assets/projectImgs/vy02HwZ.jpg"
-          class="object-contain rounded-s shadow-md cursor-zoom-in hover:scale-102 transition-transform"
-          @click="
-            // @ts-ignore
-            openImage($event.target.src)
-          " />
-      </el-carousel-item>
-      <el-carousel-item>
-        <img
-          src="@/assets/projectImgs/decpwZhH.png"
-          class="object-contain rounded-s shadow-md cursor-zoom-in hover:scale-102 transition-transform"
-          @click="
-            // @ts-ignore
-            openImage($event.target.src)
-          " />
-      </el-carousel-item>
-
-      <el-carousel-item>
-        <img
-          src="@/assets/projectImgs/yj4mHjwU.jpg"
-          class="object-contain rounded-s shadow-md cursor-zoom-in hover:scale-102 transition-transform"
-          @click="
-            // @ts-ignore
-            openImage($event.target.src)
-          " />
-      </el-carousel-item>
-      <el-carousel-item>
-        <img
-          src="@/assets/projectImgs/1tNBtoA.png"
-          class="object-contain rounded-s shadow-md cursor-zoom-in hover:scale-102 transition-transform"
-          @click="
-            // @ts-ignore
-            openImage($event.target.src)
-          " />
+          :src="image"
+          class="object-contain  w-full top-0 rounded-s shadow-md cursor-zoom-in hover:scale-102 transition-transform"
+          @click="openImage(image)" />
       </el-carousel-item>
     </el-carousel>
 
@@ -142,3 +120,7 @@ const closeImage = () => {
     </div>
   </div>
 </template>
+
+<style scoped>
+
+</style>
