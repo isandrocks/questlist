@@ -1,34 +1,36 @@
-# questlist
-a tree style todo list style app.
+# Vue 3 Portfolio Website
 
-## Recommended IDE Setup
+A modern, responsive portfolio website built with Vue 3 to showcase my projects, skills, and professional information.
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## Technologies Used
 
-## Customize configuration
+- Vue 3
+- Vue Router
+- Elements Plus
+- Tailwind CSS
+- Vite
+- godot
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+## Features
 
-## Project Setup
+- Responsive design for all devices
+- Dynamic project showcase
+- Animated transitions
+- HTML 5 game hosting
 
-```sh
+## Installation
+
+```bash
+# Install dependencies
 npm install
-```
 
-### Compile and Hot-Reload for Development
-
-```sh
+# Start development server
 npm run dev
-```
 
-### Compile and Minify for Production
-
-```sh
+# Build for production
 npm run build
 ```
 
-### Lint with [ESLint](https://eslint.org/)
+## License
 
-```sh
-npm run lint
-```
+MIT
