@@ -29,6 +29,6 @@ pending_posts
 *.sw?
 
 *.tsbuildinfo
-src/assets/projectImgs
 upload.bat
 uploadToGCloud.bat
+dist.zip
