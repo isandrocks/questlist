@@ -64,7 +64,6 @@ var Godot = (() => {
       readyPromiseResolve = resolve
       readyPromiseReject = reject
     })
-
     ;[
       '_main',
       '__emscripten_thread_init',
@@ -16229,13 +16228,22 @@ const InternalConfig = function (initConfig) {
 
         // Function to decompress gzipped response
         function decompressGzip(response) {
+          console.log('Decompressing response for loadPath:', loadPath)
+          console.log(
+            'Response headers:',
+            response.headers.get('content-type'),
+            response.headers.get('content-encoding')
+          )
+
           // Check if we're loading a .gz file or if response is gzipped
           if (
             loadPath.endsWith('.wasm.gz') ||
             response.headers.get('content-encoding') === 'gzip'
           ) {
+            console.log('Detected gzipped content, attempting decompression')
             // Use DecompressionStream if available (modern browsers)
             if (typeof DecompressionStream !== 'undefined') {
+              console.log('Using DecompressionStream for decompression')
               const decompressionStream = new DecompressionStream('gzip')
               const decompressedStream = response.body.pipeThrough(decompressionStream)
               return new Response(decompressedStream, {
@@ -16243,29 +16251,95 @@ const InternalConfig = function (initConfig) {
               })
             } else {
               // Fallback for browsers without DecompressionStream
-              // Note: This fallback would require a polyfill library like pako.js
               console.warn(
                 'DecompressionStream not supported. Please ensure your server serves uncompressed WASM or use a polyfill.'
               )
               return response
             }
           }
+          console.log('No decompression needed, returning original response')
           return response
+        }
+
+        async function validateWasm(response) {
+          try {
+            // Clone the response to check the first few bytes
+            const clonedResponse = response.clone()
+            const buffer = await clonedResponse.arrayBuffer()
+            const bytes = new Uint8Array(buffer)
+
+            console.log(
+              'First 8 bytes of WASM:',
+              Array.from(bytes.slice(0, 8)).map((b) => '0x' + b.toString(16).padStart(2, '0'))
+            )
+
+            // Check WASM magic number (0x00, 0x61, 0x73, 0x6d)
+            if (bytes[0] === 0x00 && bytes[1] === 0x61 && bytes[2] === 0x73 && bytes[3] === 0x6d) {
+              console.log('Valid WASM magic number found')
+              return response
+            } else {
+              console.error(
+                'Invalid WASM magic number! Expected [0x00, 0x61, 0x73, 0x6d], got:',
+                Array.from(bytes.slice(0, 4)).map((b) => '0x' + b.toString(16).padStart(2, '0'))
+              )
+              throw new Error('Invalid WASM file - magic number mismatch')
+            }
+          } catch (error) {
+            console.error('Error validating WASM:', error)
+            throw error
+          }
         }
 
         if (typeof WebAssembly.instantiateStreaming !== 'undefined') {
           // Decompress the response before streaming to WebAssembly
-          const decompressedResponse = decompressGzip(r)
-          WebAssembly.instantiateStreaming(Promise.resolve(decompressedResponse), imports).then(
-            done
-          )
+          try {
+            const decompressedResponse = decompressGzip(r)
+            validateWasm(decompressedResponse)
+              .then((validatedResponse) => {
+                WebAssembly.instantiateStreaming(Promise.resolve(validatedResponse), imports)
+                  .then(done)
+                  .catch((error) => {
+                    console.error('WebAssembly.instantiateStreaming failed:', error)
+                    throw error
+                  })
+              })
+              .catch((error) => {
+                console.error('WASM validation failed:', error)
+                throw error
+              })
+          } catch (error) {
+            console.error('Decompression or validation failed:', error)
+            throw error
+          }
         } else {
           // For browsers that don't support instantiateStreaming
-          decompressGzip(r)
-            .arrayBuffer()
-            .then(function (buffer) {
-              WebAssembly.instantiate(buffer, imports).then(done)
-            })
+          try {
+            const decompressedResponse = decompressGzip(r)
+            validateWasm(decompressedResponse)
+              .then((validatedResponse) => {
+                validatedResponse
+                  .arrayBuffer()
+                  .then(function (buffer) {
+                    WebAssembly.instantiate(buffer, imports)
+                      .then(done)
+                      .catch((error) => {
+                        console.error('WebAssembly.instantiate failed:', error)
+                        throw error
+                      })
+                  })
+                  .catch((error) => {
+                    console.error('arrayBuffer conversion failed:', error)
+                    throw error
+                  })
+              })
+              .catch((error) => {
+                console.error('WASM validation failed:', error)
+                throw error
+              })
+          } catch (error) {
+            console.error('Decompression or validation failed:', error)
+            throw error
+          }
         }
         r = null
         return {}
