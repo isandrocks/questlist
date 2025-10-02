@@ -28,7 +28,7 @@ export default defineConfig({
       ext: '.gz',
       filter: /\.(js|wasm|pck|html)$/i,
       threshold: 20000000,
-      deleteOriginFile: true
+      deleteOriginFile: true,
     })
   ],
   resolve: {
