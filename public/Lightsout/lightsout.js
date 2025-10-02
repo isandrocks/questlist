@@ -16227,7 +16227,7 @@ const InternalConfig = function (initConfig) {
         }
 
         // Function to decompress gzipped response
-        function decompressGzip(response) {
+        async function decompressGzip(response) {
           console.log('Decompressing response for loadPath:', loadPath)
           console.log(
             'Response headers:',
@@ -16293,8 +16293,8 @@ const InternalConfig = function (initConfig) {
         if (typeof WebAssembly.instantiateStreaming !== 'undefined') {
           // Decompress the response before streaming to WebAssembly
           try {
-            const decompressedResponse = decompressGzip(r)
-            validateWasm(decompressedResponse)
+            decompressGzip(r)
+              .then((decompressedResponse) => validateWasm(decompressedResponse))
               .then((validatedResponse) => {
                 WebAssembly.instantiateStreaming(Promise.resolve(validatedResponse), imports)
                   .then(done)
@@ -16304,7 +16304,7 @@ const InternalConfig = function (initConfig) {
                   })
               })
               .catch((error) => {
-                console.error('WASM validation failed:', error)
+                console.error('Decompression or validation failed:', error)
                 throw error
               })
           } catch (error) {
@@ -16314,8 +16314,8 @@ const InternalConfig = function (initConfig) {
         } else {
           // For browsers that don't support instantiateStreaming
           try {
-            const decompressedResponse = decompressGzip(r)
-            validateWasm(decompressedResponse)
+            decompressGzip(r)
+              .then((decompressedResponse) => validateWasm(decompressedResponse))
               .then((validatedResponse) => {
                 validatedResponse
                   .arrayBuffer()
@@ -16333,7 +16333,7 @@ const InternalConfig = function (initConfig) {
                   })
               })
               .catch((error) => {
-                console.error('WASM validation failed:', error)
+                console.error('Decompression or validation failed:', error)
                 throw error
               })
           } catch (error) {
