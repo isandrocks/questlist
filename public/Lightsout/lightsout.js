@@ -16235,11 +16235,22 @@ const InternalConfig = function (initConfig) {
             response.headers.get('content-encoding')
           )
 
-          // Check if we're loading a .gz file or if response is gzipped
-          if (
-            loadPath.endsWith('.wasm.gz') ||
+          // Check if response has gzip magic number by reading the first few bytes
+          const clonedResponse = response.clone()
+          const buffer = await clonedResponse.arrayBuffer()
+          const bytes = new Uint8Array(buffer)
+
+          console.log(
+            'First 4 bytes of response:',
+            Array.from(bytes.slice(0, 4)).map((b) => '0x' + b.toString(16).padStart(2, '0'))
+          )
+
+          // Check for gzip magic number (0x1f, 0x8b) or content-encoding header
+          const isGzipped =
+            (bytes[0] === 0x1f && bytes[1] === 0x8b) ||
             response.headers.get('content-encoding') === 'gzip'
-          ) {
+
+          if (isGzipped) {
             console.log('Detected gzipped content, attempting decompression')
             // Use DecompressionStream if available (modern browsers)
             if (typeof DecompressionStream !== 'undefined') {
