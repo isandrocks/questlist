@@ -4,11 +4,10 @@
   --vt-c-white-soft: #f8f8f8;
   --vt-c-white-mute: #f2f2f2;
 
-
   --vt-c-black: #181818;
-  --vt-c-black-dark: #1A1A1A;
-  --vt-c-black-soft: #2D2D2D;
-  --vt-c-black-mute: #3F3F3F;
+  --vt-c-black-dark: #1a1a1a;
+  --vt-c-black-soft: #2d2d2d;
+  --vt-c-black-mute: #3f3f3f;
 
   --vt-c-indigo: #2c3e50;
 
@@ -25,135 +24,135 @@
 
 /* added custon colors */
 :root {
-  --isr-c-red: #F93422;
-  --isr-c-bg-red: #9C3F4D44;
+  --isr-c-red: #f93422;
+  --isr-c-bg-red: #9c3f4d44;
 }
 
 /* custom font */
 .zen-dots-regular {
-  font-family: "Zen Dots", sans-serif;
+  font-family: 'Zen Dots', sans-serif;
   font-weight: 400;
   font-style: normal;
 }
 
 .tomorrow-thin {
-  font-family: "Tomorrow", sans-serif;
+  font-family: 'Tomorrow', sans-serif;
   font-weight: 100;
   font-style: normal;
 }
 
 .tomorrow-extralight {
-  font-family: "Tomorrow", sans-serif;
+  font-family: 'Tomorrow', sans-serif;
   font-weight: 200;
   font-style: normal;
 }
 
 .tomorrow-light {
-  font-family: "Tomorrow", sans-serif;
+  font-family: 'Tomorrow', sans-serif;
   font-weight: 300;
   font-style: normal;
 }
 
 .tomorrow-regular {
-  font-family: "Tomorrow", sans-serif;
+  font-family: 'Tomorrow', sans-serif;
   font-weight: 400;
   font-style: normal;
 }
 
 .tomorrow-medium {
-  font-family: "Tomorrow", sans-serif;
+  font-family: 'Tomorrow', sans-serif;
   font-weight: 500;
   font-style: normal;
 }
 
 .tomorrow-semibold {
-  font-family: "Tomorrow", sans-serif;
+  font-family: 'Tomorrow', sans-serif;
   font-weight: 600;
   font-style: normal;
 }
 
 .tomorrow-bold {
-  font-family: "Tomorrow", sans-serif;
+  font-family: 'Tomorrow', sans-serif;
   font-weight: 700;
   font-style: normal;
 }
 
 .tomorrow-extrabold {
-  font-family: "Tomorrow", sans-serif;
+  font-family: 'Tomorrow', sans-serif;
   font-weight: 800;
   font-style: normal;
 }
 
 .tomorrow-black {
-  font-family: "Tomorrow", sans-serif;
+  font-family: 'Tomorrow', sans-serif;
   font-weight: 900;
   font-style: normal;
 }
 
 .tomorrow-thin-italic {
-  font-family: "Tomorrow", sans-serif;
+  font-family: 'Tomorrow', sans-serif;
   font-weight: 100;
   font-style: italic;
 }
 
 .tomorrow-extralight-italic {
-  font-family: "Tomorrow", sans-serif;
+  font-family: 'Tomorrow', sans-serif;
   font-weight: 200;
   font-style: italic;
 }
 
 .tomorrow-light-italic {
-  font-family: "Tomorrow", sans-serif;
+  font-family: 'Tomorrow', sans-serif;
   font-weight: 300;
   font-style: italic;
 }
 
 .tomorrow-regular-italic {
-  font-family: "Tomorrow", sans-serif;
+  font-family: 'Tomorrow', sans-serif;
   font-weight: 400;
   font-style: italic;
 }
 
 .tomorrow-medium-italic {
-  font-family: "Tomorrow", sans-serif;
+  font-family: 'Tomorrow', sans-serif;
   font-weight: 500;
   font-style: italic;
 }
 
 .tomorrow-semibold-italic {
-  font-family: "Tomorrow", sans-serif;
+  font-family: 'Tomorrow', sans-serif;
   font-weight: 600;
   font-style: italic;
 }
 
 .tomorrow-bold-italic {
-  font-family: "Tomorrow", sans-serif;
+  font-family: 'Tomorrow', sans-serif;
   font-weight: 700;
   font-style: italic;
 }
 
 .tomorrow-extrabold-italic {
-  font-family: "Tomorrow", sans-serif;
+  font-family: 'Tomorrow', sans-serif;
   font-weight: 800;
   font-style: italic;
 }
 
 .tomorrow-black-italic {
-  font-family: "Tomorrow", sans-serif;
+  font-family: 'Tomorrow', sans-serif;
   font-weight: 900;
   font-style: italic;
 }
 
 .sixtyfour-convergence-isr {
-  font-family: "Sixtyfour Convergence", sans-serif;
+  font-family: 'Sixtyfour Convergence', sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
   font-variation-settings:
-    "BLED" 5,
-    "SCAN" -40,
-    "XELA" -10,
-    "YELA" -10;
+    'BLED' 5,
+    'SCAN' -40,
+    'XELA' -10,
+    'YELA' -10;
 }
 
 /* semantic color variables for this project */
@@ -198,7 +197,7 @@ body {
   min-height: 100vh;
   color: var(--color-text);
   background: var(--color-background);
-  background-image: url("@/assets/cartoon1h.svg");
+  background-image: url('@/assets/cartoon1h.svg');
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -207,8 +206,8 @@ body {
     background-color 0.5s;
   line-height: 1.6;
   font-family:
-    "Tomorrow",
-    "Zen Dots",
+    'Tomorrow',
+    'Zen Dots',
     Inter,
     -apple-system,
     BlinkMacSystemFont,
@@ -228,5 +227,5 @@ body {
 }
 
 h1 {
-  font-family: "Zen Dots";
+  font-family: 'Zen Dots';
 }

@@ -1,39 +1,36 @@
 <template>
   <article class="prose prose-lg max-w-3xl mx-auto px-4 py-8">
-    <h1 class="text-white text-center text-xl lg:text-3xl font-extrabold
-          [text-shadow:_-1px_-1px_0_black,1px_-1px_0_black,-1px_1px_0_black,1px_1px_0_black] pb-3">Lights Out Puzzle – A Start to Learing Godot</h1>
-          <img
-        src="@/assets/projectImgs/evKTlbYB.png"
-        class="p-1 object-contain" />
+    <h1
+      class="text-white text-center text-xl lg:text-3xl font-extrabold
+        [text-shadow:_-1px_-1px_0_black,1px_-1px_0_black,-1px_1px_0_black,1px_1px_0_black] pb-3">
+      Lights Out Puzzle – A Start to Learing Godot
+    </h1>
+    <img
+      src="@/assets/projectImgs/evKTlbYB.png"
+      class="p-1 object-contain" />
     <p>
-      I’ve always liked <span
-          class="text-[--isr-c-red] cursor-pointer"
-          >Lights Out</span> puzzles. They’ve got a nice balance of logic and
-      trial-and-error, and I figured building one would be a good way to learn the basics of the
-      Godot game engine. So I made a simple 5x5 version of the game, along with all custom-made
-      assets and shaders. everything released under CC0.
+      I’ve always liked <span class="text-[--isr-c-red] cursor-pointer">Lights Out</span> puzzles.
+      They’ve got a nice balance of logic and trial-and-error, and I figured building one would be a
+      good way to learn the basics of the Godot game engine. So I made a simple 5x5 version of the
+      game, along with all custom-made assets and shaders. everything released under CC0.
     </p>
 
     <p>
-      You can try the game on my site (click game in the top nav, or just click any of the red <span
-          class="text-[--isr-c-red] cursor-pointer"
-          >Lights Out</span> on this page), and
-      it's also available in the official Godot Asset Library under the name
-      <strong><span
-          class="text-[--isr-c-red] cursor-pointer font-bold"
-          >Lights Out</span> Puzzel</strong> in the Demos section.
+      You can try the game on my site (click game in the top nav, or just click any of the red
+      <span class="text-[--isr-c-red] cursor-pointer">Lights Out</span> on this page), and it's also
+      available in the official Godot Asset Library under the name
+      <strong
+        ><span class="text-[--isr-c-red] cursor-pointer font-bold">Lights Out</span> Puzzel</strong
+      >
+      in the Demos section.
     </p>
 
-    <h2>What’s <span
-          class="text-[--isr-c-red] cursor-pointer"
-          >Lights Out</span>?</h2>
+    <h2>What’s <span class="text-[--isr-c-red] cursor-pointer">Lights Out</span>?</h2>
     <p>
-      <span
-          class="text-[--isr-c-red] cursor-pointer"
-          >Lights Out</span> was originally released by Tiger Electronics in 1995. The idea is simple:
-      you start with a 5x5 grid of lights, some of them lit. Your goal is to turn them all off. The
-      twist is that toggling any light also toggles its four neighbors, so every move has ripple
-      effects.
+      <span class="text-[--isr-c-red] cursor-pointer">Lights Out</span> was originally released by
+      Tiger Electronics in 1995. The idea is simple: you start with a 5x5 grid of lights, some of
+      them lit. Your goal is to turn them all off. The twist is that toggling any light also toggles
+      its four neighbors, so every move has ripple effects.
     </p>
     <p>
       It’s one of those games where the rules are simple but the strategies run deep. That’s what
@@ -79,9 +76,9 @@
     </p>
     <p>
       Another highlight was the Godot dev community. I ran into a couple weird issues and had
-      questions, and people were quick to help. It felt low-pressure and beginner-friendly,
-      probably because the engine still has a tight-knit, open vibe. You don’t need to dig through
-      years of outdated Stack Overflow posts to get answers.
+      questions, and people were quick to help. It felt low-pressure and beginner-friendly, probably
+      because the engine still has a tight-knit, open vibe. You don’t need to dig through years of
+      outdated Stack Overflow posts to get answers.
     </p>
 
     <h2>What’s Next?</h2>
@@ -103,12 +100,10 @@
 </template>
 
 <script setup>
-import loShaderCanvas from '../loShaderCanvas.vue';
-
+import loShaderCanvas from '../loShaderCanvas.vue'
 </script>
 
 <style scoped>
-
 p {
   padding-bottom: 0.75rem;
 }
@@ -118,5 +113,4 @@ h2 {
   padding-bottom: 0.5rem;
   text-decoration: underline;
 }
-
 </style>

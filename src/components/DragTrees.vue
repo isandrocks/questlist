@@ -364,8 +364,8 @@ const loadJson = (event: Event) => {
   background-color: transparent;
 }
 .baseInput::placeholder {
-    font-size: 0.625rem;
-  }
+  font-size: 0.625rem;
+}
 
 @media (hover: hover) {
   .tree-icon:hover {
