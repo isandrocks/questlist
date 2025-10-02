@@ -1,15 +1,12 @@
 <script setup>
-import ArtPaint from './blog/cards/artPaint.vue'
 import CausewayTHTc from './blog/cards/causewayTHTc.vue'
 import CodeSite from './blog/cards/codeSite.vue'
-import FabCards from './blog/cards/fabCards.vue'
-import FabLaser from './blog/cards/fabLaser.vue'
 import LightsoutCard from './blog/cards/lightsoutCard.vue'
 import LLMInterface from './blog/cards/LLMInterface.vue'
 import { ref, onMounted, nextTick } from 'vue'
 
 
-const cards = ref([CausewayTHTc, LightsoutCard, ArtPaint, CodeSite, FabCards, FabLaser, LLMInterface])
+const cards = ref([CausewayTHTc, LightsoutCard, CodeSite, LLMInterface])
 
 const masonry = ref(null)
 const masonryHeight = ref(0)
