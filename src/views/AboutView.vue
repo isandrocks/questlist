@@ -45,7 +45,7 @@ import LogoConsave from '../components/icons/LogoConsave.vue'
         feel free to reach out!
       </h3>
       <h3 class="self-center">
-        Email: <a href="mailto:consavecustoms@gmail.com" class="text-[--isr-c-red]">consavecustoms@gmail.com</a>
+        Email: <a href="mailto:support@con-save.com" class="text-[--isr-c-red]">support@con-save.com</a>
       </h3>
     </div>
     <LogoConsave class="self-center max-w-[100%]" />
