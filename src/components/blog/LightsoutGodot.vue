@@ -9,28 +9,47 @@
       src="@/assets/projectImgs/evKTlbYB.png"
       class="p-1 object-contain" />
     <p>
-      I’ve always liked <span class="text-[--isr-c-red] cursor-pointer">Lights Out</span> puzzles.
-      They’ve got a nice balance of logic and trial-and-error, and I figured building one would be a
-      good way to learn the basics of the Godot game engine. So I made a simple 5x5 version of the
-      game, along with all custom-made assets and shaders. everything released under CC0.
+      I’ve always liked
+      <span
+        class="text-[--isr-c-red] cursor-pointer"
+        @click="goToGame"
+        >Lights Out</span
+      >
+      puzzles. They’ve got a nice balance of logic and trial-and-error, and I figured building one
+      would be a good way to learn the basics of the Godot game engine. So I made a simple 5x5
+      version of the game, along with all custom-made assets and shaders. everything released under
+      CC0.
     </p>
 
     <p>
       You can try the game on my site (click game in the top nav, or just click any of the red
-      <span class="text-[--isr-c-red] cursor-pointer">Lights Out</span> on this page), and it's also
-      available in the official Godot Asset Library under the name
+      <span
+        class="text-[--isr-c-red] cursor-pointer"
+        @click="goToGame"
+        >Lights Out</span
+      >
+      on this page), and it's also available in the official Godot Asset Library under the name
       <strong
-        ><span class="text-[--isr-c-red] cursor-pointer font-bold">Lights Out</span> Puzzel</strong
+        ><span
+          class="text-[--isr-c-red] cursor-pointer font-bold"
+          @click="goToGame"
+          >Lights Out</span
+        >
+        Puzzel</strong
       >
       in the Demos section.
     </p>
 
     <h2>What’s <span class="text-[--isr-c-red] cursor-pointer">Lights Out</span>?</h2>
     <p>
-      <span class="text-[--isr-c-red] cursor-pointer">Lights Out</span> was originally released by
-      Tiger Electronics in 1995. The idea is simple: you start with a 5x5 grid of lights, some of
-      them lit. Your goal is to turn them all off. The twist is that toggling any light also toggles
-      its four neighbors, so every move has ripple effects.
+      <span
+        class="text-[--isr-c-red] cursor-pointer"
+        @click="goToGame"
+        >Lights Out</span
+      >
+      was originally released by Tiger Electronics in 1995. The idea is simple: you start with a 5x5
+      grid of lights, some of them lit. Your goal is to turn them all off. The twist is that
+      toggling any light also toggles its four neighbors, so every move has ripple effects.
     </p>
     <p>
       It’s one of those games where the rules are simple but the strategies run deep. That’s what
@@ -101,6 +120,13 @@
 
 <script setup>
 import loShaderCanvas from '../loShaderCanvas.vue'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+
+const goToGame = () => {
+  router.push('/game')
+}
 </script>
 
 <style scoped>

@@ -51,6 +51,7 @@ const isOpen = ref(false)
           <RouterLink to="/">Home</RouterLink>
           <RouterLink to="/list">List</RouterLink>
           <RouterLink to="/about">About</RouterLink>
+          <RouterLink to="/game">Game</RouterLink>
         </nav>
 
         <!-- Burger Icon -->
