@@ -58,6 +58,12 @@ Uses `layoutMasonry()` function with absolute positioning and column height trac
 
 - **Static hosting**: Godot games in `public/Lightsout/` directory
 - **Iframe embedding**: `GameView.vue` embeds games with CORP headers in vite config
+- **WASM Compression**:
+  - Production builds use compressed `.wasm.gz` files for reduced download size
+  - Client-side automatic decompression using browser's `DecompressionStream` API
+  - Build process creates `.wasm.gz` from `.wasm` - only compressed files are deployed
+  - Uncompressed `.wasm` files are never uploaded to production
+  - Engine loading code in `lightsout.js` handles decompression transparently
 
 ### Image Zoom Modal System
 
