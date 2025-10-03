@@ -4,9 +4,17 @@ import CodeSite from './blog/cards/codeSite.vue'
 import LightsoutCard from './blog/cards/lightsoutCard.vue'
 import LLMInterface from './blog/cards/LLMInterface.vue'
 import StringArtCard from './blog/cards/StringArtCard.vue'
+import Skyline20KCard from './blog/cards/Skyline20KCard.vue'
 import { ref, onMounted, nextTick } from 'vue'
 
-const cards = ref([CausewayTHTc, LightsoutCard, CodeSite, LLMInterface, StringArtCard])
+const cards = ref([
+  CausewayTHTc,
+  LightsoutCard,
+  CodeSite,
+  LLMInterface,
+  StringArtCard,
+  Skyline20KCard
+])
 
 const masonry = ref(null)
 const masonryHeight = ref(0)

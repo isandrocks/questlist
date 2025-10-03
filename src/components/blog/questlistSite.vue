@@ -97,8 +97,8 @@ const images = [
         rel="noopener noreferrer"
         ><span class="text-[--isr-c-red] cursor-pointer">portfolio site</span></a
       >
-      was both a learning journey and the foundation for Con-Save Customs! This modern Vue 3 
-      application serves dual purposes: showcasing my technical projects and establishing the 
+      was both a learning journey and the foundation for Con-Save Customs! This modern Vue 3
+      application serves dual purposes: showcasing my technical projects and establishing the
       digital presence for my custom electronics company.
     </p>
 
@@ -107,39 +107,44 @@ const images = [
         href="https://github.com/isandrocks/questlist"
         target="_blank"
         rel="noopener noreferrer"
-        class="bg-[--isr-c-red] hover:bg-red-600 text-white font-bold py-3 px-8 rounded-lg transition-colors text-lg">
+        class="bg-[--isr-c-red] hover:bg-red-600 text-white font-bold py-3 px-8 rounded-lg transition-colors
+          text-lg">
         🔗 View GitHub Repository
       </a>
     </div>
 
     <h2 class="text-[--isr-c-red] font-bold text-xl mb-4 mt-8">🏗️ Technical Architecture</h2>
-    
+
     <div class="grid md:grid-cols-2 gap-4 mb-6">
       <div class="bg-gray-800/20 p-4 rounded-lg">
         <h3 class="text-[--isr-c-red] font-semibold mb-2">⚡ Vue 3 Composition API</h3>
         <p class="text-sm">
-          Modern &lt;script setup&gt; syntax for clean, reactive components with excellent TypeScript integration and performance.
+          Modern &lt;script setup&gt; syntax for clean, reactive components with excellent
+          TypeScript integration and performance.
         </p>
       </div>
-      
+
       <div class="bg-gray-800/20 p-4 rounded-lg">
         <h3 class="text-[--isr-c-red] font-semibold mb-2">🎨 Element Plus + Tailwind</h3>
         <p class="text-sm">
-          Professional UI components with utility-first CSS for rapid prototyping and consistent design.
+          Professional UI components with utility-first CSS for rapid prototyping and consistent
+          design.
         </p>
       </div>
-      
+
       <div class="bg-gray-800/20 p-4 rounded-lg">
         <h3 class="text-[--isr-c-red] font-semibold mb-2">📱 Custom Masonry Layout</h3>
         <p class="text-sm">
-          Hand-built responsive grid that adapts: 1 column (mobile), 2 columns (tablet), 3 columns (desktop).
+          Hand-built responsive grid that adapts: 1 column (mobile), 2 columns (tablet), 3 columns
+          (desktop).
         </p>
       </div>
-      
+
       <div class="bg-gray-800/20 p-4 rounded-lg">
         <h3 class="text-[--isr-c-red] font-semibold mb-2">🎮 WebAssembly Integration</h3>
         <p class="text-sm">
-          Embedded Godot games with CORS configuration and iframe optimization for seamless gameplay.
+          Embedded Godot games with CORS configuration and iframe optimization for seamless
+          gameplay.
         </p>
       </div>
     </div>
@@ -149,8 +154,8 @@ const images = [
     <div class="bg-blue-900/20 border-l-4 border-blue-500 p-4 mb-6">
       <h3 class="text-blue-300 font-semibold mb-2">🧩 Vue Component Blog System</h3>
       <p class="text-sm">
-        Instead of markdown, each blog post is a Vue component allowing rich interactivity, 
-        dynamic imports, and seamless integration with the site's design system.
+        Instead of markdown, each blog post is a Vue component allowing rich interactivity, dynamic
+        imports, and seamless integration with the site's design system.
       </p>
     </div>
 
@@ -158,10 +163,11 @@ const images = [
       <div class="bg-gray-800/20 p-4 rounded-lg">
         <h3 class="text-[--isr-c-red] font-semibold mb-2">🔄 Dynamic Routing</h3>
         <p class="text-sm">
-          Smart component loading with <code>defineAsyncComponent</code> and security whitelist for optimized bundle sizes.
+          Smart component loading with <code>defineAsyncComponent</code> and security whitelist for
+          optimized bundle sizes.
         </p>
       </div>
-      
+
       <div class="bg-gray-800/20 p-4 rounded-lg">
         <h3 class="text-[--isr-c-red] font-semibold mb-2">🔍 Image Zoom System</h3>
         <p class="text-sm">
@@ -176,14 +182,16 @@ const images = [
       <div class="bg-gray-800/20 p-4 rounded-lg">
         <h3 class="text-[--isr-c-red] font-semibold mb-2">🚀 Build Optimization</h3>
         <p class="text-sm">
-          Custom Vite configuration removes asset hashes for consistent file naming and enables CORS for game embedding.
+          Custom Vite configuration removes asset hashes for consistent file naming and enables CORS
+          for game embedding.
         </p>
       </div>
-      
+
       <div class="bg-gray-800/20 p-4 rounded-lg">
         <h3 class="text-[--isr-c-red] font-semibold mb-2">📐 Custom Breakpoints</h3>
         <p class="text-sm">
-          Uses 1081px instead of standard 1024px breakpoint to better accommodate modern ultrawide displays.
+          Uses 1081px instead of standard 1024px breakpoint to better accommodate modern ultrawide
+          displays.
         </p>
       </div>
     </div>
@@ -193,17 +201,18 @@ const images = [
     <div class="bg-green-900/20 border-l-4 border-green-500 p-4 mb-6">
       <h3 class="text-green-300 font-semibold mb-2">🎲 The Con-Save Connection</h3>
       <p class="text-sm">
-        "Con-Save Customs" references D&D's Constitution saving throw - a perfect metaphor for building 
-        resilient, custom solutions. The brand bridges technical precision with creative design.
+        "Con-Save Customs" references D&D's Constitution saving throw - a perfect metaphor for
+        building resilient, custom solutions. The brand bridges technical precision with creative
+        design.
       </p>
     </div>
 
     <div class="bg-gray-800/20 p-4 rounded-lg mb-6">
       <h3 class="text-[--isr-c-red] font-semibold mb-2">🔮 Evolution Path</h3>
       <p class="text-sm">
-        This portfolio foundation is designed to scale into a full e-commerce platform for custom keyboards, 
-        electronics, and controllers. The modular Vue architecture makes adding features like product catalogs, 
-        shopping carts, and order management seamless as the business grows.
+        This portfolio foundation is designed to scale into a full e-commerce platform for custom
+        keyboards, electronics, and controllers. The modular Vue architecture makes adding features
+        like product catalogs, shopping carts, and order management seamless as the business grows.
       </p>
     </div>
 
@@ -225,9 +234,7 @@ const images = [
           🏠 Explore Portfolio
         </button>
       </div>
-      <p class="text-sm mt-2 text-gray-400">
-        Open source • Contributions welcome
-      </p>
+      <p class="text-sm mt-2 text-gray-400">Open source • Contributions welcome</p>
     </div>
   </article>
   <div
@@ -260,6 +267,6 @@ code {
   padding: 2px 4px;
   border-radius: 4px;
   font-family: 'Courier New', monospace;
-  color: #F93422;
+  color: #f93422;
 }
 </style>

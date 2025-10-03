@@ -15,7 +15,8 @@ const allowedSlugs = [
   'questlistSite',
   'sprayArt1',
   'geminiOxide',
-  'stringArt'
+  'stringArt',
+  'skyLine20k'
 ]
 
 // Sanitize and validate slug

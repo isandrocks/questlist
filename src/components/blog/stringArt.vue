@@ -73,7 +73,8 @@ const images = [
         :key="index">
         <img
           :src="image"
-          class="object-contain w-full h-full top-0 rounded-s shadow-md cursor-zoom-in hover:scale-102 transition-transform"
+          class="object-contain w-full h-full top-0 rounded-s shadow-md cursor-zoom-in hover:scale-102
+            transition-transform"
           @click="openImage(image)" />
       </el-carousel-item>
     </el-carousel>
