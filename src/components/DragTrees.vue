@@ -38,8 +38,25 @@ const resetTextField = () => {
   textFieldValue.value = ''
 }
 
+const sanitizeText = (text: string): string => {
+  if (typeof text !== 'string') return ''
+
+  return text
+    .replace(/<[^>]*>/g, '') // Remove HTML tags
+    .replace(/[<>'"&]/g, '') // Remove potentially dangerous characters
+    .substring(0, 200) // Limit length
+    .trim()
+}
+
 const createNewChild = (labeldata: string) => {
-  return { id: Date.now(), editable: true, completed: false, label: labeldata, children: [] }
+  const sanitizedLabel = sanitizeText(labeldata)
+  return {
+    id: Date.now(),
+    editable: true,
+    completed: false,
+    label: sanitizedLabel,
+    children: []
+  }
 }
 
 // Drag and Drop handlers
@@ -130,6 +147,8 @@ const remove = (node: Node, data: Tree) => {
 
 const toggleEdit = (node: Node) => {
   if (node.data.editable) {
+    // Sanitize the label before saving
+    node.data.label = sanitizeText(node.data.label)
     node.data.editable = false
     checkEditable()
     dataSource.value = [...dataSource.value]
@@ -209,28 +228,129 @@ const downloadJson = () => {
   URL.revokeObjectURL(url)
 }
 
+const validateTreeNode = (node) => {
+  // Validate node structure and sanitize content
+  if (!node || typeof node !== 'object') {
+    return null
+  }
+
+  const sanitizedNode = {
+    id: typeof node.id === 'number' ? node.id : Date.now(),
+    editable: typeof node.editable === 'boolean' ? node.editable : false,
+    completed: typeof node.completed === 'boolean' ? node.completed : false,
+    label: '',
+    children: []
+  }
+
+  // Sanitize label - remove HTML tags and limit length
+  if (typeof node.label === 'string') {
+    sanitizedNode.label = node.label
+      .replace(/<[^>]*>/g, '') // Remove HTML tags
+      .replace(/[<>'"&]/g, '') // Remove potentially dangerous characters
+      .substring(0, 200) // Limit length
+      .trim()
+  }
+
+  // Recursively validate children
+  if (Array.isArray(node.children)) {
+    sanitizedNode.children = node.children
+      .map(validateTreeNode)
+      .filter((child) => child !== null)
+      .slice(0, 50) // Limit number of children to prevent DoS
+  }
+
+  return sanitizedNode
+}
+
+const validateTreeData = (data) => {
+  if (!Array.isArray(data)) {
+    throw new Error('Data must be an array')
+  }
+
+  if (data.length > 100) {
+    throw new Error('Too many root nodes (max 100)')
+  }
+
+  return data.map(validateTreeNode).filter((node) => node !== null)
+}
+
 const loadJson = (event: Event) => {
   const input = event.target as HTMLInputElement
   const file = input.files ? input.files[0] : null
+
   if (!file) return
+
+  // Check file size (max 1MB)
+  if (file.size > 1024 * 1024) {
+    ElMessage({
+      type: 'error',
+      message: 'File too large (max 1MB)'
+    })
+    input.value = '' // Clear the input
+    return
+  }
+
+  // Check file type
+  if (file.type !== 'application/json' && !file.name.endsWith('.json')) {
+    ElMessage({
+      type: 'error',
+      message: 'Please select a valid JSON file'
+    })
+    input.value = '' // Clear the input
+    return
+  }
 
   const reader = new FileReader()
   reader.onload = (e) => {
     const result = e.target?.result
     if (typeof result === 'string') {
       try {
+        // Parse JSON with size limit check
+        if (result.length > 500000) {
+          // 500KB text limit
+          throw new Error('File content too large')
+        }
+
         const jsonData = JSON.parse(result)
-        dataSource.value = jsonData
+
+        // Validate and sanitize the data
+        const validatedData = validateTreeData(jsonData)
+
+        dataSource.value = validatedData
         dataSource.value = [...dataSource.value]
+        saveDataSource()
+
+        ElMessage({
+          type: 'success',
+          message: 'File loaded successfully'
+        })
       } catch (error) {
         console.error('Invalid JSON file', error)
-        alert('Error loading file: Invalid JSON')
+        ElMessage({
+          type: 'error',
+          message: `Error loading file: ${error.message || 'Invalid JSON'}`
+        })
       }
     } else {
       console.error('FileReader result is not a string')
-      alert('Error loading file: FileReader result is not a string')
+      ElMessage({
+        type: 'error',
+        message: 'Error loading file: Invalid file format'
+      })
     }
+
+    // Always clear the input after processing
+    input.value = ''
   }
+
+  reader.onerror = () => {
+    ElMessage({
+      type: 'error',
+      message: 'Error reading file'
+    })
+    input.value = ''
+  }
+
   reader.readAsText(file)
 }
 </script>
@@ -364,8 +484,8 @@ const loadJson = (event: Event) => {
   background-color: transparent;
 }
 .baseInput::placeholder {
-    font-size: 0.625rem;
-  }
+  font-size: 0.625rem;
+}
 
 @media (hover: hover) {
   .tree-icon:hover {

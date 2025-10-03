@@ -5,13 +5,9 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
 @media (min-width: 1081px) {
   body {
     display: flex;
     place-items: center;
   }
-    
 }
-

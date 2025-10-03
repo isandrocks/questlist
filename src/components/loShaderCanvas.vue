@@ -12,7 +12,6 @@ const canvas = ref(null)
 watch(canvas, (el) => {
   if (!el) return
 
-
   const gl = el.getContext('webgl')
   if (!gl) {
     console.error('WebGL not supported')

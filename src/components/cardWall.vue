@@ -29,13 +29,13 @@ function updateColumnCount() {
 onMounted(async () => {
   await nextTick()
   updateColumnCount()
-  
+
   // Run initial layout after a slight delay to allow components to render
   setTimeout(() => {
     layoutMasonry()
     setTimeout(layoutMasonry, 300)
   }, 100)
-  
+
   window.addEventListener('load', layoutMasonry)
   window.addEventListener('resize', () => {
     updateColumnCount()
@@ -45,59 +45,57 @@ onMounted(async () => {
 
 function layoutMasonry() {
   if (!masonry.value) return
-  
+
   const masonryEl = masonry.value
   const cardEls = masonryEl.querySelectorAll('.card-item')
   const containerWidth = masonryEl.offsetWidth
   const columnCount = Math.floor(100 / columnWPercent.value)
   const columnWidth = containerWidth / columnCount
-  
+
   // Only proceed if we have cards with proper dimensions
   if (cardEls.length === 0 || !cardEls[0].offsetHeight) {
     // Try again in a moment if cards aren't ready
     setTimeout(layoutMasonry, 100)
     return
   }
-  
+
   // Initialize column heights
   const columnHeights = Array(columnCount).fill(0)
-  
+
   // Position each card
   cardEls.forEach((cardEl) => {
     // Find the shortest column
     const shortestColumn = columnHeights.indexOf(Math.min(...columnHeights))
-    
+
     // Calculate positions
     const leftPosition = shortestColumn * columnWidth
     const topPosition = columnHeights[shortestColumn]
-    
+
     // Apply position to the card
     cardEl.style.position = 'absolute'
     cardEl.style.left = `${leftPosition}px`
     cardEl.style.top = `${topPosition}px`
     cardEl.style.width = `${columnWidth - 16}px` // Subtract gap
-    
+
     // Update column height
     columnHeights[shortestColumn] += cardEl.offsetHeight + 16 // Add gap
   })
-  
+
   // Update the container height to fit all cards
   masonryHeight.value = Math.max(...columnHeights)
 }
 </script>
 
 <template>
-  <div 
-    ref="masonry" 
-    class="masonry-container" 
-    :style="{ height: `${masonryHeight}px`, position: 'relative' }"
-  >
-    <component 
-      v-for="(card, index) in cards" 
+  <div
+    ref="masonry"
+    class="masonry-container"
+    :style="{ height: `${masonryHeight}px`, position: 'relative' }">
+    <component
+      v-for="(card, index) in cards"
       :key="index"
       :is="card"
-      class="card-item"
-    />
+      class="card-item" />
   </div>
 </template>
 
@@ -110,7 +108,6 @@ function layoutMasonry() {
 .card-item {
   padding: 8px;
   box-sizing: border-box;
-  
 }
 
 .card-item:hover {
