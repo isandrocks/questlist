@@ -1,5 +1,5 @@
 <script setup>
-import cardWall from '../components/cardWall.vue';
+import cardWall from '../components/cardWall.vue'
 </script>
 
 <template>
