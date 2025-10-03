@@ -77,7 +77,8 @@ const images = [
         :key="index">
         <img
           :src="image"
-          class="object-contain w-full h-full top-0 rounded-s shadow-md cursor-zoom-in hover:scale-102 transition-transform"
+          class="object-contain w-full h-full top-0 rounded-s shadow-md cursor-zoom-in hover:scale-102
+            transition-transform"
           @click="openImage(image)" />
       </el-carousel-item>
     </el-carousel>
@@ -99,36 +100,39 @@ const images = [
         href="https://github.com/isandrocks/Causeway_THT"
         target="_blank"
         rel="noopener noreferrer"
-        ><span class="text-[--isr-c-red] cursor-pointer">DIY kit</span></a>! 
-      This 69-key (nice) ortholinear keyboard is assembled entirely with through-hole components, 
-      including a sideways USB Type-C connector. Built on the ATmega32A MCU running QMK firmware, 
+        ><span class="text-[--isr-c-red] cursor-pointer">DIY kit</span></a
+      >! This 69-key (nice) ortholinear keyboard is assembled entirely with through-hole components,
+      including a sideways USB Type-C connector. Built on the ATmega32A MCU running QMK firmware,
       it's a copy of the Boardwalk Ortho 5x14 layout with custom configurations.
     </p>
 
     <h2 class="text-[--isr-c-red] font-bold text-xl mb-4 mt-8">🚀 Key Features</h2>
-    
+
     <div class="grid md:grid-cols-2 gap-4 mb-6">
       <div class="bg-gray-800/20 p-4 rounded-lg">
         <h3 class="text-[--isr-c-red] font-semibold mb-2">⌨️ 69-Key Ortholinear Layout</h3>
         <p class="text-sm">
-          5×14 grid layout based on the Boardwalk design, optimized for touch typing and programming workflows.
+          5×14 grid layout based on the Boardwalk design, optimized for touch typing and programming
+          workflows.
         </p>
       </div>
-      
+
       <div class="bg-gray-800/20 p-4 rounded-lg">
         <h3 class="text-[--isr-c-red] font-semibold mb-2">🔧 Through-Hole Only</h3>
         <p class="text-sm">
-          Built entirely with through-hole components for easy hand-soldering and component accessibility.
+          Built entirely with through-hole components for easy hand-soldering and component
+          accessibility.
         </p>
       </div>
-      
+
       <div class="bg-gray-800/20 p-4 rounded-lg">
         <h3 class="text-[--isr-c-red] font-semibold mb-2">🔌 Sideways USB-C</h3>
         <p class="text-sm">
-          Unique sideways USB-C connector placement for a distinctive aesthetic and practical cable management.
+          Unique sideways USB-C connector placement for a distinctive aesthetic and practical cable
+          management.
         </p>
       </div>
-      
+
       <div class="bg-gray-800/20 p-4 rounded-lg">
         <h3 class="text-[--isr-c-red] font-semibold mb-2">⚙️ QMK Powered</h3>
         <p class="text-sm">
@@ -142,7 +146,8 @@ const images = [
     <div class="bg-gray-800/20 p-4 rounded-lg mb-6">
       <h3 class="text-[--isr-c-red] font-semibold mb-2">🌊 The Great Wave Silkscreen</h3>
       <p class="mb-2">
-        Features a large silkscreen of "The Great Wave off Kanagawa" by Katsushika Hokusai covering the entire PCB:
+        Features a large silkscreen of "The Great Wave off Kanagawa" by Katsushika Hokusai covering
+        the entire PCB:
       </p>
       <ul class="list-disc pl-6 space-y-1 text-sm">
         <li>Artistic PCB design that doubles as functional electronics</li>
@@ -157,24 +162,31 @@ const images = [
       <div class="bg-gray-800/20 p-4 rounded-lg">
         <h3 class="text-[--isr-c-red] font-semibold mb-2">Why is the USB-C port on its side?</h3>
         <p class="text-sm">
-          When browsing USB-C THT components on Digi-Key, I found this unique connector with sideways pins and thought "Huh, that's neat!" 
-          *adds to cart* - Sometimes the best design decisions come from curiosity about interesting components.
+          When browsing USB-C THT components on Digi-Key, I found this unique connector with
+          sideways pins and thought "Huh, that's neat!" *adds to cart* - Sometimes the best design
+          decisions come from curiosity about interesting components.
         </p>
       </div>
 
       <div class="bg-gray-800/20 p-4 rounded-lg">
-        <h3 class="text-[--isr-c-red] font-semibold mb-2">The Great Wave is blocking everything in KiCad!</h3>
+        <h3 class="text-[--isr-c-red] font-semibold mb-2">
+          The Great Wave is blocking everything in KiCad!
+        </h3>
         <p class="text-sm">
-          When looking at other designers' PCBs, mine felt bland, so I added The Great Wave SVG to be silk-screened across the entire board. 
-          In KiCad, simply turn off the F.Silkscreen layer visibility to see the underlying components and traces.
+          When looking at other designers' PCBs, mine felt bland, so I added The Great Wave SVG to
+          be silk-screened across the entire board. In KiCad, simply turn off the F.Silkscreen layer
+          visibility to see the underlying components and traces.
         </p>
       </div>
 
       <div class="bg-gray-800/20 p-4 rounded-lg">
-        <h3 class="text-[--isr-c-red] font-semibold mb-2">What about the Case.step and acrylic.dxf files?</h3>
+        <h3 class="text-[--isr-c-red] font-semibold mb-2">
+          What about the Case.step and acrylic.dxf files?
+        </h3>
         <p class="text-sm">
-          I researched CNC aluminum case manufacturing with anodizing, but it was prohibitively expensive. 
-          Instead, I 3D printed the case and had an acrylic component cover made - much more budget-friendly while still protecting the electronics.
+          I researched CNC aluminum case manufacturing with anodizing, but it was prohibitively
+          expensive. Instead, I 3D printed the case and had an acrylic component cover made - much
+          more budget-friendly while still protecting the electronics.
         </p>
       </div>
     </div>
@@ -187,7 +199,8 @@ const images = [
         href="https://github.com/isandrocks/Causeway_THT"
         target="_blank"
         rel="noopener noreferrer"
-        class="inline-block bg-[--isr-c-red] hover:bg-red-600 text-white font-bold py-2 px-6 rounded-lg transition-colors">
+        class="inline-block bg-[--isr-c-red] hover:bg-red-600 text-white font-bold py-2 px-6 rounded-lg
+          transition-colors">
         View on GitHub →
       </a>
     </div>
