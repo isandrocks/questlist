@@ -61,7 +61,7 @@ const images = [
             >Causeway_THT</span
           ></a
         >
-        ortholinear 5x14 keyboard
+        Ortholinear 5x14 Keyboard
       </h1>
     </div>
 
@@ -77,47 +77,120 @@ const images = [
         :key="index">
         <img
           :src="image"
-          class="object-contain w-full top-0 rounded-s shadow-md cursor-zoom-in hover:scale-102 transition-transform"
+          class="object-contain w-full h-full top-0 rounded-s shadow-md cursor-zoom-in hover:scale-102 transition-transform"
           @click="openImage(image)" />
       </el-carousel-item>
     </el-carousel>
 
+    <div class="tech-stack text-center p-4 bg-gray-800/30 rounded-lg my-6">
+      <h3 class="text-[--isr-c-red] font-bold mb-2">Built with ⌨️</h3>
+      <div class="flex flex-wrap justify-center gap-2 text-sm">
+        <span class="bg-green-500/20 px-2 py-1 rounded">ATmega32A</span>
+        <span class="bg-blue-500/20 px-2 py-1 rounded">QMK Firmware</span>
+        <span class="bg-purple-500/20 px-2 py-1 rounded">KiCad</span>
+        <span class="bg-yellow-500/20 px-2 py-1 rounded">USB-C</span>
+        <span class="bg-orange-500/20 px-2 py-1 rounded">Through-Hole</span>
+      </div>
+    </div>
+
     <p class="text-center p-2 self-center">
-      My first keyboard
+      My first custom mechanical keyboard
       <a
         href="https://github.com/isandrocks/Causeway_THT"
         target="_blank"
         rel="noopener noreferrer"
-        ><span class="text-[--isr-c-red] cursor-pointer">DIY</span></a
-      >
-      kit!<br /><br />
-      This is my custom-made 69 key (nice) keyboard assembled with only through hole components,
-      including usb type-c.<br />
-      This board is useing the ATmega32A MCU and running QMK Custom firmware.<br />
-      The basic layout of the board is a copy of the Boardwalk Ortho 5x14 with some extra
-      configurations that can be swapped out.
+        ><span class="text-[--isr-c-red] cursor-pointer">DIY kit</span></a>! 
+      This 69-key (nice) ortholinear keyboard is assembled entirely with through-hole components, 
+      including a sideways USB Type-C connector. Built on the ATmega32A MCU running QMK firmware, 
+      it's a copy of the Boardwalk Ortho 5x14 layout with custom configurations.
     </p>
 
-    <p class="text-center p-2 self-center">
-      <b>Some frequently asked question I got.</b><br /><br />
+    <h2 class="text-[--isr-c-red] font-bold text-xl mb-4 mt-8">🚀 Key Features</h2>
+    
+    <div class="grid md:grid-cols-2 gap-4 mb-6">
+      <div class="bg-gray-800/20 p-4 rounded-lg">
+        <h3 class="text-[--isr-c-red] font-semibold mb-2">⌨️ 69-Key Ortholinear Layout</h3>
+        <p class="text-sm">
+          5×14 grid layout based on the Boardwalk design, optimized for touch typing and programming workflows.
+        </p>
+      </div>
+      
+      <div class="bg-gray-800/20 p-4 rounded-lg">
+        <h3 class="text-[--isr-c-red] font-semibold mb-2">🔧 Through-Hole Only</h3>
+        <p class="text-sm">
+          Built entirely with through-hole components for easy hand-soldering and component accessibility.
+        </p>
+      </div>
+      
+      <div class="bg-gray-800/20 p-4 rounded-lg">
+        <h3 class="text-[--isr-c-red] font-semibold mb-2">🔌 Sideways USB-C</h3>
+        <p class="text-sm">
+          Unique sideways USB-C connector placement for a distinctive aesthetic and practical cable management.
+        </p>
+      </div>
+      
+      <div class="bg-gray-800/20 p-4 rounded-lg">
+        <h3 class="text-[--isr-c-red] font-semibold mb-2">⚙️ QMK Powered</h3>
+        <p class="text-sm">
+          Runs QMK firmware on ATmega32A MCU with full customization and programming support.
+        </p>
+      </div>
+    </div>
 
-      <u>Why is the USB-C port on its side?</u><br />
-      When I was looking at USB-C THT components on Digi-Key I found this one that had its pins on
-      the side and was like "Huh, That's neat." *adds to cart*<br /><br />
+    <h2 class="text-[--isr-c-red] font-bold text-xl mb-4 mt-8">🎨 Design Details</h2>
 
-      <u
-        >When I open the PCB gbr files or look at it in KiCad there is a giant graphic of The Great
-        Wave by Katsushika Hokusai Blocking Everything!</u
-      ><br />
-      When I was looking at other designer's PCB's I thought that mine was kinda bland, so I added a
-      big SVG to be silk-screened on top of everything. If you're in KiCad, you can turn off the
-      visibility of the F.Silkscreen layer so you can see the rest of the board.<br /><br />
+    <div class="bg-gray-800/20 p-4 rounded-lg mb-6">
+      <h3 class="text-[--isr-c-red] font-semibold mb-2">🌊 The Great Wave Silkscreen</h3>
+      <p class="mb-2">
+        Features a large silkscreen of "The Great Wave off Kanagawa" by Katsushika Hokusai covering the entire PCB:
+      </p>
+      <ul class="list-disc pl-6 space-y-1 text-sm">
+        <li>Artistic PCB design that doubles as functional electronics</li>
+        <li>F.Silkscreen layer can be toggled off in KiCad for component visibility</li>
+        <li>Transforms a functional keyboard into a piece of art</li>
+      </ul>
+    </div>
 
-      <u>I see there is a Case.step and acrylic.dxf file in there.</u><br />
-      I looked into seeing how much it would cost to get a case CNC'ed in aluminum and anodized. (it
-      was too expensive) so I ended up just printing one out on my 3D printer. The acrylic panel
-      that covers the components was relatively cheap though.
-    </p>
+    <h2 class="text-[--isr-c-red] font-bold text-xl mb-4 mt-8">❓ Frequently Asked Questions</h2>
+
+    <div class="space-y-6">
+      <div class="bg-gray-800/20 p-4 rounded-lg">
+        <h3 class="text-[--isr-c-red] font-semibold mb-2">Why is the USB-C port on its side?</h3>
+        <p class="text-sm">
+          When browsing USB-C THT components on Digi-Key, I found this unique connector with sideways pins and thought "Huh, that's neat!" 
+          *adds to cart* - Sometimes the best design decisions come from curiosity about interesting components.
+        </p>
+      </div>
+
+      <div class="bg-gray-800/20 p-4 rounded-lg">
+        <h3 class="text-[--isr-c-red] font-semibold mb-2">The Great Wave is blocking everything in KiCad!</h3>
+        <p class="text-sm">
+          When looking at other designers' PCBs, mine felt bland, so I added The Great Wave SVG to be silk-screened across the entire board. 
+          In KiCad, simply turn off the F.Silkscreen layer visibility to see the underlying components and traces.
+        </p>
+      </div>
+
+      <div class="bg-gray-800/20 p-4 rounded-lg">
+        <h3 class="text-[--isr-c-red] font-semibold mb-2">What about the Case.step and acrylic.dxf files?</h3>
+        <p class="text-sm">
+          I researched CNC aluminum case manufacturing with anodizing, but it was prohibitively expensive. 
+          Instead, I 3D printed the case and had an acrylic component cover made - much more budget-friendly while still protecting the electronics.
+        </p>
+      </div>
+    </div>
+
+    <div class="text-center mt-8 p-4 bg-gray-800/30 rounded-lg">
+      <p class="mb-4">
+        <strong>Interested in building your own Causeway_THT?</strong>
+      </p>
+      <a
+        href="https://github.com/isandrocks/Causeway_THT"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-block bg-[--isr-c-red] hover:bg-red-600 text-white font-bold py-2 px-6 rounded-lg transition-colors">
+        View on GitHub →
+      </a>
+    </div>
   </article>
   <div
     v-if="selectedImage"
@@ -133,4 +206,14 @@ const images = [
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.carousel-container {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.hover\:scale-102:hover {
+  transform: scale(1.02);
+}
+</style>

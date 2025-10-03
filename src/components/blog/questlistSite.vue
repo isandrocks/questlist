@@ -77,6 +77,18 @@ const images = [
       </el-carousel-item>
     </el-carousel>
 
+    <div class="tech-stack text-center p-4 bg-gray-800/30 rounded-lg my-6">
+      <h3 class="text-[--isr-c-red] font-bold mb-2">Built with Vue 3 ⚡</h3>
+      <div class="flex flex-wrap justify-center gap-2 text-sm">
+        <span class="bg-green-500/20 px-2 py-1 rounded">Vue 3 Composition API</span>
+        <span class="bg-blue-500/20 px-2 py-1 rounded">Element Plus</span>
+        <span class="bg-cyan-500/20 px-2 py-1 rounded">Tailwind CSS</span>
+        <span class="bg-orange-500/20 px-2 py-1 rounded">Vite</span>
+        <span class="bg-purple-500/20 px-2 py-1 rounded">WebAssembly</span>
+        <span class="bg-yellow-500/20 px-2 py-1 rounded">Custom Masonry</span>
+      </div>
+    </div>
+
     <p class="text-center p-2 self-center">
       Building this
       <a
@@ -85,88 +97,138 @@ const images = [
         rel="noopener noreferrer"
         ><span class="text-[--isr-c-red] cursor-pointer">portfolio site</span></a
       >
-      was both a learning journey and the foundation for Con-Save Customs!<br /><br />
-
-      This modern Vue 3 application serves dual purposes: showcasing my technical projects and
-      establishing the digital presence for my custom electronics company. The site features a
-      responsive design that adapts seamlessly across devices, from mobile phones to desktop
-      displays.
+      was both a learning journey and the foundation for Con-Save Customs! This modern Vue 3 
+      application serves dual purposes: showcasing my technical projects and establishing the 
+      digital presence for my custom electronics company.
     </p>
 
-    <h2
-      class="text-xl font-bold text-[--isr-c-red] pt-4 pb-2 border-b border-[var(--color-border)]">
-      Technical Architecture
-    </h2>
+    <div class="text-center my-6">
+      <a
+        href="https://github.com/isandrocks/questlist"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="bg-[--isr-c-red] hover:bg-red-600 text-white font-bold py-3 px-8 rounded-lg transition-colors text-lg">
+        🔗 View GitHub Repository
+      </a>
+    </div>
 
-    <p class="text-center p-2 self-center">
-      The site is built with Vue 3's Composition API using <code>&lt;script setup&gt;</code> syntax
-      for clean, modern code organization. Element Plus provides the component foundation, while
-      Tailwind CSS handles styling with custom brand colors and responsive breakpoints.<br /><br />
+    <h2 class="text-[--isr-c-red] font-bold text-xl mb-4 mt-8">🏗️ Technical Architecture</h2>
+    
+    <div class="grid md:grid-cols-2 gap-4 mb-6">
+      <div class="bg-gray-800/20 p-4 rounded-lg">
+        <h3 class="text-[--isr-c-red] font-semibold mb-2">⚡ Vue 3 Composition API</h3>
+        <p class="text-sm">
+          Modern &lt;script setup&gt; syntax for clean, reactive components with excellent TypeScript integration and performance.
+        </p>
+      </div>
+      
+      <div class="bg-gray-800/20 p-4 rounded-lg">
+        <h3 class="text-[--isr-c-red] font-semibold mb-2">🎨 Element Plus + Tailwind</h3>
+        <p class="text-sm">
+          Professional UI components with utility-first CSS for rapid prototyping and consistent design.
+        </p>
+      </div>
+      
+      <div class="bg-gray-800/20 p-4 rounded-lg">
+        <h3 class="text-[--isr-c-red] font-semibold mb-2">📱 Custom Masonry Layout</h3>
+        <p class="text-sm">
+          Hand-built responsive grid that adapts: 1 column (mobile), 2 columns (tablet), 3 columns (desktop).
+        </p>
+      </div>
+      
+      <div class="bg-gray-800/20 p-4 rounded-lg">
+        <h3 class="text-[--isr-c-red] font-semibold mb-2">🎮 WebAssembly Integration</h3>
+        <p class="text-sm">
+          Embedded Godot games with CORS configuration and iframe optimization for seamless gameplay.
+        </p>
+      </div>
+    </div>
 
-      One of the most interesting features is the custom masonry layout implemented in
-      <code>cardWall.vue</code>. Instead of using a library, I built a manual positioning system
-      that dynamically arranges project cards based on screen size: <br />• Mobile: Single column
-      (100% width) <br />• Tablet: Two columns (50% width each) <br />• Desktop: Three columns
-      (33.33% width each)
-    </p>
+    <h2 class="text-[--isr-c-red] font-bold text-xl mb-4 mt-8">💡 Innovative Features</h2>
 
-    <h2
-      class="text-xl font-bold text-[--isr-c-red] pt-4 pb-2 border-b border-[var(--color-border)]">
-      Content Management System
-    </h2>
+    <div class="bg-blue-900/20 border-l-4 border-blue-500 p-4 mb-6">
+      <h3 class="text-blue-300 font-semibold mb-2">🧩 Vue Component Blog System</h3>
+      <p class="text-sm">
+        Instead of markdown, each blog post is a Vue component allowing rich interactivity, 
+        dynamic imports, and seamless integration with the site's design system.
+      </p>
+    </div>
 
-    <p class="text-center p-2 self-center">
-      Rather than using traditional markdown files, each blog post is a Vue component. This approach
-      allows for rich interactivity like the image zoom functionality you see throughout the site.
-      The dynamic routing system loads components on-demand using <code>defineAsyncComponent</code>,
-      keeping the initial bundle size optimized.<br /><br />
+    <div class="grid md:grid-cols-2 gap-4 mb-6">
+      <div class="bg-gray-800/20 p-4 rounded-lg">
+        <h3 class="text-[--isr-c-red] font-semibold mb-2">🔄 Dynamic Routing</h3>
+        <p class="text-sm">
+          Smart component loading with <code>defineAsyncComponent</code> and security whitelist for optimized bundle sizes.
+        </p>
+      </div>
+      
+      <div class="bg-gray-800/20 p-4 rounded-lg">
+        <h3 class="text-[--isr-c-red] font-semibold mb-2">🔍 Image Zoom System</h3>
+        <p class="text-sm">
+          Full-screen modals with mouse wheel zoom (0.5x to 5x) for detailed project examination.
+        </p>
+      </div>
+    </div>
 
-      The blog system works through a simple pattern: project cards on the homepage route to
-      <code>/blog/:slug</code>, which dynamically imports the corresponding component from
-      <code>src/components/blog/</code>.
-    </p>
+    <h2 class="text-[--isr-c-red] font-bold text-xl mb-4 mt-8">⚡ Performance & Optimization</h2>
 
-    <h2
-      class="text-xl font-bold text-[--isr-c-red] pt-4 pb-2 border-b border-[var(--color-border)]">
-      Game Integration & Performance
-    </h2>
+    <div class="grid md:grid-cols-2 gap-4 mb-6">
+      <div class="bg-gray-800/20 p-4 rounded-lg">
+        <h3 class="text-[--isr-c-red] font-semibold mb-2">🚀 Build Optimization</h3>
+        <p class="text-sm">
+          Custom Vite configuration removes asset hashes for consistent file naming and enables CORS for game embedding.
+        </p>
+      </div>
+      
+      <div class="bg-gray-800/20 p-4 rounded-lg">
+        <h3 class="text-[--isr-c-red] font-semibold mb-2">📐 Custom Breakpoints</h3>
+        <p class="text-sm">
+          Uses 1081px instead of standard 1024px breakpoint to better accommodate modern ultrawide displays.
+        </p>
+      </div>
+    </div>
 
-    <p class="text-center p-2 self-center">
-      The site hosts WebAssembly games exported from Godot, served from the
-      <code>public/</code> directory and embedded via iframe. Special CORS headers in the Vite
-      configuration enable cross-origin embedding while maintaining security.<br /><br />
+    <h2 class="text-[--isr-c-red] font-bold text-xl mb-4 mt-8">🎯 Brand Identity & Future</h2>
 
-      Performance was a key consideration - the build process removes hashes from asset names for
-      consistent file naming, and the responsive design uses a custom 1081px breakpoint instead of
-      the standard 1024px to better accommodate modern displays.
-    </p>
+    <div class="bg-green-900/20 border-l-4 border-green-500 p-4 mb-6">
+      <h3 class="text-green-300 font-semibold mb-2">🎲 The Con-Save Connection</h3>
+      <p class="text-sm">
+        "Con-Save Customs" references D&D's Constitution saving throw - a perfect metaphor for building 
+        resilient, custom solutions. The brand bridges technical precision with creative design.
+      </p>
+    </div>
 
-    <h2
-      class="text-xl font-bold text-[--isr-c-red] pt-4 pb-2 border-b border-[var(--color-border)]">
-      Brand Identity & Future Plans
-    </h2>
+    <div class="bg-gray-800/20 p-4 rounded-lg mb-6">
+      <h3 class="text-[--isr-c-red] font-semibold mb-2">🔮 Evolution Path</h3>
+      <p class="text-sm">
+        This portfolio foundation is designed to scale into a full e-commerce platform for custom keyboards, 
+        electronics, and controllers. The modular Vue architecture makes adding features like product catalogs, 
+        shopping carts, and order management seamless as the business grows.
+      </p>
+    </div>
 
-    <p class="text-center p-2 self-center">
-      <b>The Con-Save Connection</b><br /><br />
-
-      The site name "Questlist" reflects the portfolio nature, but the brand "Con-Save Customs"
-      references D&D's Constitution saving throw - a fitting metaphor for building resilient, custom
-      solutions. The custom logo, implemented as a detailed SVG component, represents this blend of
-      technical precision and creative design.<br /><br />
-
-      This foundation sets the stage for the company's evolution from portfolio showcase to full
-      e-commerce platform for custom keyboards, electronics, and controllers. The modular Vue
-      architecture makes it easy to add new features like product catalogs, shopping carts, and
-      order management as the business grows.
-    </p>
-
-    <p class="text-center p-2 self-center">
-      <i
-        >The source code is available on GitHub, and the site continues to evolve as both a
-        technical showcase and business platform. Feel free to explore the repository to see the
-        implementation details!</i
-      >
-    </p>
+    <div class="text-center mt-8 p-4 bg-gray-800/30 rounded-lg">
+      <p class="mb-4">
+        <strong>Ready to explore the technical implementation?</strong>
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="https://github.com/isandrocks/questlist"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="bg-[--isr-c-red] hover:bg-red-600 text-white font-bold py-2 px-6 rounded-lg transition-colors">
+          🔗 GitHub Repository
+        </a>
+        <button
+          @click="$router.push('/')"
+          class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg transition-colors">
+          🏠 Explore Portfolio
+        </button>
+      </div>
+      <p class="text-sm mt-2 text-gray-400">
+        Open source • Contributions welcome
+      </p>
+    </div>
   </article>
   <div
     v-if="selectedImage"
@@ -183,20 +245,21 @@ const images = [
 </template>
 
 <style scoped>
-p {
-  padding-bottom: 0.75rem;
+.carousel-container {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
-h2 {
-  padding-top: 1rem;
-  padding-bottom: 0.5rem;
-  text-decoration: underline;
+.hover\:scale-102:hover {
+  transform: scale(1.02);
 }
 
 code {
-  background-color: rgba(var(--isr-c-red), 0.1);
+  background-color: rgba(249, 52, 34, 0.1);
   padding: 2px 4px;
   border-radius: 4px;
   font-family: 'Courier New', monospace;
+  color: #F93422;
 }
 </style>

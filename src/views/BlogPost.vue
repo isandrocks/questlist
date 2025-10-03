@@ -9,7 +9,14 @@ const component = ref(null)
 const error = ref(null)
 
 // Whitelist of allowed blog post slugs for security
-const allowedSlugs = ['causeway_THT', 'LightsoutGodot', 'questlistSite', 'sprayArt1']
+const allowedSlugs = [
+  'causeway_THT',
+  'LightsoutGodot',
+  'questlistSite',
+  'sprayArt1',
+  'geminiOxide',
+  'stringArt'
+]
 
 // Sanitize and validate slug
 const sanitizeSlug = (slug) => {

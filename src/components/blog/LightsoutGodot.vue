@@ -1,142 +1,250 @@
-<template>
-  <article class="prose prose-lg max-w-3xl mx-auto px-4 py-8">
-    <h1
-      class="text-white text-center text-xl lg:text-3xl font-extrabold
-        [text-shadow:_-1px_-1px_0_black,1px_-1px_0_black,-1px_1px_0_black,1px_1px_0_black] pb-3">
-      Lights Out Puzzle – A Start to Learing Godot
-    </h1>
-    <img
-      src="@/assets/projectImgs/evKTlbYB.png"
-      class="p-1 object-contain" />
-    <p>
-      I’ve always liked
-      <span
-        class="text-[--isr-c-red] cursor-pointer"
-        @click="goToGame"
-        >Lights Out</span
-      >
-      puzzles. They’ve got a nice balance of logic and trial-and-error, and I figured building one
-      would be a good way to learn the basics of the Godot game engine. So I made a simple 5x5
-      version of the game, along with all custom-made assets and shaders. everything released under
-      CC0.
-    </p>
-
-    <p>
-      You can try the game on my site (click game in the top nav, or just click any of the red
-      <span
-        class="text-[--isr-c-red] cursor-pointer"
-        @click="goToGame"
-        >Lights Out</span
-      >
-      on this page), and it's also available in the official Godot Asset Library under the name
-      <strong
-        ><span
-          class="text-[--isr-c-red] cursor-pointer font-bold"
-          @click="goToGame"
-          >Lights Out</span
-        >
-        Puzzel</strong
-      >
-      in the Demos section.
-    </p>
-
-    <h2>What’s <span class="text-[--isr-c-red] cursor-pointer">Lights Out</span>?</h2>
-    <p>
-      <span
-        class="text-[--isr-c-red] cursor-pointer"
-        @click="goToGame"
-        >Lights Out</span
-      >
-      was originally released by Tiger Electronics in 1995. The idea is simple: you start with a 5x5
-      grid of lights, some of them lit. Your goal is to turn them all off. The twist is that
-      toggling any light also toggles its four neighbors, so every move has ripple effects.
-    </p>
-    <p>
-      It’s one of those games where the rules are simple but the strategies run deep. That’s what
-      makes it so fun.
-    </p>
-
-    <h2>Why I Made This</h2>
-    <p>
-      The main goal was to learn how Godot works, especially the fundamentals: scripting, working
-      with scenes, simple UI, and shaders. I didn’t set hard rules for myself except for one:
-      everything had to be made from scratch by me so I could release it under a completely free
-      license (CC0).
-    </p>
-    <p>
-      The look is pretty minimal, somewhere between 16-bit and 32-bit era, with a simple
-      checkerboard background and light toggling visuals. No animations, just color flips.
-    </p>
-
-    <h2>Development Notes</h2>
-    <p>
-      The puzzle logic itself was straightforward, but one part gave me unexpected trouble:
-      generating a random but <em>solvable</em> starting board. It turns out that just lighting up a
-      random number of tiles can result in an unsolvable puzzle. So instead, I had the game “press”
-      8 random tiles when it starts, this guarantees the board has a solution, since it's basically
-      reverse engineering from the solved state.
-    </p>
-    <p>
-      I also wrote a simple shader for the background using GLSL, just a checkerboard pattern with
-      rotating gray tiles (180° spin every few seconds). It’s purely visual but gives a subtle
-      animated feel without distracting from the game.
-    </p>
-    <loShaderCanvas />
-    <p>
-      All the art, including the lights, was hand-drawn in Clip Studio Paint. Nothing too fancy,
-      just enough polish to make it feel complete.
-    </p>
-
-    <h2>What I Learned</h2>
-    <p>
-      Godot plays really nicely with VS Code, which is my go-to editor, so I was able to do most of
-      the scripting there. At the same time, the in-editor tools made building the interface
-      surprisingly fast.
-    </p>
-    <p>
-      Another highlight was the Godot dev community. I ran into a couple weird issues and had
-      questions, and people were quick to help. It felt low-pressure and beginner-friendly, probably
-      because the engine still has a tight-knit, open vibe. You don’t need to dig through years of
-      outdated Stack Overflow posts to get answers.
-    </p>
-
-    <h2>What’s Next?</h2>
-    <p>
-      This version is done, uploaded and listed in Godot’s official library, so no big updates are
-      planned. I might include it as a minigame in a future project, but I don’t plan to expand it
-      as a standalone thing.
-    </p>
-    <p>
-      That said, this was a good first step. I'm already thinking about making a solitaire-style
-      card game next, and I’ll keep releasing all assets I make under CC0, so feel free to use or
-      remix anything from this project.
-    </p>
-
-    <p>
-      Let me know if you give it a try or reuse anything, I’d love to see what people do with it!
-    </p>
-  </article>
-</template>
-
 <script setup>
-import loShaderCanvas from '../loShaderCanvas.vue'
-import { useRouter } from 'vue-router'
+import { ref, onMounted, onUnmounted } from 'vue'
 
-const router = useRouter()
+const selectedImage = ref(null)
+const windowWidth = ref(0)
+const zoomLevel = ref(1)
+
+const updateWidth = () => {
+  windowWidth.value = window.innerWidth
+}
+
+onMounted(() => {
+  updateWidth()
+  window.addEventListener('resize', updateWidth)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('resize', updateWidth)
+})
+
+const openImage = (image) => {
+  selectedImage.value = image
+}
+
+const closeImage = () => {
+  selectedImage.value = null
+  zoomLevel.value = 1
+}
+
+const handleWheel = (event) => {
+  event.preventDefault()
+  const zoomFactor = event.deltaY < 0 ? 1.1 : 0.9
+  zoomLevel.value = Math.min(Math.max(zoomLevel.value * zoomFactor, 0.5), 5)
+}
 
 const goToGame = () => {
-  router.push('/game')
+  window.open('/game', '_blank')
 }
+
+const images = [
+  new URL('@/assets/projectImgs/evKTlbYB.png', import.meta.url).href
+]
 </script>
 
+<template>
+  <article class="prose prose-lg max-w-3xl mx-auto px-4 py-4">
+    <div>
+      <h1
+        class="text-white text-center text-4xl lg:text-3xl font-extrabold
+          [text-shadow:_-1px_-1px_0_black,1px_-1px_0_black,-1px_1px_0_black,1px_1px_0_black] border-b
+          border-[var(--color-border)] py-[18px]">
+        <span class="text-[--isr-c-red] text-4xl font-extrabold cursor-pointer" @click="goToGame"
+          >Lights Out Puzzle</span>
+        Learning Godot Game Engine
+      </h1>
+    </div>
+
+    <el-carousel
+      :style="{ height: windowWidth < 768 ? '250px' : '500px' }"
+      height="500px"
+      autoplay="true"
+      interval="9000"
+      class="carousel-container"
+      motion-blur>
+      <el-carousel-item
+        v-for="(image, index) in images"
+        :key="index">
+        <img
+          :src="image"
+          class="object-contain w-full h-full top-0 rounded-s shadow-md cursor-zoom-in hover:scale-102 transition-transform"
+          @click="openImage(image)" />
+      </el-carousel-item>
+    </el-carousel>
+
+    <div class="tech-stack text-center p-4 bg-gray-800/30 rounded-lg my-6">
+      <h3 class="text-[--isr-c-red] font-bold mb-2">Built with Godot 🎮</h3>
+      <div class="flex flex-wrap justify-center gap-2 text-sm">
+        <span class="bg-blue-500/20 px-2 py-1 rounded">GDScript</span>
+        <span class="bg-green-500/20 px-2 py-1 rounded">Custom Shaders</span>
+        <span class="bg-purple-500/20 px-2 py-1 rounded">Web Export</span>
+        <span class="bg-yellow-500/20 px-2 py-1 rounded">CC0 Assets</span>
+        <span class="bg-orange-500/20 px-2 py-1 rounded">Asset Library</span>
+      </div>
+    </div>
+
+    <p class="text-center p-2 self-center">
+      A faithful recreation of the classic 
+      <span class="text-[--isr-c-red] cursor-pointer" @click="goToGame">Lights Out</span> 
+      puzzle game, built as my introduction to the Godot game engine. Features custom assets, 
+      shaders, and is available both playable on this site and in the official Godot Asset Library.
+    </p>
+
+    <div class="text-center my-6">
+      <button
+        @click="goToGame"
+        class="bg-[--isr-c-red] hover:bg-red-600 text-white font-bold py-3 px-8 rounded-lg transition-colors text-lg">
+        🎮 Play Game Now
+      </button>
+    </div>
+
+    <h2 class="text-[--isr-c-red] font-bold text-xl mb-4 mt-8">🎯 What is Lights Out?</h2>
+    
+    <div class="bg-gray-800/20 p-4 rounded-lg mb-6">
+      <p class="mb-4">
+        Originally released by Tiger Electronics in 1995, Lights Out is a classic logic puzzle with deceptively simple rules:
+      </p>
+      <ul class="list-disc pl-6 space-y-2">
+        <li><strong>5×5 Grid:</strong> Start with a pattern of lit and unlit tiles</li>
+        <li><strong>Toggle Mechanic:</strong> Click any tile to toggle it and its four adjacent neighbors</li>
+        <li><strong>Goal:</strong> Turn off all the lights to win</li>
+        <li><strong>Challenge:</strong> Every move affects multiple tiles, requiring strategic thinking</li>
+      </ul>
+    </div>
+
+    <h2 class="text-[--isr-c-red] font-bold text-xl mb-4 mt-8">🚀 Game Features</h2>
+    
+    <div class="grid md:grid-cols-2 gap-4 mb-6">
+      <div class="bg-gray-800/20 p-4 rounded-lg">
+        <h3 class="text-[--isr-c-red] font-semibold mb-2">🎨 Custom Assets</h3>
+        <p class="text-sm">
+          All graphics, sounds, and visual effects created from scratch for an authentic retro gaming experience.
+        </p>
+      </div>
+      
+      <div class="bg-gray-800/20 p-4 rounded-lg">
+        <h3 class="text-[--isr-c-red] font-semibold mb-2">✨ Custom Shaders</h3>
+        <p class="text-sm">
+          Hand-written GLSL shaders for smooth lighting transitions and visual feedback effects.
+        </p>
+      </div>
+      
+      <div class="bg-gray-800/20 p-4 rounded-lg">
+        <h3 class="text-[--isr-c-red] font-semibold mb-2">🌐 Web Playable</h3>
+        <p class="text-sm">
+          Compiled to WebAssembly for instant browser play with full desktop performance.
+        </p>
+      </div>
+      
+      <div class="bg-gray-800/20 p-4 rounded-lg">
+        <h3 class="text-[--isr-c-red] font-semibold mb-2">📚 Open Source</h3>
+        <p class="text-sm">
+          Available in Godot Asset Library under CC0 license - completely free for any use.
+        </p>
+      </div>
+    </div>
+
+    <h2 class="text-[--isr-c-red] font-bold text-xl mb-4 mt-8">🛠️ Development Journey</h2>
+
+    <div class="bg-blue-900/20 border-l-4 border-blue-500 p-4 mb-6">
+      <h3 class="text-blue-300 font-semibold mb-2">🎓 Learning Godot</h3>
+      <p class="text-sm">
+        This project served as my introduction to Godot Engine, covering essential concepts like scene management, 
+        GDScript programming, custom shaders, and web export. The simple game mechanics allowed focus on engine fundamentals 
+        while creating something genuinely fun to play.
+      </p>
+    </div>
+
+    <h3 class="text-[--isr-c-red] font-semibold mb-2">🎯 Technical Challenges Solved</h3>
+    <ul class="list-disc pl-6 mb-6 space-y-2">
+      <li><strong>State Management:</strong> Efficient tile state tracking and neighbor detection algorithms</li>
+      <li><strong>Visual Feedback:</strong> Smooth animations and shader effects for tile transitions</li>
+      <li><strong>Web Optimization:</strong> Compressed assets and optimized export for web deployment</li>
+      <li><strong>Cross-Platform:</strong> Ensuring consistent gameplay across desktop and web browsers</li>
+    </ul>
+
+    <h2 class="text-[--isr-c-red] font-bold text-xl mb-4 mt-8">🎮 Play Options</h2>
+
+    <div class="grid md:grid-cols-2 gap-4 mb-6">
+      <div class="text-center bg-gray-800/20 p-6 rounded-lg">
+        <h3 class="text-[--isr-c-red] font-semibold mb-2">🌐 Play Online</h3>
+        <p class="text-sm mb-4">Instant browser play with full features</p>
+        <button
+          @click="goToGame"
+          class="bg-[--isr-c-red] hover:bg-red-600 text-white font-bold py-2 px-4 rounded transition-colors">
+          Launch Game
+        </button>
+      </div>
+      
+      <div class="text-center bg-gray-800/20 p-6 rounded-lg">
+        <h3 class="text-[--isr-c-red] font-semibold mb-2">📦 Godot Asset Library</h3>
+        <p class="text-sm mb-4">Download source and customize</p>
+        <a
+          href="https://godotengine.org/asset-library"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition-colors">
+          Asset Library
+        </a>
+      </div>
+    </div>
+
+    <div class="bg-green-900/20 border-l-4 border-green-500 p-4 mb-6">
+      <h3 class="text-green-300 font-semibold mb-2">🎯 Perfect for Learning</h3>
+      <p class="text-sm">
+        This project demonstrates core Godot concepts in a compact, well-documented package. 
+        The source code includes comments explaining key techniques, making it an excellent 
+        starting point for other developers learning Godot Engine.
+      </p>
+    </div>
+
+    <div class="text-center mt-8 p-4 bg-gray-800/30 rounded-lg">
+      <p class="mb-4">
+        <strong>Ready to play or learn from the source?</strong>
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <button
+          @click="goToGame"
+          class="bg-[--isr-c-red] hover:bg-red-600 text-white font-bold py-2 px-6 rounded-lg transition-colors">
+          🎮 Play Game
+        </button>
+        <a
+          href="https://godotengine.org/asset-library"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg transition-colors">
+          📦 Get Source Code
+        </a>
+      </div>
+      <p class="text-sm mt-2 text-gray-400">
+        CC0 License - Free for any use
+      </p>
+    </div>
+  </article>
+
+  <!-- Image zoom modal -->
+  <div
+    v-if="selectedImage"
+    class="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50"
+    @click="closeImage"
+    @wheel="handleWheel">
+    <div class="relative flex">
+      <img
+        :src="selectedImage"
+        class="max-w-[99vw] max-h-[85vh] rounded-lg"
+        :style="{ transform: `scale(${zoomLevel})`, transition: 'transform 0.1s ease' }" />
+    </div>
+  </div>
+</template>
+
 <style scoped>
-p {
-  padding-bottom: 0.75rem;
+.carousel-container {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
-h2 {
-  padding-top: 1rem;
-  padding-bottom: 0.5rem;
-  text-decoration: underline;
+.hover\:scale-102:hover {
+  transform: scale(1.02);
 }
 </style>
