@@ -3,10 +3,10 @@ import CausewayTHTc from './blog/cards/causewayTHTc.vue'
 import CodeSite from './blog/cards/codeSite.vue'
 import LightsoutCard from './blog/cards/lightsoutCard.vue'
 import LLMInterface from './blog/cards/LLMInterface.vue'
+import StringArtCard from './blog/cards/StringArtCard.vue'
 import { ref, onMounted, nextTick } from 'vue'
 
-
-const cards = ref([CausewayTHTc, LightsoutCard, CodeSite, LLMInterface])
+const cards = ref([CausewayTHTc, LightsoutCard, CodeSite, LLMInterface, StringArtCard])
 
 const masonry = ref(null)
 const masonryHeight = ref(0)

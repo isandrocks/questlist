@@ -7,9 +7,13 @@ import LogoConsave from '../components/icons/LogoConsave.vue'
     <h1 class="text-5xl self-center"><span class="text-[--isr-c-red]">About me</span></h1>
     <h3 class="self-center">
       Hi I'm Sean! Online, you’ll often find me as
-      <span class="text-[--isr-c-red]">iSandRock</span> whether in games or on social media. I love
-      building things, solving problems, and bringing ideas to life, whether through code, design,
-      or hands-on making.
+      <span class="text-[--isr-c-red]">iSandRock</span> in games, on social media, or tinkering with
+      new projects. I’ve always loved building things, solving problems, and bringing ideas to life
+      through code, design, and hands-on making. Professionally, I work as a Senior Analyst, where
+      I’ve spent the past decade delivering high-quality IT solutions. My expertise includes Windows
+      systems, Active Directory, internal/client spicific software mangment, internal networks/VPNs,
+      and customer-focused technical support. Along the way, I’ve developed strong skills in
+      application development, AI, and Rust, combining problem-solving with a passion for learning.
     </h3>
     <h3 class="self-center">
       This site serves as my personal portfolio, highlighting my projects and creative work. It also
