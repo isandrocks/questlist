@@ -262,17 +262,18 @@ const images = [
         wanting to build their own Skyline_20K macropad.
       </p>
       <div class="flex justify-center">
-        <div class="relative w-full max-w-2xl" style="padding-bottom: 56.25%; height: 0;">
+        <div
+          class="relative w-full max-w-2xl"
+          style="padding-bottom: 56.25%; height: 0">
           <iframe
-            class="absolute top-0 left-0 w-full h-full rounded-lg shadow-lg"
-            src="https://www.youtube-nocookie.com/embed/h0hoNd8aZaA"
-            title="Skyline_20K Build Process Video"
+            width="560"
+            height="315"
+            src="https://www.youtube-nocookie.com/embed/h0hoNd8aZaA?si=T7NibXz55GTpu0WR?autoplay=1&mute=1"
+            title="YouTube video player"
             frameborder="0"
-            sandbox="allow-scripts allow-same-origin allow-presentation"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            loading="lazy"
-            allowfullscreen>
-          </iframe>
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen></iframe>
         </div>
       </div>
     </div>
