@@ -2,6 +2,6 @@
   Cross-Origin-Opener-Policy: same-origin
   Cross-Origin-Embedder-Policy: require-corp
 
-/blog/skyLine20k
+/blog/*
  ! Cross-Origin-Embedder-Policy: require-corp
  ! Cross-Origin-Opener-Policy: same-origin
