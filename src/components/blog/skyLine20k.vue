@@ -261,20 +261,14 @@ const images = [
         demonstrates the hands-on construction techniques and provides visual guidance for anyone
         wanting to build their own Skyline_20K macropad.
       </p>
-      <div class="flex justify-center">
-        <div
-          class="relative w-full max-w-2xl"
-          style="padding-bottom: 56.25%; height: 0">
-          <iframe
-            width="560"
-            height="315"
-            src="https://www.youtube-nocookie.com/embed/h0hoNd8aZaA?si=T7NibXz55GTpu0WR?autoplay=1&mute=1"
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen></iframe>
-        </div>
+      <div class="text-center">
+        <a
+          href="https://youtu.be/h0hoNd8aZaA?autoplay=1&mute=1"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg transition-colors inline-flex items-center gap-2">
+          🎬 Watch Build Video on YouTube
+        </a>
       </div>
     </div>
 
