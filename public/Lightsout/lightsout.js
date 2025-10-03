@@ -16250,6 +16250,11 @@ const InternalConfig = function (initConfig) {
             (bytes[0] === 0x1f && bytes[1] === 0x8b) ||
             response.headers.get('content-encoding') === 'gzip'
 
+          console.log('Gzip check - byte0:', bytes[0], '(0x1f=31), byte1:', bytes[1], '(0x8b=139)')
+          console.log('Content-encoding:', response.headers.get('content-encoding'))
+          console.log('Byte comparison result:', bytes[0] === 0x1f, bytes[1] === 0x8b)
+          console.log('isGzipped result:', isGzipped)
+
           if (isGzipped) {
             console.log('Detected gzipped content, attempting decompression')
             // Use DecompressionStream if available (modern browsers)
