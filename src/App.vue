@@ -78,6 +78,7 @@ const isOpen = ref(false)
                 <el-dropdown-item @click="$router.push('/')">Home</el-dropdown-item>
                 <el-dropdown-item @click="$router.push('/list')">List</el-dropdown-item>
                 <el-dropdown-item @click="$router.push('/about')">About</el-dropdown-item>
+                <el-dropdown-item @click="$router.push('/game')">Game</el-dropdown-item>
               </el-dropdown-menu>
             </template>
           </el-dropdown>
@@ -113,6 +114,11 @@ const isOpen = ref(false)
           class="border-b border-[var(--color-border)]"
           >About</RouterLink
         ><br />
+        <RouterLink
+          @click="isOpen = false"
+          to="/game"
+          >Game</RouterLink
+        >
       </div>
 
       <el-main>
