@@ -42,13 +42,13 @@ const images = [new URL('@/assets/projectImgs/evKTlbYB.png', import.meta.url).hr
 
 <template>
   <article class="prose prose-lg max-w-3xl mx-auto px-4 py-4">
-    <div>
+    <div class="space-y-6">
       <h1
         class="text-white text-center text-4xl lg:text-3xl font-extrabold
-          [text-shadow:_-1px_-1px_0_black,1px_-1px_0_black,-1px_1px_0_black,1px_1px_0_black] border-b
-          border-[var(--color-border)] py-[18px]">
+          [text-shadow:-1px_-1px_0_black,1px_-1px_0_black,-1px_1px_0_black,1px_1px_0_black] border-b
+          border-(--color-border) py-[18px]">
         <span
-          class="text-[--isr-c-red] text-4xl font-extrabold cursor-pointer"
+          class="text-(--isr-c-red) text-4xl font-extrabold cursor-pointer"
           @click="goToGame"
           >Lights Out Puzzle</span
         >
@@ -59,9 +59,8 @@ const images = [new URL('@/assets/projectImgs/evKTlbYB.png', import.meta.url).hr
     <el-carousel
       :style="{ height: windowWidth < 768 ? '250px' : '500px' }"
       height="500px"
-      autoplay="true"
-      interval="9000"
-      class="carousel-container"
+      :autoplay="true"
+      :interval="9000"
       motion-blur>
       <el-carousel-item
         v-for="(image, index) in images"
@@ -74,8 +73,8 @@ const images = [new URL('@/assets/projectImgs/evKTlbYB.png', import.meta.url).hr
       </el-carousel-item>
     </el-carousel>
 
-    <div class="tech-stack text-center p-4 bg-gray-800/30 rounded-lg my-6">
-      <h3 class="text-[--isr-c-red] font-bold mb-2">Built with Godot 🎮</h3>
+    <div class="tech-stack text-center p-4 bg-gray-800/30 backdrop-blur-sm rounded-lg my-6">
+      <h3 class="text-(--isr-c-red) font-bold mb-2">Built with Godot 🎮</h3>
       <div class="flex flex-wrap justify-center gap-2 text-sm">
         <span class="bg-blue-500/20 px-2 py-1 rounded">GDScript</span>
         <span class="bg-green-500/20 px-2 py-1 rounded">Custom Shaders</span>
@@ -88,7 +87,7 @@ const images = [new URL('@/assets/projectImgs/evKTlbYB.png', import.meta.url).hr
     <p class="text-center p-2 self-center">
       A faithful recreation of the classic
       <span
-        class="text-[--isr-c-red] cursor-pointer"
+        class="text-(--isr-c-red) cursor-pointer"
         @click="goToGame"
         >Lights Out</span
       >
@@ -99,15 +98,15 @@ const images = [new URL('@/assets/projectImgs/evKTlbYB.png', import.meta.url).hr
     <div class="text-center my-6">
       <button
         @click="goToGame"
-        class="bg-[--isr-c-red] hover:bg-red-600 text-white font-bold py-3 px-8 rounded-lg transition-colors
+        class="bg-(--isr-c-red) hover:bg-red-600 text-white font-bold py-3 px-8 rounded-lg transition-colors
           text-lg">
         🎮 Play Game Now
       </button>
     </div>
 
-    <h2 class="text-[--isr-c-red] font-bold text-xl mb-4 mt-8">🎯 What is Lights Out?</h2>
+    <h2 class="text-(--isr-c-red) font-bold text-xl mb-4 mt-8">🎯 What is Lights Out?</h2>
 
-    <div class="bg-gray-800/20 p-4 rounded-lg mb-6">
+    <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg mb-6">
       <p class="mb-4">
         Originally released by Tiger Electronics in 1995, Lights Out is a classic logic puzzle with
         deceptively simple rules:
@@ -126,42 +125,42 @@ const images = [new URL('@/assets/projectImgs/evKTlbYB.png', import.meta.url).hr
       </ul>
     </div>
 
-    <h2 class="text-[--isr-c-red] font-bold text-xl mb-4 mt-8">🚀 Game Features</h2>
+    <h2 class="text-(--isr-c-red) font-bold text-xl mb-4 mt-8">🚀 Game Features</h2>
 
     <div class="grid md:grid-cols-2 gap-4 mb-6">
-      <div class="bg-gray-800/20 p-4 rounded-lg">
-        <h3 class="text-[--isr-c-red] font-semibold mb-2">🎨 Custom Assets</h3>
+      <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg">
+        <h3 class="text-(--isr-c-red) font-semibold mb-2">🎨 Custom Assets</h3>
         <p class="text-sm">
           All graphics, sounds, and visual effects created from scratch for an authentic retro
           gaming experience.
         </p>
       </div>
 
-      <div class="bg-gray-800/20 p-4 rounded-lg">
-        <h3 class="text-[--isr-c-red] font-semibold mb-2">✨ Custom Shaders</h3>
+      <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg">
+        <h3 class="text-(--isr-c-red) font-semibold mb-2">✨ Custom Shaders</h3>
         <p class="text-sm">
           Hand-written GLSL shaders for smooth lighting transitions and visual feedback effects.
         </p>
       </div>
 
-      <div class="bg-gray-800/20 p-4 rounded-lg">
-        <h3 class="text-[--isr-c-red] font-semibold mb-2">🌐 Web Playable</h3>
+      <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg">
+        <h3 class="text-(--isr-c-red) font-semibold mb-2">🌐 Web Playable</h3>
         <p class="text-sm">
           Compiled to WebAssembly for instant browser play with full desktop performance.
         </p>
       </div>
 
-      <div class="bg-gray-800/20 p-4 rounded-lg">
-        <h3 class="text-[--isr-c-red] font-semibold mb-2">📚 Open Source</h3>
+      <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg">
+        <h3 class="text-(--isr-c-red) font-semibold mb-2">📚 Open Source</h3>
         <p class="text-sm">
           Available in Godot Asset Library under CC0 license - completely free for any use.
         </p>
       </div>
     </div>
 
-    <h2 class="text-[--isr-c-red] font-bold text-xl mb-4 mt-8">🛠️ Development Journey</h2>
+    <h2 class="text-(--isr-c-red) font-bold text-xl mb-4 mt-8">🛠️ Development Journey</h2>
 
-    <div class="bg-blue-900/20 border-l-4 border-blue-500 p-4 mb-6">
+    <div class="bg-blue-900/20 backdrop-blur-sm border-l-4 border-blue-500/60 inset-ring-2 inset-ring-blue-400/40 p-4 mb-6">
       <h3 class="text-blue-300 font-semibold mb-2">🎓 Learning Godot</h3>
       <p class="text-sm">
         This project served as my introduction to Godot Engine, covering essential concepts like
@@ -171,7 +170,7 @@ const images = [new URL('@/assets/projectImgs/evKTlbYB.png', import.meta.url).hr
       </p>
     </div>
 
-    <h3 class="text-[--isr-c-red] font-semibold mb-2">🎯 Technical Challenges Solved</h3>
+    <h3 class="text-(--isr-c-red) font-semibold mb-2">🎯 Technical Challenges Solved</h3>
     <ul class="list-disc pl-6 mb-6 space-y-2">
       <li>
         <strong>State Management:</strong> Efficient tile state tracking and neighbor detection
@@ -189,21 +188,21 @@ const images = [new URL('@/assets/projectImgs/evKTlbYB.png', import.meta.url).hr
       </li>
     </ul>
 
-    <h2 class="text-[--isr-c-red] font-bold text-xl mb-4 mt-8">🎮 Play Options</h2>
+    <h2 class="text-(--isr-c-red) font-bold text-xl mb-4 mt-8">🎮 Play Options</h2>
 
     <div class="grid md:grid-cols-2 gap-4 mb-6">
-      <div class="text-center bg-gray-800/20 p-6 rounded-lg">
-        <h3 class="text-[--isr-c-red] font-semibold mb-2">🌐 Play Online</h3>
+      <div class="text-center bg-gray-800/20 backdrop-blur-sm p-6 rounded-lg">
+        <h3 class="text-(--isr-c-red) font-semibold mb-2">🌐 Play Online</h3>
         <p class="text-sm mb-4">Instant browser play with full features</p>
         <button
           @click="goToGame"
-          class="bg-[--isr-c-red] hover:bg-red-600 text-white font-bold py-2 px-4 rounded transition-colors">
+          class="bg-(--isr-c-red) hover:bg-red-600 text-white font-bold py-2 px-4 rounded transition-colors">
           Launch Game
         </button>
       </div>
 
-      <div class="text-center bg-gray-800/20 p-6 rounded-lg">
-        <h3 class="text-[--isr-c-red] font-semibold mb-2">📦 Godot Asset Library</h3>
+      <div class="text-center bg-gray-800/20 backdrop-blur-sm p-6 rounded-lg">
+        <h3 class="text-(--isr-c-red) font-semibold mb-2">📦 Godot Asset Library</h3>
         <p class="text-sm mb-4">Download source and customize</p>
         <a
           href="https://godotengine.org/asset-library"
@@ -215,7 +214,7 @@ const images = [new URL('@/assets/projectImgs/evKTlbYB.png', import.meta.url).hr
       </div>
     </div>
 
-    <div class="bg-green-900/20 border-l-4 border-green-500 p-4 mb-6">
+    <div class="bg-green-900/20 backdrop-blur-sm border-l-4 border-green-500 p-4 mb-6">
       <h3 class="text-green-300 font-semibold mb-2">🎯 Perfect for Learning</h3>
       <p class="text-sm">
         This project demonstrates core Godot concepts in a compact, well-documented package. The
@@ -224,14 +223,14 @@ const images = [new URL('@/assets/projectImgs/evKTlbYB.png', import.meta.url).hr
       </p>
     </div>
 
-    <div class="text-center mt-8 p-4 bg-gray-800/30 rounded-lg">
+    <div class="text-center mt-8 p-4 bg-gray-800/30 backdrop-blur-sm rounded-lg">
       <p class="mb-4">
         <strong>Ready to play or learn from the source?</strong>
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
         <button
           @click="goToGame"
-          class="bg-[--isr-c-red] hover:bg-red-600 text-white font-bold py-2 px-6 rounded-lg transition-colors">
+          class="bg-(--isr-c-red) hover:bg-red-600 text-white font-bold py-2 px-6 rounded-lg transition-colors">
           🎮 Play Game
         </button>
         <a
@@ -263,11 +262,7 @@ const images = [new URL('@/assets/projectImgs/evKTlbYB.png', import.meta.url).hr
 </template>
 
 <style scoped>
-.carousel-container {
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-}
+
 
 .hover\:scale-102:hover {
   transform: scale(1.02);

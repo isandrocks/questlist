@@ -47,13 +47,13 @@ const images = [
     <div>
       <h1
         class="text-white text-center text-4xl lg:text-3xl font-extrabold
-          [text-shadow:_-1px_-1px_0_black,1px_-1px_0_black,-1px_1px_0_black,1px_1px_0_black] border-b
-          border-[var(--color-border)] py-[18px]">
+          [text-shadow:-1px_-1px_0_black,1px_-1px_0_black,-1px_1px_0_black,1px_1px_0_black] border-b
+          border-(--color-border) py-[18px]">
         <a
           href="https://github.com/isandrocks/Img-manipulation"
           target="_blank"
           rel="noopener noreferrer"
-          ><span class="text-[--isr-c-red] text-4xl font-extrabold cursor-pointer"
+          ><span class="text-(--isr-c-red) text-4xl font-extrabold cursor-pointer"
             >String Art Generator</span
           ></a
         >
@@ -64,8 +64,8 @@ const images = [
     <el-carousel
       :style="{ height: windowWidth < 768 ? '250px' : '500px' }"
       height="500px"
-      autoplay="true"
-      interval="9000"
+      :autoplay="true"
+      :interval="9000"
       class="carousel-container"
       motion-blur>
       <el-carousel-item
@@ -81,7 +81,7 @@ const images = [
 
     <!-- Process Video Section -->
     <div class="video-container my-8">
-      <h3 class="text-[--isr-c-red] font-bold text-xl mb-4 text-center">
+      <h3 class="text-(--isr-c-red) font-bold text-xl mb-4 text-center">
         🎬 Watch the Magic Happen
       </h3>
       <div class="flex justify-center">
@@ -100,8 +100,8 @@ const images = [
       </p>
     </div>
 
-    <div class="tech-stack text-center p-4 bg-gray-800/30 rounded-lg my-6">
-      <h3 class="text-[--isr-c-red] font-bold mb-2">Built with Python 🐍</h3>
+    <div class="tech-stack text-center p-4 bg-gray-800/30 backdrop-blur-sm rounded-lg my-6">
+      <h3 class="text-(--isr-c-red) font-bold mb-2">Built with Python 🐍</h3>
       <div class="flex flex-wrap justify-center gap-2 text-sm">
         <span class="bg-blue-500/20 px-2 py-1 rounded">NumPy</span>
         <span class="bg-green-500/20 px-2 py-1 rounded">scikit-image</span>
@@ -118,16 +118,16 @@ const images = [
         href="https://en.wikipedia.org/wiki/String_art"
         target="_blank"
         rel="noopener noreferrer"
-        ><span class="text-[--isr-c-red] cursor-pointer">string art</span></a
+        ><span class="text-(--isr-c-red) cursor-pointer">string art</span></a
       >
       using sophisticated mathematical algorithms that simulate the traditional craft of stretching
       thread between pins on a circular board. It combines computer vision, optimization algorithms,
       and the Radon Transform to create stunning artistic interpretations.
     </p>
 
-    <h2 class="text-[--isr-c-red] font-bold text-xl mb-4 mt-8">🎨 The Art Meets Science</h2>
+    <h2 class="text-(--isr-c-red) font-bold text-xl mb-4 mt-8">🎨 The Art Meets Science</h2>
 
-    <div class="bg-blue-900/20 border-l-4 border-blue-500 p-4 mb-6">
+    <div class="bg-blue-900/20 backdrop-blur-sm border-l-4 border-blue-500 p-4 mb-6">
       <h3 class="text-blue-300 font-semibold mb-2">🧮 The Algorithm</h3>
       <p class="text-sm">
         The core algorithm uses a <strong>greedy optimization approach</strong> combined with the
@@ -138,35 +138,35 @@ const images = [
       </p>
     </div>
 
-    <h2 class="text-[--isr-c-red] font-bold text-xl mb-4 mt-8">🚀 Key Features</h2>
+    <h2 class="text-(--isr-c-red) font-bold text-xl mb-4 mt-8">🚀 Key Features</h2>
 
     <div class="grid md:grid-cols-2 gap-4 mb-6">
-      <div class="bg-gray-800/20 p-4 rounded-lg">
-        <h3 class="text-[--isr-c-red] font-semibold mb-2">🎯 Multiple Art Modes</h3>
+      <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg">
+        <h3 class="text-(--isr-c-red) font-semibold mb-2">🎯 Multiple Art Modes</h3>
         <p class="text-sm">
           <strong>Grayscale:</strong> Classic black thread on white background<br />
           <strong>CMYK Color:</strong> Full-color string art using four separate color channels
         </p>
       </div>
 
-      <div class="bg-gray-800/20 p-4 rounded-lg">
-        <h3 class="text-[--isr-c-red] font-semibold mb-2">📐 Realistic Constraints</h3>
+      <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg">
+        <h3 class="text-(--isr-c-red) font-semibold mb-2">📐 Realistic Constraints</h3>
         <p class="text-sm">
           Simulates real-world limitations like minimum pin distance, loop prevention, and
           adjustable thread weight for authentic results.
         </p>
       </div>
 
-      <div class="bg-gray-800/20 p-4 rounded-lg">
-        <h3 class="text-[--isr-c-red] font-semibold mb-2">🎬 Multiple Output Formats</h3>
+      <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg">
+        <h3 class="text-(--isr-c-red) font-semibold mb-2">🎬 Multiple Output Formats</h3>
         <p class="text-sm">
           Generate high-res images, scalable SVG files, time-lapse videos, and JSON instructions for
           physical recreation.
         </p>
       </div>
 
-      <div class="bg-gray-800/20 p-4 rounded-lg">
-        <h3 class="text-[--isr-c-red] font-semibold mb-2">🖥️ User-Friendly GUI</h3>
+      <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg">
+        <h3 class="text-(--isr-c-red) font-semibold mb-2">🖥️ User-Friendly GUI</h3>
         <p class="text-sm">
           Intuitive interface with real-time parameter adjustment, progress tracking, and live
           preview capabilities.
@@ -174,9 +174,9 @@ const images = [
       </div>
     </div>
 
-    <h2 class="text-[--isr-c-red] font-bold text-xl mb-4 mt-8">🔬 Technical Deep Dive</h2>
+    <h2 class="text-(--isr-c-red) font-bold text-xl mb-4 mt-8">🔬 Technical Deep Dive</h2>
 
-    <h3 class="text-[--isr-c-red] font-semibold mb-2">📊 Mathematical Foundation</h3>
+    <h3 class="text-(--isr-c-red) font-semibold mb-2">📊 Mathematical Foundation</h3>
 
     <div class="bg-gray-900/50 p-4 rounded-lg mb-6 font-mono text-sm">
       <div class="text-green-400 mb-2">Pin Placement Algorithm:</div>
@@ -200,8 +200,8 @@ const images = [
       </div>
     </div>
 
-    <div class="bg-gray-800/20 p-4 rounded-lg mb-6">
-      <h3 class="text-[--isr-c-red] font-semibold mb-2">🎯 Error Calculation Formula</h3>
+    <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg mb-6">
+      <h3 class="text-(--isr-c-red) font-semibold mb-2">🎯 Error Calculation Formula</h3>
       <div class="bg-gray-900/50 p-3 rounded font-mono text-sm">
         <div>Error = (Current_Image - Original_Image)</div>
         <div>Multiplier = (Current_Image &lt; Original_Image) ? 254 : 1</div>
@@ -214,7 +214,7 @@ const images = [
       </p>
     </div>
 
-    <h2 class="text-[--isr-c-red] font-bold text-xl mb-4 mt-8">🛠️ Project Architecture</h2>
+    <h2 class="text-(--isr-c-red) font-bold text-xl mb-4 mt-8">🛠️ Project Architecture</h2>
 
     <div class="bg-gray-900/50 p-4 rounded-lg mb-6 font-mono text-sm">
       <div class="text-green-400 mb-2">Project Structure:</div>
@@ -228,7 +228,7 @@ const images = [
       </div>
     </div>
 
-    <h3 class="text-[--isr-c-red] font-semibold mb-2">⚡ Performance Optimizations</h3>
+    <h3 class="text-(--isr-c-red) font-semibold mb-2">⚡ Performance Optimizations</h3>
     <ul class="list-disc pl-6 mb-6 space-y-2">
       <li>
         <strong>Vectorized Operations:</strong> NumPy arrays for efficient mathematical computations
@@ -241,51 +241,51 @@ const images = [
       </li>
     </ul>
 
-    <h2 class="text-[--isr-c-red] font-bold text-xl mb-4 mt-8">🎨 Output Gallery</h2>
+    <h2 class="text-(--isr-c-red) font-bold text-xl mb-4 mt-8">🎨 Output Gallery</h2>
 
     <div class="grid md:grid-cols-2 gap-4 mb-6">
       <div class="text-center">
-        <h4 class="text-[--isr-c-red] font-semibold mb-2">🖤 Grayscale Mode</h4>
+        <h4 class="text-(--isr-c-red) font-semibold mb-2">🖤 Grayscale Mode</h4>
         <p class="text-sm">
           Classic black thread aesthetic with incredible detail preservation and artistic
           interpretation.
         </p>
       </div>
       <div class="text-center">
-        <h4 class="text-[--isr-c-red] font-semibold mb-2">🌈 CMYK Color Mode</h4>
+        <h4 class="text-(--isr-c-red) font-semibold mb-2">🌈 CMYK Color Mode</h4>
         <p class="text-sm">
           Full-color recreation using separate cyan, magenta, yellow, and black thread channels.
         </p>
       </div>
     </div>
 
-    <h2 class="text-[--isr-c-red] font-bold text-xl mb-4 mt-8">🔧 Advanced Parameters</h2>
+    <h2 class="text-(--isr-c-red) font-bold text-xl mb-4 mt-8">🔧 Advanced Parameters</h2>
 
     <div class="grid md:grid-cols-2 gap-4 mb-6">
-      <div class="bg-gray-800/20 p-3 rounded-lg">
-        <h4 class="text-[--isr-c-red] font-semibold text-sm mb-1">Line Weight (1-100)</h4>
+      <div class="bg-gray-800/20 backdrop-blur-sm p-3 rounded-lg">
+        <h4 class="text-(--isr-c-red) font-semibold text-sm mb-1">Line Weight (1-100)</h4>
         <p class="text-xs">Controls thread darkness and visual thickness</p>
       </div>
-      <div class="bg-gray-800/20 p-3 rounded-lg">
-        <h4 class="text-[--isr-c-red] font-semibold text-sm mb-1">Scale Factor (1-10)</h4>
+      <div class="bg-gray-800/20 backdrop-blur-sm p-3 rounded-lg">
+        <h4 class="text-(--isr-c-red) font-semibold text-sm mb-1">Scale Factor (1-10)</h4>
         <p class="text-xs">Affects processing resolution and detail level</p>
       </div>
-      <div class="bg-gray-800/20 p-3 rounded-lg">
-        <h4 class="text-[--isr-c-red] font-semibold text-sm mb-1">Min Distance</h4>
+      <div class="bg-gray-800/20 backdrop-blur-sm p-3 rounded-lg">
+        <h4 class="text-(--isr-c-red) font-semibold text-sm mb-1">Min Distance</h4>
         <p class="text-xs">Prevents unrealistic adjacent pin connections</p>
       </div>
-      <div class="bg-gray-800/20 p-3 rounded-lg">
-        <h4 class="text-[--isr-c-red] font-semibold text-sm mb-1">Pin Count</h4>
+      <div class="bg-gray-800/20 backdrop-blur-sm p-3 rounded-lg">
+        <h4 class="text-(--isr-c-red) font-semibold text-sm mb-1">Pin Count</h4>
         <p class="text-xs">Configurable (must be multiple of 36)</p>
       </div>
     </div>
 
-    <h2 class="text-[--isr-c-red] font-bold text-xl mb-4 mt-8">🌟 Real-World Applications</h2>
+    <h2 class="text-(--isr-c-red) font-bold text-xl mb-4 mt-8">🌟 Real-World Applications</h2>
 
     <div class="grid md:grid-cols-3 gap-4 mb-6">
       <div class="text-center">
         <div class="text-3xl mb-2">🎨</div>
-        <div class="font-semibold text-[--isr-c-red]">Digital Art</div>
+        <div class="font-semibold text-(--isr-c-red)">Digital Art</div>
         <div class="text-sm">
           Create unique artistic interpretations of photographs and portraits
         </div>
@@ -293,40 +293,40 @@ const images = [
 
       <div class="text-center">
         <div class="text-3xl mb-2">🏭</div>
-        <div class="font-semibold text-[--isr-c-red]">Manufacturing</div>
+        <div class="font-semibold text-(--isr-c-red)">Manufacturing</div>
         <div class="text-sm">JSON output drives CNC machines for automated physical recreation</div>
       </div>
 
       <div class="text-center">
         <div class="text-3xl mb-2">📚</div>
-        <div class="font-semibold text-[--isr-c-red]">Education</div>
+        <div class="font-semibold text-(--isr-c-red)">Education</div>
         <div class="text-sm">Demonstrate optimization algorithms and computer vision concepts</div>
       </div>
     </div>
 
-    <h2 class="text-[--isr-c-red] font-bold text-xl mb-4 mt-8">📊 Performance Metrics</h2>
+    <h2 class="text-(--isr-c-red) font-bold text-xl mb-4 mt-8">📊 Performance Metrics</h2>
 
     <div class="grid md:grid-cols-3 gap-4 mb-6">
-      <div class="bg-gray-800/20 p-4 rounded-lg text-center">
-        <div class="text-2xl font-bold text-[--isr-c-red]">75-85%</div>
+      <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg text-center">
+        <div class="text-2xl font-bold text-(--isr-c-red)">75-85%</div>
         <div class="text-sm">Typical Similarity Rate</div>
       </div>
 
-      <div class="bg-gray-800/20 p-4 rounded-lg text-center">
-        <div class="text-2xl font-bold text-[--isr-c-red]">1K-15K</div>
+      <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg text-center">
+        <div class="text-2xl font-bold text-(--isr-c-red)">1K-15K</div>
         <div class="text-sm">Lines Generated</div>
       </div>
 
-      <div class="bg-gray-800/20 p-4 rounded-lg text-center">
-        <div class="text-2xl font-bold text-[--isr-c-red]">30s-5m</div>
+      <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg text-center">
+        <div class="text-2xl font-bold text-(--isr-c-red)">30s-5m</div>
         <div class="text-sm">Processing Time</div>
       </div>
     </div>
 
-    <h2 class="text-[--isr-c-red] font-bold text-xl mb-4 mt-8">🚀 Technical Innovation</h2>
+    <h2 class="text-(--isr-c-red) font-bold text-xl mb-4 mt-8">🚀 Technical Innovation</h2>
 
-    <div class="bg-gray-800/20 p-4 rounded-lg mb-6">
-      <h3 class="text-[--isr-c-red] font-semibold mb-2">🔬 Unique Algorithmic Approach</h3>
+    <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg mb-6">
+      <h3 class="text-(--isr-c-red) font-semibold mb-2">🔬 Unique Algorithmic Approach</h3>
       <p class="mb-2">
         This project uniquely applies the <strong>Radon Transform</strong> to string art generation
         - a technique typically reserved for medical imaging and tomography:
@@ -339,7 +339,7 @@ const images = [
       </ul>
     </div>
 
-    <div class="bg-green-900/20 border-l-4 border-green-500 p-4 mb-6">
+    <div class="bg-green-900/20 backdrop-blur-sm border-l-4 border-green-500 p-4 mb-6">
       <h3 class="text-green-300 font-semibold mb-2">🎯 Bridging Digital and Physical</h3>
       <p class="text-sm">
         One of the few projects that seamlessly bridges computational art generation with real-world
@@ -348,7 +348,7 @@ const images = [
       </p>
     </div>
 
-    <h2 class="text-[--isr-c-red] font-bold text-xl mb-4 mt-8">🔮 Future Potential</h2>
+    <h2 class="text-(--isr-c-red) font-bold text-xl mb-4 mt-8">🔮 Future Potential</h2>
 
     <ul class="list-disc pl-6 mb-6 space-y-2">
       <li>
@@ -363,7 +363,7 @@ const images = [
       <li><strong>Mobile Apps:</strong> Touch-friendly interfaces for tablets and phones</li>
     </ul>
 
-    <div class="text-center mt-8 p-4 bg-gray-800/30 rounded-lg">
+    <div class="text-center mt-8 p-4 bg-gray-800/30 backdrop-blur-sm rounded-lg">
       <p class="mb-4">
         <strong>Ready to create your own string art?</strong>
       </p>
@@ -371,7 +371,7 @@ const images = [
         href="https://github.com/isandrocks/Img-manipulation"
         target="_blank"
         rel="noopener noreferrer"
-        class="inline-block bg-[--isr-c-red] hover:bg-red-600 text-white font-bold py-2 px-6 rounded-lg
+        class="inline-block bg-(--isr-c-red) hover:bg-red-600 text-white font-bold py-2 px-6 rounded-lg
           transition-colors">
         View on GitHub →
       </a>

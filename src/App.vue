@@ -9,27 +9,27 @@ const isOpen = ref(false)
   <el-container class="overflow-hidden">
     <el-aside
       width="200px"
-      class="hidden md:flex flex-col border-r border-[var(--color-border)] overflow-hidden">
+      class="hidden md:flex flex-col border-r border-(--color-border) overflow-hidden">
       <h1
-        class="h-[41px] text-[--isr-c-red] md:text-2xl lg:text-2xl text-nowrap relative justify-self-end
-          self-center border-b border-[var(--color-border)] sixtyfour-convergence-isr overflow-clip
+        class="h-[41px] text-(--isr-c-red) md:text-2xl lg:text-2xl text-nowrap relative justify-self-end
+          self-center border-b border-(--color-border) sixtyfour-convergence-isr overflow-clip
           cursor-pointer"
         @click="$router.push('/')">
         Con-Save
       </h1>
-      <p class="ml-2 mr-2 py-2 border-b border-[var(--color-border)]">
+      <p class="ml-2 mr-2 py-2 border-b border-(--color-border)">
         I'm
         <span
-          class="text-[--isr-c-red] cursor-pointer"
+          class="text-(--isr-c-red) cursor-pointer"
           @click="$router.push('/about')"
           >Sean</span
         >, a Senior Analyst by day and a programmer, maker, and designer whenever I have time.
       </p>
-      <p class="ml-2 mr-2 mt-2 pb-2 border-b border-[var(--color-border)]">
+      <p class="ml-2 mr-2 mt-2 pb-2 border-b border-(--color-border)">
         This site showcases my various projects and may eventually serve as a storefront if I decide
         to set one up.
       </p>
-      <p class="ml-2 mr-2 mt-2 pb-2 border-b border-[var(--color-border)]">
+      <p class="ml-2 mr-2 mt-2 pb-2 border-b border-(--color-border)">
         This site is still very much a work in progress, so please be patient with me as I continue
         adding more content.
       </p>
@@ -41,10 +41,10 @@ const isOpen = ref(false)
         height="125" />
     </el-aside>
 
-    <el-container class="pl-2">
+    <el-container>
       <el-header
         height="41px"
-        class="flex flex-row-reverse lg:flex-row border-b border-[var(--color-border)]">
+        class="flex flex-row-reverse lg:flex-row border-b border-(--color-border)">
         <!-- Desktop Navigation -->
         <nav class="hidden lg:flex text-xl mb-2">
           <RouterLink to="/">Home</RouterLink>
@@ -83,7 +83,7 @@ const isOpen = ref(false)
           </el-dropdown>
         </div>
         <h1
-          class="md:hidden text-[--isr-c-red] text-4xl text-nowrap fixed justify-self-center self-center
+          class="md:hidden text-(--isr-c-red) text-4xl text-nowrap fixed justify-self-center self-center
             sixtyfour-convergence-isr pr-3 cursor-pointer left-7"
           @click="$router.push('/')">
           Con-Save
@@ -98,19 +98,19 @@ const isOpen = ref(false)
         <RouterLink
           @click="isOpen = false"
           to="/"
-          class="border-b border-[var(--color-border)]"
+          class="border-b border-(--color-border)"
           >Home</RouterLink
         ><br />
         <RouterLink
           @click="isOpen = false"
           to="/list"
-          class="border-b border-[var(--color-border)]"
+          class="border-b border-(--color-border)"
           >List</RouterLink
         ><br />
         <RouterLink
           @click="isOpen = false"
           to="/about"
-          class="border-b border-[var(--color-border)]"
+          class="border-b border-(--color-border)"
           >About</RouterLink
         ><br />
         <RouterLink
@@ -120,9 +120,9 @@ const isOpen = ref(false)
         >
       </div>
 
-      <el-main>
-        <div>
-          <RouterView />
+      <el-main style="display: flex; justify-content: center;">
+        <div class="w-full flex justify-center">
+          <RouterView class="w-full"/>
         </div>
       </el-main>
     </el-container>

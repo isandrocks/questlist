@@ -7,7 +7,7 @@
     <template #header>
       <h1
         class="text-white text-center text-xl lg:text-3xl font-extrabold
-          [text-shadow:_-1px_-1px_0_black,1px_-1px_0_black,-1px_1px_0_black,1px_1px_0_black]">
+          [text-shadow:-1px_-1px_0_black,1px_-1px_0_black,-1px_1px_0_black,1px_1px_0_black]">
         Vue 3 Site
       </h1>
     </template>
@@ -21,7 +21,7 @@
         alt="a img of the code for this card"
         class="pb-2" />
     </div>
-    <p class="text-center border-t border-[var(--color-border)]">
+    <p class="text-center border-t border-(--color-border)">
       A modern Vue 3 portfolio site built with custom masonry layout, responsive design, and
       integrated game hosting. Features Element Plus components, Tailwind CSS styling, and dynamic
       blog system with image zoom functionality.

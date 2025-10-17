@@ -46,13 +46,13 @@ const images = [
     <div>
       <h1
         class="text-white text-center text-4xl lg:text-3xl font-extrabold
-          [text-shadow:_-1px_-1px_0_black,1px_-1px_0_black,-1px_1px_0_black,1px_1px_0_black] border-b
-          border-[var(--color-border)] py-[18px]">
+          [text-shadow:-1px_-1px_0_black,1px_-1px_0_black,-1px_1px_0_black,1px_1px_0_black] border-b
+          border-(--color-border) py-[18px]">
         <a
           href="https://github.com/isandrocks/questlist"
           target="_blank"
           rel="noopener noreferrer"
-          ><span class="text-[--isr-c-red] text-4xl font-extrabold cursor-pointer"
+          ><span class="text-(--isr-c-red) text-4xl font-extrabold cursor-pointer"
             >Questlist Portfolio</span
           ></a
         >
@@ -63,8 +63,8 @@ const images = [
     <el-carousel
       :style="{ height: windowWidth < 768 ? '250px' : '500px' }"
       height="500px"
-      autoplay="true"
-      interval="9000"
+      :autoplay="true"
+      :interval="9000"
       class="carousel-container"
       motion-blur>
       <el-carousel-item
@@ -77,8 +77,8 @@ const images = [
       </el-carousel-item>
     </el-carousel>
 
-    <div class="tech-stack text-center p-4 bg-gray-800/30 rounded-lg my-6">
-      <h3 class="text-[--isr-c-red] font-bold mb-2">Built with Vue 3 ⚡</h3>
+    <div class="tech-stack text-center p-4 bg-gray-800/30 backdrop-blur-sm rounded-lg my-6">
+      <h3 class="text-(--isr-c-red) font-bold mb-2">Built with Vue 3 ⚡</h3>
       <div class="flex flex-wrap justify-center gap-2 text-sm">
         <span class="bg-green-500/20 px-2 py-1 rounded">Vue 3 Composition API</span>
         <span class="bg-blue-500/20 px-2 py-1 rounded">Element Plus</span>
@@ -95,7 +95,7 @@ const images = [
         href="https://github.com/isandrocks/questlist"
         target="_blank"
         rel="noopener noreferrer"
-        ><span class="text-[--isr-c-red] cursor-pointer">portfolio site</span></a
+        ><span class="text-(--isr-c-red) cursor-pointer">portfolio site</span></a
       >
       was both a learning journey and the foundation for Con-Save Customs! This modern Vue 3
       application serves dual purposes: showcasing my technical projects and establishing the
@@ -107,41 +107,41 @@ const images = [
         href="https://github.com/isandrocks/questlist"
         target="_blank"
         rel="noopener noreferrer"
-        class="bg-[--isr-c-red] hover:bg-red-600 text-white font-bold py-3 px-8 rounded-lg transition-colors
+        class="bg-(--isr-c-red) hover:bg-red-600 text-white font-bold py-3 px-8 rounded-lg transition-colors
           text-lg">
         🔗 View GitHub Repository
       </a>
     </div>
 
-    <h2 class="text-[--isr-c-red] font-bold text-xl mb-4 mt-8">🏗️ Technical Architecture</h2>
+    <h2 class="text-(--isr-c-red) font-bold text-xl mb-4 mt-8">🏗️ Technical Architecture</h2>
 
     <div class="grid md:grid-cols-2 gap-4 mb-6">
-      <div class="bg-gray-800/20 p-4 rounded-lg">
-        <h3 class="text-[--isr-c-red] font-semibold mb-2">⚡ Vue 3 Composition API</h3>
+      <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg">
+        <h3 class="text-(--isr-c-red) font-semibold mb-2">⚡ Vue 3 Composition API</h3>
         <p class="text-sm">
           Modern &lt;script setup&gt; syntax for clean, reactive components with excellent
           TypeScript integration and performance.
         </p>
       </div>
 
-      <div class="bg-gray-800/20 p-4 rounded-lg">
-        <h3 class="text-[--isr-c-red] font-semibold mb-2">🎨 Element Plus + Tailwind</h3>
+      <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg">
+        <h3 class="text-(--isr-c-red) font-semibold mb-2">🎨 Element Plus + Tailwind</h3>
         <p class="text-sm">
           Professional UI components with utility-first CSS for rapid prototyping and consistent
           design.
         </p>
       </div>
 
-      <div class="bg-gray-800/20 p-4 rounded-lg">
-        <h3 class="text-[--isr-c-red] font-semibold mb-2">📱 Custom Masonry Layout</h3>
+      <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg">
+        <h3 class="text-(--isr-c-red) font-semibold mb-2">📱 Custom Masonry Layout</h3>
         <p class="text-sm">
           Hand-built responsive grid that adapts: 1 column (mobile), 2 columns (tablet), 3 columns
           (desktop).
         </p>
       </div>
 
-      <div class="bg-gray-800/20 p-4 rounded-lg">
-        <h3 class="text-[--isr-c-red] font-semibold mb-2">🎮 WebAssembly Integration</h3>
+      <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg">
+        <h3 class="text-(--isr-c-red) font-semibold mb-2">🎮 WebAssembly Integration</h3>
         <p class="text-sm">
           Embedded Godot games with CORS configuration and iframe optimization for seamless
           gameplay.
@@ -149,9 +149,9 @@ const images = [
       </div>
     </div>
 
-    <h2 class="text-[--isr-c-red] font-bold text-xl mb-4 mt-8">💡 Innovative Features</h2>
+    <h2 class="text-(--isr-c-red) font-bold text-xl mb-4 mt-8">💡 Innovative Features</h2>
 
-    <div class="bg-blue-900/20 border-l-4 border-blue-500 p-4 mb-6">
+    <div class="bg-blue-900/20 backdrop-blur-sm border-l-4 border-blue-500 p-4 mb-6">
       <h3 class="text-blue-300 font-semibold mb-2">🧩 Vue Component Blog System</h3>
       <p class="text-sm">
         Instead of markdown, each blog post is a Vue component allowing rich interactivity, dynamic
@@ -160,35 +160,35 @@ const images = [
     </div>
 
     <div class="grid md:grid-cols-2 gap-4 mb-6">
-      <div class="bg-gray-800/20 p-4 rounded-lg">
-        <h3 class="text-[--isr-c-red] font-semibold mb-2">🔄 Dynamic Routing</h3>
+      <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg">
+        <h3 class="text-(--isr-c-red) font-semibold mb-2">🔄 Dynamic Routing</h3>
         <p class="text-sm">
           Smart component loading with <code>defineAsyncComponent</code> and security whitelist for
           optimized bundle sizes.
         </p>
       </div>
 
-      <div class="bg-gray-800/20 p-4 rounded-lg">
-        <h3 class="text-[--isr-c-red] font-semibold mb-2">🔍 Image Zoom System</h3>
+      <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg">
+        <h3 class="text-(--isr-c-red) font-semibold mb-2">🔍 Image Zoom System</h3>
         <p class="text-sm">
           Full-screen modals with mouse wheel zoom (0.5x to 5x) for detailed project examination.
         </p>
       </div>
     </div>
 
-    <h2 class="text-[--isr-c-red] font-bold text-xl mb-4 mt-8">⚡ Performance & Optimization</h2>
+    <h2 class="text-(--isr-c-red) font-bold text-xl mb-4 mt-8">⚡ Performance & Optimization</h2>
 
     <div class="grid md:grid-cols-2 gap-4 mb-6">
-      <div class="bg-gray-800/20 p-4 rounded-lg">
-        <h3 class="text-[--isr-c-red] font-semibold mb-2">🚀 Build Optimization</h3>
+      <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg">
+        <h3 class="text-(--isr-c-red) font-semibold mb-2">🚀 Build Optimization</h3>
         <p class="text-sm">
           Custom Vite configuration removes asset hashes for consistent file naming and enables CORS
           for game embedding.
         </p>
       </div>
 
-      <div class="bg-gray-800/20 p-4 rounded-lg">
-        <h3 class="text-[--isr-c-red] font-semibold mb-2">📐 Custom Breakpoints</h3>
+      <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg">
+        <h3 class="text-(--isr-c-red) font-semibold mb-2">📐 Custom Breakpoints</h3>
         <p class="text-sm">
           Uses 1081px instead of standard 1024px breakpoint to better accommodate modern ultrawide
           displays.
@@ -196,9 +196,9 @@ const images = [
       </div>
     </div>
 
-    <h2 class="text-[--isr-c-red] font-bold text-xl mb-4 mt-8">🎯 Brand Identity & Future</h2>
+    <h2 class="text-(--isr-c-red) font-bold text-xl mb-4 mt-8">🎯 Brand Identity & Future</h2>
 
-    <div class="bg-green-900/20 border-l-4 border-green-500 p-4 mb-6">
+    <div class="bg-green-900/20 backdrop-blur-sm border-l-4 border-green-500 p-4 mb-6">
       <h3 class="text-green-300 font-semibold mb-2">🎲 The Con-Save Connection</h3>
       <p class="text-sm">
         "Con-Save Customs" references D&D's Constitution saving throw - a perfect metaphor for
@@ -207,8 +207,8 @@ const images = [
       </p>
     </div>
 
-    <div class="bg-gray-800/20 p-4 rounded-lg mb-6">
-      <h3 class="text-[--isr-c-red] font-semibold mb-2">🔮 Evolution Path</h3>
+    <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg mb-6">
+      <h3 class="text-(--isr-c-red) font-semibold mb-2">🔮 Evolution Path</h3>
       <p class="text-sm">
         This portfolio foundation is designed to scale into a full e-commerce platform for custom
         keyboards, electronics, and controllers. The modular Vue architecture makes adding features
@@ -216,7 +216,7 @@ const images = [
       </p>
     </div>
 
-    <div class="text-center mt-8 p-4 bg-gray-800/30 rounded-lg">
+    <div class="text-center mt-8 p-4 bg-gray-800/30 backdrop-blur-sm rounded-lg">
       <p class="mb-4">
         <strong>Ready to explore the technical implementation?</strong>
       </p>
@@ -225,7 +225,7 @@ const images = [
           href="https://github.com/isandrocks/questlist"
           target="_blank"
           rel="noopener noreferrer"
-          class="bg-[--isr-c-red] hover:bg-red-600 text-white font-bold py-2 px-6 rounded-lg transition-colors">
+          class="bg-(--isr-c-red) hover:bg-red-600 text-white font-bold py-2 px-6 rounded-lg transition-colors">
           🔗 GitHub Repository
         </a>
         <button

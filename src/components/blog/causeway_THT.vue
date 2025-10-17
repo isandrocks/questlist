@@ -47,17 +47,17 @@ const images = [
 </script>
 
 <template>
-  <article class="prose prose-lg max-w-3xl mx-auto px-4 py-4">
+  <article class="prose prose-lg max-w-3xl px-4 py-4">
     <div>
       <h1
         class="text-white text-center text-4xl lg:text-3xl font-extrabold
-          [text-shadow:_-1px_-1px_0_black,1px_-1px_0_black,-1px_1px_0_black,1px_1px_0_black] border-b
-          border-[var(--color-border)] py-[18px]">
+          [text-shadow:-1px_-1px_0_black,1px_-1px_0_black,-1px_1px_0_black,1px_1px_0_black] border-b
+          border-(--color-border) py-[18px]">
         <a
           href="https://github.com/isandrocks/Causeway_THT"
           target="_blank"
           rel="noopener noreferrer"
-          ><span class="text-[--isr-c-red] text-4xl font-extrabold cursor-pointer"
+          ><span class="text-(--isr-c-red) text-4xl font-extrabold cursor-pointer"
             >Causeway_THT</span
           ></a
         >
@@ -68,8 +68,8 @@ const images = [
     <el-carousel
       :style="{ height: windowWidth < 768 ? '250px' : '500px' }"
       height="500px"
-      autoplay="true"
-      interval="9000"
+      :autoplay="true"
+      :interval="9000"
       class="carousel-container"
       motion-blur>
       <el-carousel-item
@@ -83,8 +83,8 @@ const images = [
       </el-carousel-item>
     </el-carousel>
 
-    <div class="tech-stack text-center p-4 bg-gray-800/30 rounded-lg my-6">
-      <h3 class="text-[--isr-c-red] font-bold mb-2">Built with ⌨️</h3>
+    <div class="tech-stack text-center p-4 bg-gray-800/30 backdrop-blur-sm rounded-lg my-6">
+      <h3 class="text-(--isr-c-red) font-bold mb-2">Built with ⌨️</h3>
       <div class="flex flex-wrap justify-center gap-2 text-sm">
         <span class="bg-green-500/20 px-2 py-1 rounded">ATmega32A</span>
         <span class="bg-blue-500/20 px-2 py-1 rounded">QMK Firmware</span>
@@ -100,51 +100,51 @@ const images = [
         href="https://github.com/isandrocks/Causeway_THT"
         target="_blank"
         rel="noopener noreferrer"
-        ><span class="text-[--isr-c-red] cursor-pointer">DIY kit</span></a
+        ><span class="text-(--isr-c-red) cursor-pointer">DIY kit</span></a
       >! This 69-key (nice) ortholinear keyboard is assembled entirely with through-hole components,
       including a sideways USB Type-C connector. Built on the ATmega32A MCU running QMK firmware,
       it's a copy of the Boardwalk Ortho 5x14 layout with custom configurations.
     </p>
 
-    <h2 class="text-[--isr-c-red] font-bold text-xl mb-4 mt-8">🚀 Key Features</h2>
+    <h2 class="text-(--isr-c-red) font-bold text-xl mb-4 mt-8">🚀 Key Features</h2>
 
     <div class="grid md:grid-cols-2 gap-4 mb-6">
-      <div class="bg-gray-800/20 p-4 rounded-lg">
-        <h3 class="text-[--isr-c-red] font-semibold mb-2">⌨️ 69-Key Ortholinear Layout</h3>
+      <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg">
+        <h3 class="text-(--isr-c-red) font-semibold mb-2">⌨️ 69-Key Ortholinear Layout</h3>
         <p class="text-sm">
           5×14 grid layout based on the Boardwalk design, optimized for touch typing and programming
           workflows.
         </p>
       </div>
 
-      <div class="bg-gray-800/20 p-4 rounded-lg">
-        <h3 class="text-[--isr-c-red] font-semibold mb-2">🔧 Through-Hole Only</h3>
+      <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg">
+        <h3 class="text-(--isr-c-red) font-semibold mb-2">🔧 Through-Hole Only</h3>
         <p class="text-sm">
           Built entirely with through-hole components for easy hand-soldering and component
           accessibility.
         </p>
       </div>
 
-      <div class="bg-gray-800/20 p-4 rounded-lg">
-        <h3 class="text-[--isr-c-red] font-semibold mb-2">🔌 Sideways USB-C</h3>
+      <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg">
+        <h3 class="text-(--isr-c-red) font-semibold mb-2">🔌 Sideways USB-C</h3>
         <p class="text-sm">
           Unique sideways USB-C connector placement for a distinctive aesthetic and practical cable
           management.
         </p>
       </div>
 
-      <div class="bg-gray-800/20 p-4 rounded-lg">
-        <h3 class="text-[--isr-c-red] font-semibold mb-2">⚙️ QMK Powered</h3>
+      <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg">
+        <h3 class="text-(--isr-c-red) font-semibold mb-2">⚙️ QMK Powered</h3>
         <p class="text-sm">
           Runs QMK firmware on ATmega32A MCU with full customization and programming support.
         </p>
       </div>
     </div>
 
-    <h2 class="text-[--isr-c-red] font-bold text-xl mb-4 mt-8">🎨 Design Details</h2>
+    <h2 class="text-(--isr-c-red) font-bold text-xl mb-4 mt-8">🎨 Design Details</h2>
 
-    <div class="bg-gray-800/20 p-4 rounded-lg mb-6">
-      <h3 class="text-[--isr-c-red] font-semibold mb-2">🌊 The Great Wave Silkscreen</h3>
+    <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg mb-6">
+      <h3 class="text-(--isr-c-red) font-semibold mb-2">🌊 The Great Wave Silkscreen</h3>
       <p class="mb-2">
         Features a large silkscreen of "The Great Wave off Kanagawa" by Katsushika Hokusai covering
         the entire PCB:
@@ -156,11 +156,11 @@ const images = [
       </ul>
     </div>
 
-    <h2 class="text-[--isr-c-red] font-bold text-xl mb-4 mt-8">❓ Frequently Asked Questions</h2>
+    <h2 class="text-(--isr-c-red) font-bold text-xl mb-4 mt-8">❓ Frequently Asked Questions</h2>
 
     <div class="space-y-6">
-      <div class="bg-gray-800/20 p-4 rounded-lg">
-        <h3 class="text-[--isr-c-red] font-semibold mb-2">Why is the USB-C port on its side?</h3>
+      <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg">
+        <h3 class="text-(--isr-c-red) font-semibold mb-2">Why is the USB-C port on its side?</h3>
         <p class="text-sm">
           When browsing USB-C THT components on Digi-Key, I found this unique connector with
           sideways pins and thought "Huh, that's neat!" *adds to cart* - Sometimes the best design
@@ -168,8 +168,8 @@ const images = [
         </p>
       </div>
 
-      <div class="bg-gray-800/20 p-4 rounded-lg">
-        <h3 class="text-[--isr-c-red] font-semibold mb-2">
+      <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg">
+        <h3 class="text-(--isr-c-red) font-semibold mb-2">
           The Great Wave is blocking everything in KiCad!
         </h3>
         <p class="text-sm">
@@ -179,8 +179,8 @@ const images = [
         </p>
       </div>
 
-      <div class="bg-gray-800/20 p-4 rounded-lg">
-        <h3 class="text-[--isr-c-red] font-semibold mb-2">
+      <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg">
+        <h3 class="text-(--isr-c-red) font-semibold mb-2">
           What about the Case.step and acrylic.dxf files?
         </h3>
         <p class="text-sm">
@@ -191,7 +191,7 @@ const images = [
       </div>
     </div>
 
-    <div class="text-center mt-8 p-4 bg-gray-800/30 rounded-lg">
+    <div class="text-center mt-8 p-4 bg-gray-800/30 backdrop-blur-sm rounded-lg">
       <p class="mb-4">
         <strong>Interested in building your own Causeway_THT?</strong>
       </p>
@@ -199,7 +199,7 @@ const images = [
         href="https://github.com/isandrocks/Causeway_THT"
         target="_blank"
         rel="noopener noreferrer"
-        class="inline-block bg-[--isr-c-red] hover:bg-red-600 text-white font-bold py-2 px-6 rounded-lg
+        class="inline-block bg-(--isr-c-red) hover:bg-red-600 text-white font-bold py-2 px-6 rounded-lg
           transition-colors">
         View on GitHub →
       </a>
