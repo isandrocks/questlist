@@ -79,7 +79,7 @@ const images = [
       </el-carousel-item>
     </el-carousel>
 
-    <div class="tech-stack text-center p-4 bg-gray-800/30 rounded-lg my-6">
+    <div class="tech-stack text-center p-4 bg-gray-800/30 backdrop-blur-sm rounded-lg my-6">
       <h3 class="text-[--isr-c-red] font-bold mb-2">Built with Open Hardware 🔧</h3>
       <div class="flex flex-wrap justify-center gap-2 text-sm">
         <span class="bg-blue-500/20 px-2 py-1 rounded">QMK Firmware</span>
@@ -111,7 +111,7 @@ const images = [
 
     <h2 class="text-[--isr-c-red] font-bold text-xl mb-4 mt-8">🎯 What Makes It Special</h2>
 
-    <div class="bg-gray-800/20 p-4 rounded-lg mb-6">
+    <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg mb-6">
       <p class="mb-4">
         The Skyline_20K isn't just another macropad - it's a comprehensive hardware engineering
         project that showcases:
@@ -138,7 +138,7 @@ const images = [
     <h2 class="text-[--isr-c-red] font-bold text-xl mb-4 mt-8">🛠️ Hardware Engineering</h2>
 
     <div class="grid md:grid-cols-2 gap-4 mb-6">
-      <div class="bg-gray-800/20 p-4 rounded-lg">
+      <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg">
         <h3 class="text-[--isr-c-red] font-semibold mb-2">🔌 PCB Design</h3>
         <p class="text-sm">
           Complete KiCad project with 5×4 key matrix, breakpoints with reinforced traces, and
@@ -146,7 +146,7 @@ const images = [
         </p>
       </div>
 
-      <div class="bg-gray-800/20 p-4 rounded-lg">
+      <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg">
         <h3 class="text-[--isr-c-red] font-semibold mb-2">💡 RGB Engineering</h3>
         <p class="text-sm">
           All LEDs face downward for maximum underglow effect. 4960 Neopixels provide significantly
@@ -154,7 +154,7 @@ const images = [
         </p>
       </div>
 
-      <div class="bg-gray-800/20 p-4 rounded-lg">
+      <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg">
         <h3 class="text-[--isr-c-red] font-semibold mb-2">🧩 Modular Innovation</h3>
         <p class="text-sm">
           Intentional breakpoints allow sections to snap apart and serve as a stand, creating
@@ -162,7 +162,7 @@ const images = [
         </p>
       </div>
 
-      <div class="bg-gray-800/20 p-4 rounded-lg">
+      <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg">
         <h3 class="text-[--isr-c-red] font-semibold mb-2">⚡ Power Management</h3>
         <p class="text-sm">
           USB bus-powered with intelligent brightness limiting to stay within USB 2.0 current
@@ -173,7 +173,7 @@ const images = [
 
     <h2 class="text-[--isr-c-red] font-bold text-xl mb-4 mt-8">💻 Firmware & Software</h2>
 
-    <div class="bg-blue-900/20 border-l-4 border-blue-500 p-4 mb-6">
+    <div class="bg-blue-900/20 backdrop-blur-sm border-l-4 border-blue-500 p-4 mb-6">
       <h3 class="text-blue-300 font-semibold mb-2">🎹 QMK Firmware Foundation</h3>
       <p class="text-sm">
         Built on the industry-standard QMK firmware framework with full N-key rollover, multiple
@@ -199,7 +199,7 @@ const images = [
       </li>
     </ul>
 
-    <div class="bg-gray-800/20 p-4 rounded-lg mb-6">
+    <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg mb-6">
       <h3 class="text-[--isr-c-red] font-semibold mb-2">🎨 RGB Programming</h3>
       <p class="text-sm">
         Custom rainbow mood lighting with configurable parameters. The firmware includes precise
@@ -211,7 +211,7 @@ const images = [
     <h2 class="text-[--isr-c-red] font-bold text-xl mb-4 mt-8">🎯 Use Cases & Applications</h2>
 
     <div class="grid md:grid-cols-2 gap-4 mb-6">
-      <div class="bg-gray-800/20 p-4 rounded-lg">
+      <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg">
         <h3 class="text-[--isr-c-red] font-semibold mb-2">💻 Developer Productivity</h3>
         <p class="text-sm">
           Program Git commands, build shortcuts, and IDE functions. Perfect for rapid development
@@ -219,7 +219,7 @@ const images = [
         </p>
       </div>
 
-      <div class="bg-gray-800/20 p-4 rounded-lg">
+      <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg">
         <h3 class="text-[--isr-c-red] font-semibold mb-2">🎮 Content Creation</h3>
         <p class="text-sm">
           Stream controls, OBS shortcuts, Discord functions. RGB provides visual feedback for stream
@@ -227,7 +227,7 @@ const images = [
         </p>
       </div>
 
-      <div class="bg-gray-800/20 p-4 rounded-lg">
+      <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg">
         <h3 class="text-[--isr-c-red] font-semibold mb-2">🎨 Creative Software</h3>
         <p class="text-sm">
           Tool selection in Photoshop, timeline navigation in video editors, brush controls for
@@ -235,7 +235,7 @@ const images = [
         </p>
       </div>
 
-      <div class="bg-gray-800/20 p-4 rounded-lg">
+      <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg">
         <h3 class="text-[--isr-c-red] font-semibold mb-2">📊 Data Entry</h3>
         <p class="text-sm">
           Dedicated numpad functionality with ergonomic positioning and reduced hand travel.
@@ -245,7 +245,7 @@ const images = [
 
     <h2 class="text-[--isr-c-red] font-bold text-xl mb-4 mt-8">🚀 Development Journey</h2>
 
-    <div class="bg-green-900/20 border-l-4 border-green-500 p-4 mb-6">
+    <div class="bg-green-900/20 backdrop-blur-sm border-l-4 border-green-500 p-4 mb-6">
       <h3 class="text-green-300 font-semibold mb-2">🎓 Learning Platform</h3>
       <p class="text-sm">
         This project serves as a comprehensive learning resource covering PCB design, embedded
@@ -254,7 +254,7 @@ const images = [
       </p>
     </div>
 
-    <div class="bg-gray-800/20 p-4 rounded-lg mb-6">
+    <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg mb-6">
       <h3 class="text-[--isr-c-red] font-semibold mb-2">🎬 Build Process Video</h3>
       <p class="text-sm mb-4">
         Watch the complete assembly process from PCB soldering to final testing. This build video
@@ -288,7 +288,7 @@ const images = [
     <h2 class="text-[--isr-c-red] font-bold text-xl mb-4 mt-8">🌟 Community Impact</h2>
 
     <div class="grid md:grid-cols-2 gap-4 mb-6">
-      <div class="bg-gray-800/20 p-4 rounded-lg">
+      <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg">
         <h3 class="text-[--isr-c-red] font-semibold mb-2">📚 Educational Resource</h3>
         <p class="text-sm">
           Complete open-source design teaches PCB engineering, firmware development, and product
@@ -296,7 +296,7 @@ const images = [
         </p>
       </div>
 
-      <div class="bg-gray-800/20 p-4 rounded-lg">
+      <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg">
         <h3 class="text-[--isr-c-red] font-semibold mb-2">🔧 Customization Platform</h3>
         <p class="text-sm">
           Foundation for community modifications, variants, and improvements in the maker ecosystem.
@@ -312,7 +312,7 @@ const images = [
       </p>
     </div>
 
-    <div class="text-center mt-8 p-4 bg-gray-800/30 rounded-lg">
+    <div class="text-center mt-8 p-4 bg-gray-800/30 backdrop-blur-sm rounded-lg">
       <p class="mb-4">
         <strong>Ready to build your own or contribute to the project?</strong>
       </p>

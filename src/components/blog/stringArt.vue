@@ -100,7 +100,7 @@ const images = [
       </p>
     </div>
 
-    <div class="tech-stack text-center p-4 bg-gray-800/30 rounded-lg my-6">
+    <div class="tech-stack text-center p-4 bg-gray-800/30 backdrop-blur-sm rounded-lg my-6">
       <h3 class="text-[--isr-c-red] font-bold mb-2">Built with Python 🐍</h3>
       <div class="flex flex-wrap justify-center gap-2 text-sm">
         <span class="bg-blue-500/20 px-2 py-1 rounded">NumPy</span>
@@ -127,7 +127,7 @@ const images = [
 
     <h2 class="text-[--isr-c-red] font-bold text-xl mb-4 mt-8">🎨 The Art Meets Science</h2>
 
-    <div class="bg-blue-900/20 border-l-4 border-blue-500 p-4 mb-6">
+    <div class="bg-blue-900/20 backdrop-blur-sm border-l-4 border-blue-500 p-4 mb-6">
       <h3 class="text-blue-300 font-semibold mb-2">🧮 The Algorithm</h3>
       <p class="text-sm">
         The core algorithm uses a <strong>greedy optimization approach</strong> combined with the
@@ -141,7 +141,7 @@ const images = [
     <h2 class="text-[--isr-c-red] font-bold text-xl mb-4 mt-8">🚀 Key Features</h2>
 
     <div class="grid md:grid-cols-2 gap-4 mb-6">
-      <div class="bg-gray-800/20 p-4 rounded-lg">
+      <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg">
         <h3 class="text-[--isr-c-red] font-semibold mb-2">🎯 Multiple Art Modes</h3>
         <p class="text-sm">
           <strong>Grayscale:</strong> Classic black thread on white background<br />
@@ -149,7 +149,7 @@ const images = [
         </p>
       </div>
 
-      <div class="bg-gray-800/20 p-4 rounded-lg">
+      <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg">
         <h3 class="text-[--isr-c-red] font-semibold mb-2">📐 Realistic Constraints</h3>
         <p class="text-sm">
           Simulates real-world limitations like minimum pin distance, loop prevention, and
@@ -157,7 +157,7 @@ const images = [
         </p>
       </div>
 
-      <div class="bg-gray-800/20 p-4 rounded-lg">
+      <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg">
         <h3 class="text-[--isr-c-red] font-semibold mb-2">🎬 Multiple Output Formats</h3>
         <p class="text-sm">
           Generate high-res images, scalable SVG files, time-lapse videos, and JSON instructions for
@@ -165,7 +165,7 @@ const images = [
         </p>
       </div>
 
-      <div class="bg-gray-800/20 p-4 rounded-lg">
+      <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg">
         <h3 class="text-[--isr-c-red] font-semibold mb-2">🖥️ User-Friendly GUI</h3>
         <p class="text-sm">
           Intuitive interface with real-time parameter adjustment, progress tracking, and live
@@ -200,7 +200,7 @@ const images = [
       </div>
     </div>
 
-    <div class="bg-gray-800/20 p-4 rounded-lg mb-6">
+    <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg mb-6">
       <h3 class="text-[--isr-c-red] font-semibold mb-2">🎯 Error Calculation Formula</h3>
       <div class="bg-gray-900/50 p-3 rounded font-mono text-sm">
         <div>Error = (Current_Image - Original_Image)</div>
@@ -262,19 +262,19 @@ const images = [
     <h2 class="text-[--isr-c-red] font-bold text-xl mb-4 mt-8">🔧 Advanced Parameters</h2>
 
     <div class="grid md:grid-cols-2 gap-4 mb-6">
-      <div class="bg-gray-800/20 p-3 rounded-lg">
+      <div class="bg-gray-800/20 backdrop-blur-sm p-3 rounded-lg">
         <h4 class="text-[--isr-c-red] font-semibold text-sm mb-1">Line Weight (1-100)</h4>
         <p class="text-xs">Controls thread darkness and visual thickness</p>
       </div>
-      <div class="bg-gray-800/20 p-3 rounded-lg">
+      <div class="bg-gray-800/20 backdrop-blur-sm p-3 rounded-lg">
         <h4 class="text-[--isr-c-red] font-semibold text-sm mb-1">Scale Factor (1-10)</h4>
         <p class="text-xs">Affects processing resolution and detail level</p>
       </div>
-      <div class="bg-gray-800/20 p-3 rounded-lg">
+      <div class="bg-gray-800/20 backdrop-blur-sm p-3 rounded-lg">
         <h4 class="text-[--isr-c-red] font-semibold text-sm mb-1">Min Distance</h4>
         <p class="text-xs">Prevents unrealistic adjacent pin connections</p>
       </div>
-      <div class="bg-gray-800/20 p-3 rounded-lg">
+      <div class="bg-gray-800/20 backdrop-blur-sm p-3 rounded-lg">
         <h4 class="text-[--isr-c-red] font-semibold text-sm mb-1">Pin Count</h4>
         <p class="text-xs">Configurable (must be multiple of 36)</p>
       </div>
@@ -307,17 +307,17 @@ const images = [
     <h2 class="text-[--isr-c-red] font-bold text-xl mb-4 mt-8">📊 Performance Metrics</h2>
 
     <div class="grid md:grid-cols-3 gap-4 mb-6">
-      <div class="bg-gray-800/20 p-4 rounded-lg text-center">
+      <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg text-center">
         <div class="text-2xl font-bold text-[--isr-c-red]">75-85%</div>
         <div class="text-sm">Typical Similarity Rate</div>
       </div>
 
-      <div class="bg-gray-800/20 p-4 rounded-lg text-center">
+      <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg text-center">
         <div class="text-2xl font-bold text-[--isr-c-red]">1K-15K</div>
         <div class="text-sm">Lines Generated</div>
       </div>
 
-      <div class="bg-gray-800/20 p-4 rounded-lg text-center">
+      <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg text-center">
         <div class="text-2xl font-bold text-[--isr-c-red]">30s-5m</div>
         <div class="text-sm">Processing Time</div>
       </div>
@@ -325,7 +325,7 @@ const images = [
 
     <h2 class="text-[--isr-c-red] font-bold text-xl mb-4 mt-8">🚀 Technical Innovation</h2>
 
-    <div class="bg-gray-800/20 p-4 rounded-lg mb-6">
+    <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg mb-6">
       <h3 class="text-[--isr-c-red] font-semibold mb-2">🔬 Unique Algorithmic Approach</h3>
       <p class="mb-2">
         This project uniquely applies the <strong>Radon Transform</strong> to string art generation
@@ -339,7 +339,7 @@ const images = [
       </ul>
     </div>
 
-    <div class="bg-green-900/20 border-l-4 border-green-500 p-4 mb-6">
+    <div class="bg-green-900/20 backdrop-blur-sm border-l-4 border-green-500 p-4 mb-6">
       <h3 class="text-green-300 font-semibold mb-2">🎯 Bridging Digital and Physical</h3>
       <p class="text-sm">
         One of the few projects that seamlessly bridges computational art generation with real-world
@@ -363,7 +363,7 @@ const images = [
       <li><strong>Mobile Apps:</strong> Touch-friendly interfaces for tablets and phones</li>
     </ul>
 
-    <div class="text-center mt-8 p-4 bg-gray-800/30 rounded-lg">
+    <div class="text-center mt-8 p-4 bg-gray-800/30 backdrop-blur-sm rounded-lg">
       <p class="mb-4">
         <strong>Ready to create your own string art?</strong>
       </p>

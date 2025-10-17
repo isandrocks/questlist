@@ -83,7 +83,7 @@ const images = [
       </el-carousel-item>
     </el-carousel>
 
-    <div class="tech-stack text-center p-4 bg-gray-800/30 rounded-lg my-6">
+    <div class="tech-stack text-center p-4 bg-gray-800/30 backdrop-blur-sm rounded-lg my-6">
       <h3 class="text-[--isr-c-red] font-bold mb-2">Built with ⌨️</h3>
       <div class="flex flex-wrap justify-center gap-2 text-sm">
         <span class="bg-green-500/20 px-2 py-1 rounded">ATmega32A</span>
@@ -109,7 +109,7 @@ const images = [
     <h2 class="text-[--isr-c-red] font-bold text-xl mb-4 mt-8">🚀 Key Features</h2>
 
     <div class="grid md:grid-cols-2 gap-4 mb-6">
-      <div class="bg-gray-800/20 p-4 rounded-lg">
+      <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg">
         <h3 class="text-[--isr-c-red] font-semibold mb-2">⌨️ 69-Key Ortholinear Layout</h3>
         <p class="text-sm">
           5×14 grid layout based on the Boardwalk design, optimized for touch typing and programming
@@ -117,7 +117,7 @@ const images = [
         </p>
       </div>
 
-      <div class="bg-gray-800/20 p-4 rounded-lg">
+      <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg">
         <h3 class="text-[--isr-c-red] font-semibold mb-2">🔧 Through-Hole Only</h3>
         <p class="text-sm">
           Built entirely with through-hole components for easy hand-soldering and component
@@ -125,7 +125,7 @@ const images = [
         </p>
       </div>
 
-      <div class="bg-gray-800/20 p-4 rounded-lg">
+      <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg">
         <h3 class="text-[--isr-c-red] font-semibold mb-2">🔌 Sideways USB-C</h3>
         <p class="text-sm">
           Unique sideways USB-C connector placement for a distinctive aesthetic and practical cable
@@ -133,7 +133,7 @@ const images = [
         </p>
       </div>
 
-      <div class="bg-gray-800/20 p-4 rounded-lg">
+      <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg">
         <h3 class="text-[--isr-c-red] font-semibold mb-2">⚙️ QMK Powered</h3>
         <p class="text-sm">
           Runs QMK firmware on ATmega32A MCU with full customization and programming support.
@@ -143,7 +143,7 @@ const images = [
 
     <h2 class="text-[--isr-c-red] font-bold text-xl mb-4 mt-8">🎨 Design Details</h2>
 
-    <div class="bg-gray-800/20 p-4 rounded-lg mb-6">
+    <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg mb-6">
       <h3 class="text-[--isr-c-red] font-semibold mb-2">🌊 The Great Wave Silkscreen</h3>
       <p class="mb-2">
         Features a large silkscreen of "The Great Wave off Kanagawa" by Katsushika Hokusai covering
@@ -159,7 +159,7 @@ const images = [
     <h2 class="text-[--isr-c-red] font-bold text-xl mb-4 mt-8">❓ Frequently Asked Questions</h2>
 
     <div class="space-y-6">
-      <div class="bg-gray-800/20 p-4 rounded-lg">
+      <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg">
         <h3 class="text-[--isr-c-red] font-semibold mb-2">Why is the USB-C port on its side?</h3>
         <p class="text-sm">
           When browsing USB-C THT components on Digi-Key, I found this unique connector with
@@ -168,7 +168,7 @@ const images = [
         </p>
       </div>
 
-      <div class="bg-gray-800/20 p-4 rounded-lg">
+      <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg">
         <h3 class="text-[--isr-c-red] font-semibold mb-2">
           The Great Wave is blocking everything in KiCad!
         </h3>
@@ -179,7 +179,7 @@ const images = [
         </p>
       </div>
 
-      <div class="bg-gray-800/20 p-4 rounded-lg">
+      <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg">
         <h3 class="text-[--isr-c-red] font-semibold mb-2">
           What about the Case.step and acrylic.dxf files?
         </h3>
@@ -191,7 +191,7 @@ const images = [
       </div>
     </div>
 
-    <div class="text-center mt-8 p-4 bg-gray-800/30 rounded-lg">
+    <div class="text-center mt-8 p-4 bg-gray-800/30 backdrop-blur-sm rounded-lg">
       <p class="mb-4">
         <strong>Interested in building your own Causeway_THT?</strong>
       </p>

@@ -28,7 +28,7 @@
         class="pb-2 p-1 object-contain" />
     </div>
     <p class="text-center border-t border-[var(--color-border)]">
-      I made a simple 5x5 version of Lights Out, along with all custom-made assets and shaders —
+      I made a simple 5x5 version of Lights Out, along with all custom-made assets and shaders, 
       everything released under CC0.
     </p>
   </el-card>

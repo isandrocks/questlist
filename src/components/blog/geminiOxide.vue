@@ -77,7 +77,7 @@ const images = [
       </el-carousel-item>
     </el-carousel>
 
-    <div class="tech-stack text-center p-4 bg-gray-800/30 rounded-lg my-6">
+    <div class="tech-stack text-center p-4 bg-gray-800/30 backdrop-blur-sm rounded-lg my-6">
       <h3 class="text-[--isr-c-red] font-bold mb-2">Built with Rust 🦀</h3>
       <div class="flex flex-wrap justify-center gap-2 text-sm">
         <span class="bg-orange-500/20 px-2 py-1 rounded">egui</span>
@@ -103,7 +103,7 @@ const images = [
     <h2 class="text-[--isr-c-red] font-bold text-xl mb-4 mt-8">🚀 Key Features</h2>
 
     <div class="grid md:grid-cols-2 gap-4 mb-6">
-      <div class="bg-gray-800/20 p-4 rounded-lg">
+      <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg">
         <h3 class="text-[--isr-c-red] font-semibold mb-2">💬 Text & Image AI Chat</h3>
         <p class="text-sm">
           Send text prompts and images to Gemini AI with real-time responses rendered in beautiful
@@ -111,7 +111,7 @@ const images = [
         </p>
       </div>
 
-      <div class="bg-gray-800/20 p-4 rounded-lg">
+      <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg">
         <h3 class="text-[--isr-c-red] font-semibold mb-2">📸 Smart Image Handling</h3>
         <p class="text-sm">
           Capture screenshots, paste from clipboard, or load from file paths. Supports transparency
@@ -119,7 +119,7 @@ const images = [
         </p>
       </div>
 
-      <div class="bg-gray-800/20 p-4 rounded-lg">
+      <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg">
         <h3 class="text-[--isr-c-red] font-semibold mb-2">🌍 Cross-Platform</h3>
         <p class="text-sm">
           Native performance on Windows, macOS, and Linux with Asian font support for international
@@ -127,7 +127,7 @@ const images = [
         </p>
       </div>
 
-      <div class="bg-gray-800/20 p-4 rounded-lg">
+      <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg">
         <h3 class="text-[--isr-c-red] font-semibold mb-2">🔒 Security First</h3>
         <p class="text-sm">
           Enterprise-grade API key management with comprehensive security auditing and .env
@@ -142,7 +142,7 @@ const images = [
       GeminiOxide showcases modern Rust development practices with a clean, modular architecture:
     </p>
 
-    <div class="bg-gray-900/50 p-4 rounded-lg mb-6 font-mono text-sm">
+    <div class="bg-gray-900/50 backdrop-blur-sm p-4 rounded-lg mb-6 font-mono text-sm">
       <div class="text-green-400 mb-2">src/</div>
       <div class="ml-4">
         <div>├── main.rs <span class="text-gray-400"># eframe setup & entry point</span></div>
@@ -173,7 +173,7 @@ const images = [
 
     <h2 class="text-[--isr-c-red] font-bold text-xl mb-4 mt-8">💡 Technical Highlights</h2>
 
-    <div class="bg-gray-800/20 p-4 rounded-lg mb-6">
+    <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg mb-6">
       <h3 class="text-[--isr-c-red] font-semibold mb-2">🖼️ Advanced Image Processing</h3>
       <p class="mb-2">
         One of the most challenging aspects was implementing robust cross-platform image handling:
@@ -187,10 +187,10 @@ const images = [
       </ul>
     </div>
 
-    <div class="bg-gray-800/20 p-4 rounded-lg mb-6">
+    <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg mb-6">
       <h3 class="text-[--isr-c-red] font-semibold mb-2">⚡ Performance Optimizations</h3>
       <p class="mb-2">The release build is optimized for both size and speed:</p>
-      <div class="bg-gray-900/50 p-3 rounded font-mono text-sm">
+      <div class="bg-gray-900/50 backdrop-blur-sm p-3 rounded font-mono text-sm">
         <div class="text-yellow-400">[profile.release]</div>
         <div>opt-level = 3 <span class="text-gray-400"># Maximum optimization</span></div>
         <div>lto = true <span class="text-gray-400"># Link-time optimization</span></div>
@@ -234,7 +234,7 @@ const images = [
       <li><strong>Cross-platform builds:</strong> Consistent experience across platforms</li>
     </ul>
 
-    <div class="bg-blue-900/20 border-l-4 border-blue-500 p-4 mb-6">
+    <div class="bg-blue-900/20 backdrop-blur-sm border-l-4 border-blue-500 p-4 mb-6">
       <h3 class="text-blue-300 font-semibold mb-2">🎓 Learning Project</h3>
       <p class="text-sm">
         This project served as an excellent learning experience for modern Rust GUI development,
@@ -246,18 +246,18 @@ const images = [
     <h2 class="text-[--isr-c-red] font-bold text-xl mb-4 mt-8">📊 Project Stats</h2>
 
     <div class="grid md:grid-cols-2 gap-4 mb-6">
-      <div class="bg-gray-800/20 p-4 rounded-lg text-center">
+      <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg text-center">
         <div class="text-2xl font-bold text-[--isr-c-red]">v0.2.4</div>
         <div class="text-sm">Current Version</div>
       </div>
 
-      <div class="bg-gray-800/20 p-4 rounded-lg text-center">
+      <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg text-center">
         <div class="text-2xl font-bold text-[--isr-c-red]">MIT</div>
         <div class="text-sm">Open Source License</div>
       </div>
     </div>
 
-    <div class="text-center mt-8 p-4 bg-gray-800/30 rounded-lg">
+    <div class="text-center mt-8 p-4 bg-gray-800/30 backdrop-blur-sm rounded-lg">
       <p class="mb-4">
         <strong>Ready to try GeminiOxide?</strong>
       </p>
