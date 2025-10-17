@@ -4,6 +4,7 @@ import LogoConsave from '../components/icons/LogoConsave.vue'
 
 <template>
   <div class="about flex flex-col gap-4 text-center">
+  <div class="about flex flex-col gap-4 text-center">
     <h1 class="text-5xl self-center"><span class="text-(--isr-c-red)">About me</span></h1>
     <h3 class="self-center">
       Hi I'm Sean! Online, you’ll often find me as
@@ -59,5 +60,6 @@ import LogoConsave from '../components/icons/LogoConsave.vue'
       </h3>
     </div>
     <LogoConsave class="self-center max-w-full" />
+  </div>
   </div>
 </template>
