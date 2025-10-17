@@ -7,7 +7,7 @@
     <template #header>
       <h1
         class="text-white text-center text-xl lg:text-3xl font-extrabold
-          [text-shadow:_-1px_-1px_0_black,1px_-1px_0_black,-1px_1px_0_black,1px_1px_0_black]">
+          [text-shadow:-1px_-1px_0_black,1px_-1px_0_black,-1px_1px_0_black,1px_1px_0_black]">
         Causeway_THT
       </h1>
     </template>
@@ -25,7 +25,7 @@
         src="@/assets/projectImgs/1tNBtoA.png"
         class="pb-2" />
     </div>
-    <p class="text-center border-t border-[var(--color-border)]">
+    <p class="text-center border-t border-(--color-border)">
       My first keyboard DIY kit. Using the ATmega32A MCU and running QMK Custom firmware.
     </p>
   </el-card>

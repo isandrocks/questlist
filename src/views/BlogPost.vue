@@ -1,5 +1,5 @@
 <script setup>
-import { ref, defineAsyncComponent } from 'vue'
+import { ref, defineAsyncComponent, markRaw } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 
 const route = useRoute()
@@ -50,7 +50,7 @@ const loadComponent = async () => {
   }
 
   try {
-    component.value = defineAsyncComponent(() => import(`../components/blog/${sanitizedSlug}.vue`))
+    component.value = markRaw(defineAsyncComponent(() => import(`../components/blog/${sanitizedSlug}.vue`)))
   } catch (importError) {
     console.error('Blog post not found:', importError)
     error.value = 'Blog post not found'
@@ -65,6 +65,7 @@ loadComponent()
 </script>
 
 <template>
+  <div class="flex flex-col w-full items-center">
   <a
     href="/"
     class="back-arrow"
@@ -77,7 +78,7 @@ loadComponent()
   <div
     v-else-if="error"
     class="error-message text-center p-4">
-    <h2 class="text-xl text-[--isr-c-red] mb-2">{{ error }}</h2>
+    <h2 class="text-xl text-(--isr-c-red) mb-2">{{ error }}</h2>
     <p>Redirecting to home page...</p>
   </div>
   <p v-else>Loading post...</p>
@@ -87,4 +88,5 @@ loadComponent()
     style="text-decoration: underline; font-size: 16px"
     >&lt; Back</a
   >
+  </div>
 </template>

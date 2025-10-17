@@ -46,13 +46,13 @@ const images = [
     <div>
       <h1
         class="text-white text-center text-4xl lg:text-3xl font-extrabold
-          [text-shadow:_-1px_-1px_0_black,1px_-1px_0_black,-1px_1px_0_black,1px_1px_0_black] border-b
-          border-[var(--color-border)] py-[18px]">
+          [text-shadow:-1px_-1px_0_black,1px_-1px_0_black,-1px_1px_0_black,1px_1px_0_black] border-b
+          border-(--color-border) py-[18px]">
         <a
           href="https://github.com/isandrocks/GeminiOxide"
           target="_blank"
           rel="noopener noreferrer"
-          ><span class="text-[--isr-c-red] text-4xl font-extrabold cursor-pointer"
+          ><span class="text-(--isr-c-red) text-4xl font-extrabold cursor-pointer"
             >GeminiOxide</span
           ></a
         >
@@ -63,8 +63,8 @@ const images = [
     <el-carousel
       :style="{ height: windowWidth < 768 ? '250px' : '500px' }"
       height="500px"
-      autoplay="true"
-      interval="9000"
+      :autoplay="true"
+      :interval="9000"
       class="carousel-container"
       motion-blur>
       <el-carousel-item
@@ -78,7 +78,7 @@ const images = [
     </el-carousel>
 
     <div class="tech-stack text-center p-4 bg-gray-800/30 backdrop-blur-sm rounded-lg my-6">
-      <h3 class="text-[--isr-c-red] font-bold mb-2">Built with Rust 🦀</h3>
+      <h3 class="text-(--isr-c-red) font-bold mb-2">Built with Rust 🦀</h3>
       <div class="flex flex-wrap justify-center gap-2 text-sm">
         <span class="bg-orange-500/20 px-2 py-1 rounded">egui</span>
         <span class="bg-blue-500/20 px-2 py-1 rounded">Tokio</span>
@@ -95,16 +95,16 @@ const images = [
         href="https://deepmind.google/technologies/gemini/"
         target="_blank"
         rel="noopener noreferrer"
-        ><span class="text-[--isr-c-red] cursor-pointer">Google's Gemini AI</span></a
+        ><span class="text-(--isr-c-red) cursor-pointer">Google's Gemini AI</span></a
       >. It combines the power of Rust's performance with modern GUI design to create a seamless AI
       interaction experience.
     </p>
 
-    <h2 class="text-[--isr-c-red] font-bold text-xl mb-4 mt-8">🚀 Key Features</h2>
+    <h2 class="text-(--isr-c-red) font-bold text-xl mb-4 mt-8">🚀 Key Features</h2>
 
     <div class="grid md:grid-cols-2 gap-4 mb-6">
       <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg">
-        <h3 class="text-[--isr-c-red] font-semibold mb-2">💬 Text & Image AI Chat</h3>
+        <h3 class="text-(--isr-c-red) font-semibold mb-2">💬 Text & Image AI Chat</h3>
         <p class="text-sm">
           Send text prompts and images to Gemini AI with real-time responses rendered in beautiful
           markdown format.
@@ -112,7 +112,7 @@ const images = [
       </div>
 
       <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg">
-        <h3 class="text-[--isr-c-red] font-semibold mb-2">📸 Smart Image Handling</h3>
+        <h3 class="text-(--isr-c-red) font-semibold mb-2">📸 Smart Image Handling</h3>
         <p class="text-sm">
           Capture screenshots, paste from clipboard, or load from file paths. Supports transparency
           and cross-platform clipboard integration.
@@ -120,7 +120,7 @@ const images = [
       </div>
 
       <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg">
-        <h3 class="text-[--isr-c-red] font-semibold mb-2">🌍 Cross-Platform</h3>
+        <h3 class="text-(--isr-c-red) font-semibold mb-2">🌍 Cross-Platform</h3>
         <p class="text-sm">
           Native performance on Windows, macOS, and Linux with Asian font support for international
           users.
@@ -128,7 +128,7 @@ const images = [
       </div>
 
       <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg">
-        <h3 class="text-[--isr-c-red] font-semibold mb-2">🔒 Security First</h3>
+        <h3 class="text-(--isr-c-red) font-semibold mb-2">🔒 Security First</h3>
         <p class="text-sm">
           Enterprise-grade API key management with comprehensive security auditing and .env
           protection.
@@ -136,7 +136,7 @@ const images = [
       </div>
     </div>
 
-    <h2 class="text-[--isr-c-red] font-bold text-xl mb-4 mt-8">🛠️ Technical Architecture</h2>
+    <h2 class="text-(--isr-c-red) font-bold text-xl mb-4 mt-8">🛠️ Technical Architecture</h2>
 
     <p class="mb-4">
       GeminiOxide showcases modern Rust development practices with a clean, modular architecture:
@@ -153,7 +153,7 @@ const images = [
       </div>
     </div>
 
-    <h3 class="text-[--isr-c-red] font-semibold mb-2">🎯 Design Principles</h3>
+    <h3 class="text-(--isr-c-red) font-semibold mb-2">🎯 Design Principles</h3>
     <ul class="list-disc pl-6 mb-6 space-y-2">
       <li>
         <strong>Async by Default:</strong> Non-blocking UI with Tokio runtime for smooth user
@@ -171,10 +171,10 @@ const images = [
       </li>
     </ul>
 
-    <h2 class="text-[--isr-c-red] font-bold text-xl mb-4 mt-8">💡 Technical Highlights</h2>
+    <h2 class="text-(--isr-c-red) font-bold text-xl mb-4 mt-8">💡 Technical Highlights</h2>
 
     <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg mb-6">
-      <h3 class="text-[--isr-c-red] font-semibold mb-2">🖼️ Advanced Image Processing</h3>
+      <h3 class="text-(--isr-c-red) font-semibold mb-2">🖼️ Advanced Image Processing</h3>
       <p class="mb-2">
         One of the most challenging aspects was implementing robust cross-platform image handling:
       </p>
@@ -188,7 +188,7 @@ const images = [
     </div>
 
     <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg mb-6">
-      <h3 class="text-[--isr-c-red] font-semibold mb-2">⚡ Performance Optimizations</h3>
+      <h3 class="text-(--isr-c-red) font-semibold mb-2">⚡ Performance Optimizations</h3>
       <p class="mb-2">The release build is optimized for both size and speed:</p>
       <div class="bg-gray-900/50 backdrop-blur-sm p-3 rounded font-mono text-sm">
         <div class="text-yellow-400">[profile.release]</div>
@@ -199,31 +199,31 @@ const images = [
       </div>
     </div>
 
-    <h2 class="text-[--isr-c-red] font-bold text-xl mb-4 mt-8">🌟 What Makes It Special</h2>
+    <h2 class="text-(--isr-c-red) font-bold text-xl mb-4 mt-8">🌟 What Makes It Special</h2>
 
     <p class="mb-4">Unlike web-based AI interfaces, GeminiOxide offers:</p>
 
     <div class="grid md:grid-cols-3 gap-4 mb-6">
       <div class="text-center">
         <div class="text-3xl mb-2">🚀</div>
-        <div class="font-semibold text-[--isr-c-red]">Native Speed</div>
+        <div class="font-semibold text-(--isr-c-red)">Native Speed</div>
         <div class="text-sm">Rust performance with no browser overhead</div>
       </div>
 
       <div class="text-center">
         <div class="text-3xl mb-2">🔒</div>
-        <div class="font-semibold text-[--isr-c-red]">Privacy First</div>
+        <div class="font-semibold text-(--isr-c-red)">Privacy First</div>
         <div class="text-sm">Your API key stays local, no third-party servers</div>
       </div>
 
       <div class="text-center">
         <div class="text-3xl mb-2">🎨</div>
-        <div class="font-semibold text-[--isr-c-red]">Rich UI</div>
+        <div class="font-semibold text-(--isr-c-red)">Rich UI</div>
         <div class="text-sm">Native desktop experience with markdown rendering</div>
       </div>
     </div>
 
-    <h2 class="text-[--isr-c-red] font-bold text-xl mb-4 mt-8">🔧 Development Experience</h2>
+    <h2 class="text-(--isr-c-red) font-bold text-xl mb-4 mt-8">🔧 Development Experience</h2>
 
     <p class="mb-4">The project includes comprehensive development tooling:</p>
 
@@ -243,16 +243,16 @@ const images = [
       </p>
     </div>
 
-    <h2 class="text-[--isr-c-red] font-bold text-xl mb-4 mt-8">📊 Project Stats</h2>
+    <h2 class="text-(--isr-c-red) font-bold text-xl mb-4 mt-8">📊 Project Stats</h2>
 
     <div class="grid md:grid-cols-2 gap-4 mb-6">
       <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg text-center">
-        <div class="text-2xl font-bold text-[--isr-c-red]">v0.2.4</div>
+        <div class="text-2xl font-bold text-(--isr-c-red)">v0.2.4</div>
         <div class="text-sm">Current Version</div>
       </div>
 
       <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg text-center">
-        <div class="text-2xl font-bold text-[--isr-c-red]">MIT</div>
+        <div class="text-2xl font-bold text-(--isr-c-red)">MIT</div>
         <div class="text-sm">Open Source License</div>
       </div>
     </div>
@@ -265,7 +265,7 @@ const images = [
         href="https://github.com/isandrocks/GeminiOxide"
         target="_blank"
         rel="noopener noreferrer"
-        class="inline-block bg-[--isr-c-red] hover:bg-red-600 text-white font-bold py-2 px-6 rounded-lg
+        class="inline-block bg-(--isr-c-red) hover:bg-red-600 text-white font-bold py-2 px-6 rounded-lg
           transition-colors">
         View on GitHub →
       </a>

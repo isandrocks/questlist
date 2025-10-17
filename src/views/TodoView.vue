@@ -8,7 +8,7 @@
         type="checkbox" />
       <input
         class="border-0 bg-transparent p-0 font-semibold text-zinc-800 ring-0 placeholder:font-normal
-          focus:border-0 focus:outline-none focus:ring-0"
+          focus:border-0 focus:outline-hidden focus:ring-0"
         v-model="newTask"
         type="text"
         placeholder="Add a new task"
