@@ -4,7 +4,7 @@ import { ref, onMounted, watch } from 'vue'
 import CRTEffect from './components/CRTEffect.vue'
 
 const isOpen = ref(false)
-const crtEnabled = ref(true)
+const crtEnabled = ref(false)
 
 // Load CRT setting from localStorage
 onMounted(() => {
@@ -50,7 +50,8 @@ const navItems = [
           self-center border-b border-(--color-border) sixtyfour-convergence-isr overflow-clip
           cursor-pointer z-[60]"
         :class="{ 'glow-text': crtEnabled }"
-        @click="$router.push('/')">
+        @click="toggleCRT"
+        :title="crtEnabled ? 'Click to disable CRT effect' : 'Click to enable CRT effect'">
         Con-Save
       </h1>
       <p class="ml-2 mr-2 py-2 border-b border-(--color-border)">
@@ -68,13 +69,6 @@ const navItems = [
       <p class="ml-2 mr-2 mt-2 pb-2 border-b border-(--color-border)">
         This site is still very much a work in progress, so please be patient with me as I continue
         adding more content.
-      </p>
-      <p class="ml-2 mr-2 mt-2 pb-2 text-sm text-zinc-500">
-        <span :class="crtEnabled ? 'text-green-400' : 'text-gray-400'">
-          CRT Effect: {{ crtEnabled ? 'ON' : 'OFF' }}
-        </span>
-        <br>
-        <span class="text-xs">Click logo or press Ctrl+Shift+C</span>
       </p>
       <img
         alt="Con-Save logo"
