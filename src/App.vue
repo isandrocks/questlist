@@ -1,8 +1,35 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-import { ref } from 'vue'
+import { ref, onMounted, watch } from 'vue'
+import CRTEffect from './components/CRTEffect.vue'
 
 const isOpen = ref(false)
+const crtEnabled = ref(true)
+
+// Load CRT setting from localStorage
+onMounted(() => {
+  const saved = localStorage.getItem('crt-enabled')
+  if (saved !== null) {
+    crtEnabled.value = JSON.parse(saved)
+  }
+  
+  // Add keyboard shortcut (Ctrl + Shift + C)
+  document.addEventListener('keydown', (e) => {
+    if (e.ctrlKey && e.shiftKey && e.key === 'C') {
+      e.preventDefault()
+      toggleCRT()
+    }
+  })
+})
+
+// Save CRT setting to localStorage when it changes
+watch(crtEnabled, (newValue) => {
+  localStorage.setItem('crt-enabled', JSON.stringify(newValue))
+})
+
+const toggleCRT = () => {
+  crtEnabled.value = !crtEnabled.value
+}
 
 const navItems = [
   { label: 'Home', href: '/' },
@@ -13,14 +40,16 @@ const navItems = [
 </script>
 
 <template>
-  <el-container class="overflow-hidden">
+  <CRTEffect :is-active="crtEnabled" class="overflow-hidden">
+      <el-container class="overflow-hidden">
     <el-aside
       width="200px"
       class="hidden md:flex flex-col border-r border-(--color-border) overflow-hidden">
       <h1
         class="h-[41px] text-(--isr-c-red) md:text-2xl lg:text-2xl text-nowrap relative justify-self-end
           self-center border-b border-(--color-border) sixtyfour-convergence-isr overflow-clip
-          cursor-pointer"
+          cursor-pointer z-[60]"
+        :class="{ 'glow-text': crtEnabled }"
         @click="$router.push('/')">
         Con-Save
       </h1>
@@ -40,12 +69,21 @@ const navItems = [
         This site is still very much a work in progress, so please be patient with me as I continue
         adding more content.
       </p>
+      <p class="ml-2 mr-2 mt-2 pb-2 text-sm text-zinc-500">
+        <span :class="crtEnabled ? 'text-green-400' : 'text-gray-400'">
+          CRT Effect: {{ crtEnabled ? 'ON' : 'OFF' }}
+        </span>
+        <br>
+        <span class="text-xs">Click logo or press Ctrl+Shift+C</span>
+      </p>
       <img
         alt="Con-Save logo"
-        class="hidden md:flex fixed self-center bottom-2"
+        class="hidden md:flex fixed self-center bottom-2 cursor-pointer hover:opacity-80 transition-opacity"
         src="@/assets/cartoonhlg.svg"
         width="125"
-        height="125" />
+        height="125"
+        @click="toggleCRT"
+        :title="crtEnabled ? 'Click to disable CRT effect' : 'Click to enable CRT effect'" />
     </el-aside>
 
     <el-container>
@@ -121,8 +159,9 @@ const navItems = [
         </div>
         <h1
           class="md:hidden text-(--isr-c-red) text-4xl text-nowrap fixed justify-self-center self-center
-            sixtyfour-convergence-isr pr-3 cursor-pointer left-7"
-          @click="$router.push('/')">
+            sixtyfour-convergence-isr pr-3 cursor-pointer left-7 hover:opacity-80 transition-opacity"
+          @click="toggleCRT"
+          :title="crtEnabled ? 'Click to disable CRT effect' : 'Click to enable CRT effect'">
           Con-Save
         </h1>
       </el-header>
@@ -152,6 +191,7 @@ const navItems = [
       </el-main>
     </el-container>
   </el-container>
+  </CRTEffect>
 </template>
 
 <style scoped>
@@ -169,7 +209,8 @@ nav a:first-of-type {
 
 
 .el-main {
-  max-height: calc(100% - 41px);
+  max-height: calc(100vh - 41px);
+  overflow-y: auto;
 }
 
 .el-aside {
@@ -186,5 +227,28 @@ nav a:first-of-type {
   align-items: center;
   justify-content: center;
   right: 14px;
+}
+
+.glow-text {
+  text-shadow: 
+    0 0 5px var(--isr-c-red),
+    0 0 10px var(--isr-c-red),
+    0 0 15px var(--isr-c-red),
+    0 0 20px var(--isr-c-red);
+  position: relative;
+  z-index: 60;
+  isolation: isolate;
+  mix-blend-mode: normal;
+  filter: brightness(1.2) contrast(1.1);
+}
+
+.glow-text:hover {
+  text-shadow: 
+    0 0 8px var(--isr-c-red),
+    0 0 16px var(--isr-c-red),
+    0 0 24px var(--isr-c-red),
+    0 0 32px var(--isr-c-red);
+  filter: brightness(1.3) contrast(1.2);
+  transition: text-shadow 0.3s ease, filter 0.3s ease;
 }
 </style>
