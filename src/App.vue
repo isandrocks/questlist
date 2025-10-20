@@ -43,7 +43,7 @@ const navItems = [
       <img
         alt="Con-Save logo"
         class="hidden md:flex fixed self-center bottom-2"
-        src="@/assets/logo.svg"
+        src="@/assets/cartoonhlg.svg"
         width="125"
         height="125" />
     </el-aside>

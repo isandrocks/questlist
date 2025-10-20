@@ -1,9 +1,9 @@
 <template>
   <el-card
-    style="max-width: 100%"
+    style="max-width: 100%; background-color:  color-mix(in oklab, var(--color-white) 10%"
     shadow="hover"
     @click="$router.push('/blog/geminiOxide')"
-    class="cursor-pointer hover:shadow-lg transition-shadow">
+    class="cursor-pointer hover:shadow-lg transition-shadow backdrop-blur-lg">
     <template #header>
       <h1
         class="text-white text-center text-xl lg:text-3xl font-extrabold
