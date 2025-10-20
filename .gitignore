@@ -17,6 +17,7 @@ pending_posts
 
 /cypress/videos/
 /cypress/screenshots/
+/.test_files/
 
 # Editor directories and files
 .vscode/*
