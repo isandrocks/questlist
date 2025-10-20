@@ -18,7 +18,7 @@ import DragTrees from '../components/DragTrees.vue'
             effect for completed tasks. The component demonstrates production-ready features including data persistence, 
             secure file import/export, input sanitization, and responsive design optimized for both desktop and mobile experiences.
           </p>
-          <p>To get started type something in the bottom text section and hit the + icon!</p>
+          <p>To get started type something in the bottom text section and hit the + icon! </p>
         </div>
       </div>
   </main>
