@@ -11,19 +11,19 @@
         Causeway_THT
       </h1>
     </template>
-    <div class="grid grid-cols-2 max-w-[60vh] max-h-[60vh] overflow-auto">
+    <div class="grid grid-cols-2 gap-2 max-w-[60vh] overflow-hidden p-2">
       <img
         src="@/assets/projectImgs/vy02HwZ.jpg"
-        class="p-2" />
+        class="w-full h-32 object-cover rounded-md" />
       <img
         src="@/assets/projectImgs/WSpeWCg.png"
-        class="pb-2" />
+        class="w-full h-32 object-cover rounded-md" />
       <img
         src="@/assets/projectImgs/gtjLou9c.jpg"
-        class="pb-2" />
+        class="w-full h-32 object-cover rounded-md" />
       <img
         src="@/assets/projectImgs/1tNBtoA.png"
-        class="pb-2" />
+        class="w-full h-32 object-cover rounded-md" />
     </div>
     <p class="text-center border-t border-(--color-border)">
       My first keyboard DIY kit. Using the ATmega32A MCU and running QMK Custom firmware.

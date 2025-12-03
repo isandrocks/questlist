@@ -7,8 +7,8 @@ const isOpen = ref(false)
 const navItems = [
   { label: 'Home', href: '/' },
   { label: 'List', href: '/list' },
-  { label: 'About', href: '/about' },  
-  { label: 'Game', href: '/game' },
+  { label: 'About', href: '/about' },
+  { label: 'Game', href: '/game' }
 ]
 </script>
 
@@ -18,9 +18,9 @@ const navItems = [
       width="200px"
       class="hidden md:flex flex-col border-r border-(--color-border) overflow-hidden">
       <h1
-        class="h-[41px] text-(--isr-c-red) md:text-2xl lg:text-2xl text-nowrap relative justify-self-end
-          self-center border-b border-(--color-border) sixtyfour-convergence-isr overflow-clip
-          cursor-pointer"
+        class="h-[41px] text-(--isr-c-red) md:text-2xl lg:text-2xl text-nowrap relative
+          justify-self-end self-center border-b border-(--color-border) sixtyfour-convergence-isr
+          overflow-clip cursor-pointer"
         @click="$router.push('/')">
         Con-Save
       </h1>
@@ -54,37 +54,38 @@ const navItems = [
         class="flex flex-row-reverse lg:flex-row border-b border-(--color-border)">
         <!-- Desktop Navigation -->
         <nav class="hidden lg:flex w-full">
-            <div class="flex items-center justify-end top-1">
-              <RouterLink
-                v-for="item in navItems"
-                :key="item.label"
-                :to="item.href"
-                class="relative px-5 py-2 transition-all duration-300 ease-out"
-                :class="[
-                  $route.path === item.href || (item.href === '/' && $route.path === '/') 
-                    ? 'text-red-500' 
-                    : 'text-zinc-400 hover:text-zinc-200'
-                ]"
-              >
-                <!-- Background highlight -->
-                <span 
-                  v-if="$route.path === item.href || (item.href === '/' && $route.path === '/')"
-                  class="absolute inset-0 bg-red-500/10 backdrop-blur-sm rounded-sm border border-red-500/20"
-                />
-                
-                <!-- Hover effect -->
-                <span class="absolute inset-0 bg-zinc-800/0 hover:bg-zinc-800/40 rounded-sm transition-colors duration-300" />
-                
-                <!-- Text -->
-                <span class="relative z-10 text-l pointer-events-none">{{ item.label }}</span>
-                
-                <!-- Active indicator line -->
-                <span 
-                  v-if="$route.path === item.href || (item.href === '/' && $route.path === '/')"
-                  class="absolute bottom-0 left-1/2 -translate-x-1/2 w-8 h-0.5 bg-gradient-to-r from-transparent via-red-500 to-transparent"
-                />
-              </RouterLink>
-            </div>
+          <div class="flex items-center justify-end top-1">
+            <RouterLink
+              v-for="item in navItems"
+              :key="item.label"
+              :to="item.href"
+              class="relative px-5 py-2 transition-all duration-300 ease-out"
+              :class="[
+                $route.path === item.href || (item.href === '/' && $route.path === '/')
+                  ? 'text-red-500'
+                  : 'text-zinc-400 hover:text-zinc-200'
+              ]">
+              <!-- Background highlight -->
+              <span
+                v-if="$route.path === item.href || (item.href === '/' && $route.path === '/')"
+                class="absolute inset-0 bg-red-500/10 backdrop-blur-sm rounded-sm border
+                  border-red-500/20" />
+
+              <!-- Hover effect -->
+              <span
+                class="absolute inset-0 bg-zinc-800/0 hover:bg-zinc-800/40 rounded-sm
+                  transition-colors duration-300" />
+
+              <!-- Text -->
+              <span class="relative z-10 text-l pointer-events-none">{{ item.label }}</span>
+
+              <!-- Active indicator line -->
+              <span
+                v-if="$route.path === item.href || (item.href === '/' && $route.path === '/')"
+                class="absolute bottom-0 left-1/2 -translate-x-1/2 w-8 h-0.5 bg-gradient-to-r
+                  from-transparent via-red-500 to-transparent" />
+            </RouterLink>
+          </div>
         </nav>
 
         <!-- Burger Icon -->
@@ -108,11 +109,10 @@ const navItems = [
                   --el-dropdown-menuItem-hover-fill: var(--isr-c-bg-red);
                   --el-dropdown-menuItem-hover-color: var(--isr-c-red);
                 ">
-                <el-dropdown-item 
+                <el-dropdown-item
                   v-for="item in navItems"
                   :key="item.label"
-                  @click="$router.push(item.href)"
-                >
+                  @click="$router.push(item.href)">
                   {{ item.label }}
                 </el-dropdown-item>
               </el-dropdown-menu>
@@ -120,8 +120,8 @@ const navItems = [
           </el-dropdown>
         </div>
         <h1
-          class="md:hidden text-(--isr-c-red) text-4xl text-nowrap fixed justify-self-center self-center
-            sixtyfour-convergence-isr pr-3 cursor-pointer left-7"
+          class="md:hidden text-(--isr-c-red) text-4xl text-nowrap fixed justify-self-center
+            self-center sixtyfour-convergence-isr pr-3 cursor-pointer left-7"
           @click="$router.push('/')">
           Con-Save
         </h1>
@@ -130,24 +130,21 @@ const navItems = [
       <!-- Mobile Dropdown Menu -->
       <div
         v-if="isOpen"
-        class="lg:hidden fixed flex-col top-[41px] z-20 px-4 my-2 rounded bg-[#121212] bg-opacity-95 text-xl
-          space-y-2">
+        class="lg:hidden fixed flex-col top-[41px] z-20 px-4 my-2 rounded bg-[#121212] bg-opacity-95
+          text-xl space-y-2">
         <RouterLink
           v-for="(item, index) in navItems"
           :key="item.label"
           @click="isOpen = false"
           :to="item.href"
-          :class="[
-            index < navItems.length - 1 ? 'border-b border-(--color-border)' : ''
-          ]"
-        >
+          :class="[index < navItems.length - 1 ? 'border-b border-(--color-border)' : '']">
           {{ item.label }}
         </RouterLink>
       </div>
 
-      <el-main style="display: flex; justify-content: center;">
+      <el-main style="display: flex; justify-content: center">
         <div class="w-full flex justify-center">
-          <RouterView class="w-full"/>
+          <RouterView class="w-full" />
         </div>
       </el-main>
     </el-container>
@@ -159,14 +156,11 @@ nav a:first-of-type {
   border: 0;
 }
 
-
 .red {
   text-decoration: none;
   color: var(--isr-c-red);
   transition: 0.4s;
 }
-
-
 
 .el-main {
   max-height: calc(100% - 41px);

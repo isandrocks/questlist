@@ -1,5 +1,24 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
+import IconClapperboard from '@/components/icons/IconClapperboard.vue'
+import IconSnake from '@/components/icons/IconSnake.vue'
+import IconPalette from '@/components/icons/IconPalette.vue'
+import IconAbacus from '@/components/icons/IconAbacus.vue'
+import IconRocket from '@/components/icons/IconRocket.vue'
+import IconTarget from '@/components/icons/IconTarget.vue'
+import IconRuler from '@/components/icons/IconRuler.vue'
+import IconMonitor from '@/components/icons/IconMonitor.vue'
+import IconMicroscope from '@/components/icons/IconMicroscope.vue'
+import IconChartBar from '@/components/icons/IconChartBar.vue'
+import IconTools from '@/components/icons/IconTools.vue'
+import IconLightning from '@/components/icons/IconLightning.vue'
+import IconHeart from '@/components/icons/IconHeart.vue'
+import IconRainbow from '@/components/icons/IconRainbow.vue'
+import IconWrench from '@/components/icons/IconWrench.vue'
+import IconStar from '@/components/icons/IconStar.vue'
+import IconFactory from '@/components/icons/IconFactory.vue'
+import IconLink from '@/components/icons/IconLink.vue'
+import IconCrystalBall from '@/components/icons/IconCrystalBall.vue'
 
 const selectedImage = ref(null)
 const windowWidth = ref(0)
@@ -43,7 +62,8 @@ const images = [
 </script>
 
 <template>
-  <article class="prose prose-lg max-w-3xl mx-auto px-4 py-4">
+  <article
+    class="prose prose-lg max-w-3xl mx-auto px-4 py-4 bg-[#131313cc] backdrop-blur-sm rounded-lg">
     <div>
       <h1
         class="text-white text-center text-4xl lg:text-3xl font-extrabold
@@ -73,16 +93,18 @@ const images = [
         :key="index">
         <img
           :src="image"
-          class="object-contain w-full h-full top-0 rounded-s shadow-md cursor-zoom-in hover:scale-102
-            transition-transform"
+          class="object-contain w-full h-full top-0 rounded-s shadow-md cursor-zoom-in
+            hover:scale-102 transition-transform"
           @click="openImage(image)" />
       </el-carousel-item>
     </el-carousel>
 
     <!-- Process Video Section -->
     <div class="video-container my-8">
-      <h3 class="text-(--isr-c-red) font-bold text-xl mb-4 text-center">
-        🎬 Watch the Magic Happen
+      <h3
+        class="text-(--isr-c-red) font-bold text-xl mb-4 text-center flex items-center
+          justify-center gap-2">
+        <IconClapperboard class="w-6 h-6" /> Watch the Magic Happen
       </h3>
       <div class="flex justify-center">
         <video
@@ -101,7 +123,9 @@ const images = [
     </div>
 
     <div class="tech-stack text-center p-4 bg-gray-800/30 backdrop-blur-sm rounded-lg my-6">
-      <h3 class="text-(--isr-c-red) font-bold mb-2">Built with Python 🐍</h3>
+      <h3 class="text-(--isr-c-red) font-bold mb-2 flex items-center justify-center gap-2">
+        Built with Python <IconSnake class="w-5 h-5" />
+      </h3>
       <div class="flex flex-wrap justify-center gap-2 text-sm">
         <span class="bg-blue-500/20 px-2 py-1 rounded">NumPy</span>
         <span class="bg-green-500/20 px-2 py-1 rounded">scikit-image</span>
@@ -125,10 +149,14 @@ const images = [
       and the Radon Transform to create stunning artistic interpretations.
     </p>
 
-    <h2 class="text-(--isr-c-red) font-bold text-xl mb-4 mt-8">🎨 The Art Meets Science</h2>
+    <h2 class="text-(--isr-c-red) font-bold text-xl mb-4 mt-8 flex items-center gap-2">
+      <IconPalette class="w-6 h-6" /> The Art Meets Science
+    </h2>
 
     <div class="bg-blue-900/20 backdrop-blur-sm border-l-4 border-blue-500 p-4 mb-6">
-      <h3 class="text-blue-300 font-semibold mb-2">🧮 The Algorithm</h3>
+      <h3 class="text-blue-300 font-semibold mb-2 flex items-center gap-2">
+        <IconAbacus class="w-5 h-5" /> The Algorithm
+      </h3>
       <p class="text-sm">
         The core algorithm uses a <strong>greedy optimization approach</strong> combined with the
         <strong>Radon Transform</strong>
@@ -138,11 +166,15 @@ const images = [
       </p>
     </div>
 
-    <h2 class="text-(--isr-c-red) font-bold text-xl mb-4 mt-8">🚀 Key Features</h2>
+    <h2 class="text-(--isr-c-red) font-bold text-xl mb-4 mt-8 flex items-center gap-2">
+      <IconRocket class="w-6 h-6" /> Key Features
+    </h2>
 
     <div class="grid md:grid-cols-2 gap-4 mb-6">
       <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg">
-        <h3 class="text-(--isr-c-red) font-semibold mb-2">🎯 Multiple Art Modes</h3>
+        <h3 class="text-(--isr-c-red) font-semibold mb-2 flex items-center gap-2">
+          <IconTarget class="w-5 h-5" /> Multiple Art Modes
+        </h3>
         <p class="text-sm">
           <strong>Grayscale:</strong> Classic black thread on white background<br />
           <strong>CMYK Color:</strong> Full-color string art using four separate color channels
@@ -150,7 +182,9 @@ const images = [
       </div>
 
       <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg">
-        <h3 class="text-(--isr-c-red) font-semibold mb-2">📐 Realistic Constraints</h3>
+        <h3 class="text-(--isr-c-red) font-semibold mb-2 flex items-center gap-2">
+          <IconRuler class="w-5 h-5" /> Realistic Constraints
+        </h3>
         <p class="text-sm">
           Simulates real-world limitations like minimum pin distance, loop prevention, and
           adjustable thread weight for authentic results.
@@ -158,7 +192,9 @@ const images = [
       </div>
 
       <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg">
-        <h3 class="text-(--isr-c-red) font-semibold mb-2">🎬 Multiple Output Formats</h3>
+        <h3 class="text-(--isr-c-red) font-semibold mb-2 flex items-center gap-2">
+          <IconClapperboard class="w-5 h-5" /> Multiple Output Formats
+        </h3>
         <p class="text-sm">
           Generate high-res images, scalable SVG files, time-lapse videos, and JSON instructions for
           physical recreation.
@@ -166,7 +202,9 @@ const images = [
       </div>
 
       <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg">
-        <h3 class="text-(--isr-c-red) font-semibold mb-2">🖥️ User-Friendly GUI</h3>
+        <h3 class="text-(--isr-c-red) font-semibold mb-2 flex items-center gap-2">
+          <IconMonitor class="w-5 h-5" /> User-Friendly GUI
+        </h3>
         <p class="text-sm">
           Intuitive interface with real-time parameter adjustment, progress tracking, and live
           preview capabilities.
@@ -174,9 +212,13 @@ const images = [
       </div>
     </div>
 
-    <h2 class="text-(--isr-c-red) font-bold text-xl mb-4 mt-8">🔬 Technical Deep Dive</h2>
+    <h2 class="text-(--isr-c-red) font-bold text-xl mb-4 mt-8 flex items-center gap-2">
+      <IconMicroscope class="w-6 h-6" /> Technical Deep Dive
+    </h2>
 
-    <h3 class="text-(--isr-c-red) font-semibold mb-2">📊 Mathematical Foundation</h3>
+    <h3 class="text-(--isr-c-red) font-semibold mb-2 flex items-center gap-2">
+      <IconChartBar class="w-5 h-5" /> Mathematical Foundation
+    </h3>
 
     <div class="bg-gray-900/50 p-4 rounded-lg mb-6 font-mono text-sm">
       <div class="text-green-400 mb-2">Pin Placement Algorithm:</div>
@@ -201,7 +243,9 @@ const images = [
     </div>
 
     <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg mb-6">
-      <h3 class="text-(--isr-c-red) font-semibold mb-2">🎯 Error Calculation Formula</h3>
+      <h3 class="text-(--isr-c-red) font-semibold mb-2 flex items-center gap-2">
+        <IconTarget class="w-5 h-5" /> Error Calculation Formula
+      </h3>
       <div class="bg-gray-900/50 p-3 rounded font-mono text-sm">
         <div>Error = (Current_Image - Original_Image)</div>
         <div>Multiplier = (Current_Image &lt; Original_Image) ? 254 : 1</div>
@@ -214,7 +258,9 @@ const images = [
       </p>
     </div>
 
-    <h2 class="text-(--isr-c-red) font-bold text-xl mb-4 mt-8">🛠️ Project Architecture</h2>
+    <h2 class="text-(--isr-c-red) font-bold text-xl mb-4 mt-8 flex items-center gap-2">
+      <IconTools class="w-6 h-6" /> Project Architecture
+    </h2>
 
     <div class="bg-gray-900/50 p-4 rounded-lg mb-6 font-mono text-sm">
       <div class="text-green-400 mb-2">Project Structure:</div>
@@ -228,7 +274,9 @@ const images = [
       </div>
     </div>
 
-    <h3 class="text-(--isr-c-red) font-semibold mb-2">⚡ Performance Optimizations</h3>
+    <h3 class="text-(--isr-c-red) font-semibold mb-2 flex items-center gap-2">
+      <IconLightning class="w-5 h-5" /> Performance Optimizations
+    </h3>
     <ul class="list-disc pl-6 mb-6 space-y-2">
       <li>
         <strong>Vectorized Operations:</strong> NumPy arrays for efficient mathematical computations
@@ -241,25 +289,33 @@ const images = [
       </li>
     </ul>
 
-    <h2 class="text-(--isr-c-red) font-bold text-xl mb-4 mt-8">🎨 Output Gallery</h2>
+    <h2 class="text-(--isr-c-red) font-bold text-xl mb-4 mt-8 flex items-center gap-2">
+      <IconPalette class="w-6 h-6" /> Output Gallery
+    </h2>
 
     <div class="grid md:grid-cols-2 gap-4 mb-6">
-      <div class="text-center">
-        <h4 class="text-(--isr-c-red) font-semibold mb-2">🖤 Grayscale Mode</h4>
+      <div class="text-center flex flex-col items-center">
+        <h4 class="text-(--isr-c-red) font-semibold mb-2 flex items-center gap-2">
+          <IconHeart class="w-5 h-5" /> Grayscale Mode
+        </h4>
         <p class="text-sm">
           Classic black thread aesthetic with incredible detail preservation and artistic
           interpretation.
         </p>
       </div>
-      <div class="text-center">
-        <h4 class="text-(--isr-c-red) font-semibold mb-2">🌈 CMYK Color Mode</h4>
+      <div class="text-center flex flex-col items-center">
+        <h4 class="text-(--isr-c-red) font-semibold mb-2 flex items-center gap-2">
+          <IconRainbow class="w-5 h-5" /> CMYK Color Mode
+        </h4>
         <p class="text-sm">
           Full-color recreation using separate cyan, magenta, yellow, and black thread channels.
         </p>
       </div>
     </div>
 
-    <h2 class="text-(--isr-c-red) font-bold text-xl mb-4 mt-8">🔧 Advanced Parameters</h2>
+    <h2 class="text-(--isr-c-red) font-bold text-xl mb-4 mt-8 flex items-center gap-2">
+      <IconWrench class="w-6 h-6" /> Advanced Parameters
+    </h2>
 
     <div class="grid md:grid-cols-2 gap-4 mb-6">
       <div class="bg-gray-800/20 backdrop-blur-sm p-3 rounded-lg">
@@ -280,31 +336,35 @@ const images = [
       </div>
     </div>
 
-    <h2 class="text-(--isr-c-red) font-bold text-xl mb-4 mt-8">🌟 Real-World Applications</h2>
+    <h2 class="text-(--isr-c-red) font-bold text-xl mb-4 mt-8 flex items-center gap-2">
+      <IconStar class="w-6 h-6" /> Real-World Applications
+    </h2>
 
     <div class="grid md:grid-cols-3 gap-4 mb-6">
-      <div class="text-center">
-        <div class="text-3xl mb-2">🎨</div>
+      <div class="text-center flex flex-col items-center">
+        <div class="mb-2"><IconPalette class="w-8 h-8" /></div>
         <div class="font-semibold text-(--isr-c-red)">Digital Art</div>
         <div class="text-sm">
           Create unique artistic interpretations of photographs and portraits
         </div>
       </div>
 
-      <div class="text-center">
-        <div class="text-3xl mb-2">🏭</div>
+      <div class="text-center flex flex-col items-center">
+        <div class="mb-2"><IconFactory class="w-8 h-8" /></div>
         <div class="font-semibold text-(--isr-c-red)">Manufacturing</div>
         <div class="text-sm">JSON output drives CNC machines for automated physical recreation</div>
       </div>
 
-      <div class="text-center">
-        <div class="text-3xl mb-2">📚</div>
+      <div class="text-center flex flex-col items-center">
+        <div class="mb-2"><IconMonitor class="w-8 h-8" /></div>
         <div class="font-semibold text-(--isr-c-red)">Education</div>
         <div class="text-sm">Demonstrate optimization algorithms and computer vision concepts</div>
       </div>
     </div>
 
-    <h2 class="text-(--isr-c-red) font-bold text-xl mb-4 mt-8">📊 Performance Metrics</h2>
+    <h2 class="text-(--isr-c-red) font-bold text-xl mb-4 mt-8 flex items-center gap-2">
+      <IconChartBar class="w-6 h-6" /> Performance Metrics
+    </h2>
 
     <div class="grid md:grid-cols-3 gap-4 mb-6">
       <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg text-center">
@@ -323,10 +383,14 @@ const images = [
       </div>
     </div>
 
-    <h2 class="text-(--isr-c-red) font-bold text-xl mb-4 mt-8">🚀 Technical Innovation</h2>
+    <h2 class="text-(--isr-c-red) font-bold text-xl mb-4 mt-8 flex items-center gap-2">
+      <IconRocket class="w-6 h-6" /> Technical Innovation
+    </h2>
 
     <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg mb-6">
-      <h3 class="text-(--isr-c-red) font-semibold mb-2">🔬 Unique Algorithmic Approach</h3>
+      <h3 class="text-(--isr-c-red) font-semibold mb-2 flex items-center gap-2">
+        <IconMicroscope class="w-5 h-5" /> Unique Algorithmic Approach
+      </h3>
       <p class="mb-2">
         This project uniquely applies the <strong>Radon Transform</strong> to string art generation
         - a technique typically reserved for medical imaging and tomography:
@@ -340,7 +404,9 @@ const images = [
     </div>
 
     <div class="bg-green-900/20 backdrop-blur-sm border-l-4 border-green-500 p-4 mb-6">
-      <h3 class="text-green-300 font-semibold mb-2">🎯 Bridging Digital and Physical</h3>
+      <h3 class="text-green-300 font-semibold mb-2 flex items-center gap-2">
+        <IconTarget class="w-5 h-5" /> Bridging Digital and Physical
+      </h3>
       <p class="text-sm">
         One of the few projects that seamlessly bridges computational art generation with real-world
         craft instructions. The JSON output format provides precise pin sequences that can be
@@ -348,7 +414,9 @@ const images = [
       </p>
     </div>
 
-    <h2 class="text-(--isr-c-red) font-bold text-xl mb-4 mt-8">🔮 Future Potential</h2>
+    <h2 class="text-(--isr-c-red) font-bold text-xl mb-4 mt-8 flex items-center gap-2">
+      <IconCrystalBall class="w-6 h-6" /> Future Potential
+    </h2>
 
     <ul class="list-disc pl-6 mb-6 space-y-2">
       <li>
@@ -371,9 +439,9 @@ const images = [
         href="https://github.com/isandrocks/Img-manipulation"
         target="_blank"
         rel="noopener noreferrer"
-        class="inline-block bg-(--isr-c-red) hover:bg-red-600 text-white font-bold py-2 px-6 rounded-lg
-          transition-colors">
-        View on GitHub →
+        class="inline-block bg-(--isr-c-red) hover:bg-red-600 text-white font-bold py-2 px-6
+          rounded-lg transition-colors items-center justify-center gap-2">
+        <IconLink class="w-5 h-5" /> View on GitHub
       </a>
       <p class="text-sm mt-2 text-gray-400">CC0 1.0 Universal License - Free for any use</p>
     </div>
@@ -398,7 +466,7 @@ const images = [
 .carousel-container {
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  margin-top: 12px;
 }
 
 .hover\:scale-102:hover {

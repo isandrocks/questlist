@@ -1,5 +1,13 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
+import IconKeyboard from '@/components/icons/IconKeyboard.vue'
+import IconRocket from '@/components/icons/IconRocket.vue'
+import IconWrench from '@/components/icons/IconWrench.vue'
+import IconPlug from '@/components/icons/IconPlug.vue'
+import IconGear from '@/components/icons/IconGear.vue'
+import IconPalette from '@/components/icons/IconPalette.vue'
+import IconWave from '@/components/icons/IconWave.vue'
+import IconQuestion from '@/components/icons/IconQuestion.vue'
 
 const selectedImage = ref(null)
 const windowWidth = ref(0)
@@ -47,7 +55,7 @@ const images = [
 </script>
 
 <template>
-  <article class="prose prose-lg max-w-3xl px-4 py-4">
+  <article class="prose prose-lg max-w-3xl px-4 py-4 bg-[#131313cc] backdrop-blur-sm rounded-lg">
     <div>
       <h1
         class="text-white text-center text-4xl lg:text-3xl font-extrabold
@@ -77,14 +85,16 @@ const images = [
         :key="index">
         <img
           :src="image"
-          class="object-contain w-full h-full top-0 rounded-s shadow-md cursor-zoom-in hover:scale-102
-            transition-transform"
+          class="object-contain w-full h-full top-0 rounded-s shadow-md cursor-zoom-in
+            hover:scale-102 transition-transform"
           @click="openImage(image)" />
       </el-carousel-item>
     </el-carousel>
 
     <div class="tech-stack text-center p-4 bg-gray-800/30 backdrop-blur-sm rounded-lg my-6">
-      <h3 class="text-(--isr-c-red) font-bold mb-2">Built with ⌨️</h3>
+      <h3 class="text-(--isr-c-red) font-bold mb-2 flex items-center justify-center gap-2">
+        Built with <IconKeyboard class="w-5 h-5" />
+      </h3>
       <div class="flex flex-wrap justify-center gap-2 text-sm">
         <span class="bg-green-500/20 px-2 py-1 rounded">ATmega32A</span>
         <span class="bg-blue-500/20 px-2 py-1 rounded">QMK Firmware</span>
@@ -106,11 +116,15 @@ const images = [
       it's a copy of the Boardwalk Ortho 5x14 layout with custom configurations.
     </p>
 
-    <h2 class="text-(--isr-c-red) font-bold text-xl mb-4 mt-8">🚀 Key Features</h2>
+    <h2 class="text-(--isr-c-red) font-bold text-xl mb-4 mt-8 flex items-center gap-2">
+      <IconRocket class="w-6 h-6" /> Key Features
+    </h2>
 
     <div class="grid md:grid-cols-2 gap-4 mb-6">
       <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg">
-        <h3 class="text-(--isr-c-red) font-semibold mb-2">⌨️ 69-Key Ortholinear Layout</h3>
+        <h3 class="text-(--isr-c-red) font-semibold mb-2 flex items-center gap-2">
+          <IconKeyboard class="w-5 h-5" /> 69-Key Ortholinear Layout
+        </h3>
         <p class="text-sm">
           5×14 grid layout based on the Boardwalk design, optimized for touch typing and programming
           workflows.
@@ -118,7 +132,9 @@ const images = [
       </div>
 
       <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg">
-        <h3 class="text-(--isr-c-red) font-semibold mb-2">🔧 Through-Hole Only</h3>
+        <h3 class="text-(--isr-c-red) font-semibold mb-2 flex items-center gap-2">
+          <IconWrench class="w-5 h-5" /> Through-Hole Only
+        </h3>
         <p class="text-sm">
           Built entirely with through-hole components for easy hand-soldering and component
           accessibility.
@@ -126,7 +142,9 @@ const images = [
       </div>
 
       <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg">
-        <h3 class="text-(--isr-c-red) font-semibold mb-2">🔌 Sideways USB-C</h3>
+        <h3 class="text-(--isr-c-red) font-semibold mb-2 flex items-center gap-2">
+          <IconPlug class="w-5 h-5" /> Sideways USB-C
+        </h3>
         <p class="text-sm">
           Unique sideways USB-C connector placement for a distinctive aesthetic and practical cable
           management.
@@ -134,17 +152,23 @@ const images = [
       </div>
 
       <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg">
-        <h3 class="text-(--isr-c-red) font-semibold mb-2">⚙️ QMK Powered</h3>
+        <h3 class="text-(--isr-c-red) font-semibold mb-2 flex items-center gap-2">
+          <IconGear class="w-5 h-5" /> QMK Powered
+        </h3>
         <p class="text-sm">
           Runs QMK firmware on ATmega32A MCU with full customization and programming support.
         </p>
       </div>
     </div>
 
-    <h2 class="text-(--isr-c-red) font-bold text-xl mb-4 mt-8">🎨 Design Details</h2>
+    <h2 class="text-(--isr-c-red) font-bold text-xl mb-4 mt-8 flex items-center gap-2">
+      <IconPalette class="w-6 h-6" /> Design Details
+    </h2>
 
     <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg mb-6">
-      <h3 class="text-(--isr-c-red) font-semibold mb-2">🌊 The Great Wave Silkscreen</h3>
+      <h3 class="text-(--isr-c-red) font-semibold mb-2 flex items-center gap-2">
+        <IconWave class="w-5 h-5" /> The Great Wave Silkscreen
+      </h3>
       <p class="mb-2">
         Features a large silkscreen of "The Great Wave off Kanagawa" by Katsushika Hokusai covering
         the entire PCB:
@@ -156,7 +180,9 @@ const images = [
       </ul>
     </div>
 
-    <h2 class="text-(--isr-c-red) font-bold text-xl mb-4 mt-8">❓ Frequently Asked Questions</h2>
+    <h2 class="text-(--isr-c-red) font-bold text-xl mb-4 mt-8 flex items-center gap-2">
+      <IconQuestion class="w-6 h-6" /> Frequently Asked Questions
+    </h2>
 
     <div class="space-y-6">
       <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg">
@@ -199,8 +225,8 @@ const images = [
         href="https://github.com/isandrocks/Causeway_THT"
         target="_blank"
         rel="noopener noreferrer"
-        class="inline-block bg-(--isr-c-red) hover:bg-red-600 text-white font-bold py-2 px-6 rounded-lg
-          transition-colors">
+        class="inline-block bg-(--isr-c-red) hover:bg-red-600 text-white font-bold py-2 px-6
+          rounded-lg transition-colors">
         View on GitHub →
       </a>
     </div>

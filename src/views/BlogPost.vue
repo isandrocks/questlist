@@ -16,7 +16,8 @@ const allowedSlugs = [
   'sprayArt1',
   'geminiOxide',
   'stringArt',
-  'skyLine20k'
+  'skyLine20k',
+  'glShaderStudio'
 ]
 
 // Sanitize and validate slug
@@ -50,7 +51,9 @@ const loadComponent = async () => {
   }
 
   try {
-    component.value = markRaw(defineAsyncComponent(() => import(`../components/blog/${sanitizedSlug}.vue`)))
+    component.value = markRaw(
+      defineAsyncComponent(() => import(`../components/blog/${sanitizedSlug}.vue`))
+    )
   } catch (importError) {
     console.error('Blog post not found:', importError)
     error.value = 'Blog post not found'
@@ -66,27 +69,27 @@ loadComponent()
 
 <template>
   <div class="flex flex-col w-full items-center">
-  <a
-    href="/"
-    class="back-arrow"
-    style="text-decoration: underline; font-size: 16px"
-    >&lt; Back</a
-  >
-  <component
-    :is="component"
-    v-if="component && !error" />
-  <div
-    v-else-if="error"
-    class="error-message text-center p-4">
-    <h2 class="text-xl text-(--isr-c-red) mb-2">{{ error }}</h2>
-    <p>Redirecting to home page...</p>
-  </div>
-  <p v-else>Loading post...</p>
-  <a
-    href="/"
-    class="back-arrow"
-    style="text-decoration: underline; font-size: 16px"
-    >&lt; Back</a
-  >
+    <a
+      href="/"
+      class="back-arrow"
+      style="text-decoration: underline; font-size: 16px"
+      >&lt; Back</a
+    >
+    <component
+      :is="component"
+      v-if="component && !error" />
+    <div
+      v-else-if="error"
+      class="error-message text-center p-4">
+      <h2 class="text-xl text-(--isr-c-red) mb-2">{{ error }}</h2>
+      <p>Redirecting to home page...</p>
+    </div>
+    <p v-else>Loading post...</p>
+    <a
+      href="/"
+      class="back-arrow"
+      style="text-decoration: underline; font-size: 16px"
+      >&lt; Back</a
+    >
   </div>
 </template>

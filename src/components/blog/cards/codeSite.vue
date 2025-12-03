@@ -11,15 +11,15 @@
         Vue 3 Site
       </h1>
     </template>
-    <div class="grid grid-cols-2 max-w-[60vh] max-h-[60vh] overflow-auto">
+    <div class="grid grid-cols-2 gap-2 max-w-[60vh] overflow-hidden p-2">
       <img
         src="@/assets/projectImgs/20253271.png"
         alt="a img of the list section of the website"
-        class="p-2" />
+        class="w-full h-32 object-cover rounded-md" />
       <img
         src="@/assets/projectImgs/20253272.png"
         alt="a img of the code for this card"
-        class="pb-2" />
+        class="w-full h-32 object-cover rounded-md" />
     </div>
     <p class="text-center border-t border-(--color-border)">
       A modern Vue 3 portfolio site built with custom masonry layout, responsive design, and

@@ -1,5 +1,20 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
+import IconCrab from '@/components/icons/IconCrab.vue'
+import IconRocket from '@/components/icons/IconRocket.vue'
+import IconChat from '@/components/icons/IconChat.vue'
+import IconCamera from '@/components/icons/IconCamera.vue'
+import IconGlobe from '@/components/icons/IconGlobe.vue'
+import IconLock from '@/components/icons/IconLock.vue'
+import IconTools from '@/components/icons/IconTools.vue'
+import IconTarget from '@/components/icons/IconTarget.vue'
+import IconLightbulb from '@/components/icons/IconLightbulb.vue'
+import IconPicture from '@/components/icons/IconPicture.vue'
+import IconLightning from '@/components/icons/IconLightning.vue'
+import IconStar from '@/components/icons/IconStar.vue'
+import IconWrench from '@/components/icons/IconWrench.vue'
+import IconGraduationCap from '@/components/icons/IconGraduationCap.vue'
+import IconChartBar from '@/components/icons/IconChartBar.vue'
 
 const selectedImage = ref(null)
 const windowWidth = ref(0)
@@ -42,7 +57,8 @@ const images = [
 </script>
 
 <template>
-  <article class="prose prose-lg max-w-3xl mx-auto px-4 py-4">
+  <article
+    class="prose prose-lg max-w-3xl mx-auto px-4 py-4 bg-[#131313cc] backdrop-blur-sm rounded-lg">
     <div>
       <h1
         class="text-white text-center text-4xl lg:text-3xl font-extrabold
@@ -72,13 +88,16 @@ const images = [
         :key="index">
         <img
           :src="image"
-          class="object-contain w-full top-0 rounded-s shadow-md cursor-zoom-in hover:scale-102 transition-transform"
+          class="object-contain w-full top-0 rounded-s shadow-md cursor-zoom-in hover:scale-102
+            transition-transform"
           @click="openImage(image)" />
       </el-carousel-item>
     </el-carousel>
 
     <div class="tech-stack text-center p-4 bg-gray-800/30 backdrop-blur-sm rounded-lg my-6">
-      <h3 class="text-(--isr-c-red) font-bold mb-2">Built with Rust 🦀</h3>
+      <h3 class="text-(--isr-c-red) font-bold mb-2 flex items-center justify-center gap-2">
+        Built with Rust <IconCrab class="w-5 h-5" />
+      </h3>
       <div class="flex flex-wrap justify-center gap-2 text-sm">
         <span class="bg-orange-500/20 px-2 py-1 rounded">egui</span>
         <span class="bg-blue-500/20 px-2 py-1 rounded">Tokio</span>
@@ -100,11 +119,15 @@ const images = [
       interaction experience.
     </p>
 
-    <h2 class="text-(--isr-c-red) font-bold text-xl mb-4 mt-8">🚀 Key Features</h2>
+    <h2 class="text-(--isr-c-red) font-bold text-xl mb-4 mt-8 flex items-center gap-2">
+      <IconRocket class="w-6 h-6" /> Key Features
+    </h2>
 
     <div class="grid md:grid-cols-2 gap-4 mb-6">
       <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg">
-        <h3 class="text-(--isr-c-red) font-semibold mb-2">💬 Text & Image AI Chat</h3>
+        <h3 class="text-(--isr-c-red) font-semibold mb-2 flex items-center gap-2">
+          <IconChat class="w-5 h-5" /> Text & Image AI Chat
+        </h3>
         <p class="text-sm">
           Send text prompts and images to Gemini AI with real-time responses rendered in beautiful
           markdown format.
@@ -112,7 +135,9 @@ const images = [
       </div>
 
       <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg">
-        <h3 class="text-(--isr-c-red) font-semibold mb-2">📸 Smart Image Handling</h3>
+        <h3 class="text-(--isr-c-red) font-semibold mb-2 flex items-center gap-2">
+          <IconCamera class="w-5 h-5" /> Smart Image Handling
+        </h3>
         <p class="text-sm">
           Capture screenshots, paste from clipboard, or load from file paths. Supports transparency
           and cross-platform clipboard integration.
@@ -120,7 +145,9 @@ const images = [
       </div>
 
       <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg">
-        <h3 class="text-(--isr-c-red) font-semibold mb-2">🌍 Cross-Platform</h3>
+        <h3 class="text-(--isr-c-red) font-semibold mb-2 flex items-center gap-2">
+          <IconGlobe class="w-5 h-5" /> Cross-Platform
+        </h3>
         <p class="text-sm">
           Native performance on Windows, macOS, and Linux with Asian font support for international
           users.
@@ -128,7 +155,9 @@ const images = [
       </div>
 
       <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg">
-        <h3 class="text-(--isr-c-red) font-semibold mb-2">🔒 Security First</h3>
+        <h3 class="text-(--isr-c-red) font-semibold mb-2 flex items-center gap-2">
+          <IconLock class="w-5 h-5" /> Security First
+        </h3>
         <p class="text-sm">
           Enterprise-grade API key management with comprehensive security auditing and .env
           protection.
@@ -136,7 +165,9 @@ const images = [
       </div>
     </div>
 
-    <h2 class="text-(--isr-c-red) font-bold text-xl mb-4 mt-8">🛠️ Technical Architecture</h2>
+    <h2 class="text-(--isr-c-red) font-bold text-xl mb-4 mt-8 flex items-center gap-2">
+      <IconTools class="w-6 h-6" /> Technical Architecture
+    </h2>
 
     <p class="mb-4">
       GeminiOxide showcases modern Rust development practices with a clean, modular architecture:
@@ -153,7 +184,9 @@ const images = [
       </div>
     </div>
 
-    <h3 class="text-(--isr-c-red) font-semibold mb-2">🎯 Design Principles</h3>
+    <h3 class="text-(--isr-c-red) font-semibold mb-2 flex items-center gap-2">
+      <IconTarget class="w-5 h-5" /> Design Principles
+    </h3>
     <ul class="list-disc pl-6 mb-6 space-y-2">
       <li>
         <strong>Async by Default:</strong> Non-blocking UI with Tokio runtime for smooth user
@@ -171,10 +204,14 @@ const images = [
       </li>
     </ul>
 
-    <h2 class="text-(--isr-c-red) font-bold text-xl mb-4 mt-8">💡 Technical Highlights</h2>
+    <h2 class="text-(--isr-c-red) font-bold text-xl mb-4 mt-8 flex items-center gap-2">
+      <IconLightbulb class="w-6 h-6" /> Technical Highlights
+    </h2>
 
     <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg mb-6">
-      <h3 class="text-(--isr-c-red) font-semibold mb-2">🖼️ Advanced Image Processing</h3>
+      <h3 class="text-(--isr-c-red) font-semibold mb-2 flex items-center gap-2">
+        <IconPicture class="w-5 h-5" /> Advanced Image Processing
+      </h3>
       <p class="mb-2">
         One of the most challenging aspects was implementing robust cross-platform image handling:
       </p>
@@ -188,7 +225,9 @@ const images = [
     </div>
 
     <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg mb-6">
-      <h3 class="text-(--isr-c-red) font-semibold mb-2">⚡ Performance Optimizations</h3>
+      <h3 class="text-(--isr-c-red) font-semibold mb-2 flex items-center gap-2">
+        <IconLightning class="w-5 h-5" /> Performance Optimizations
+      </h3>
       <p class="mb-2">The release build is optimized for both size and speed:</p>
       <div class="bg-gray-900/50 backdrop-blur-sm p-3 rounded font-mono text-sm">
         <div class="text-yellow-400">[profile.release]</div>
@@ -199,31 +238,35 @@ const images = [
       </div>
     </div>
 
-    <h2 class="text-(--isr-c-red) font-bold text-xl mb-4 mt-8">🌟 What Makes It Special</h2>
+    <h2 class="text-(--isr-c-red) font-bold text-xl mb-4 mt-8 flex items-center gap-2">
+      <IconStar class="w-6 h-6" /> What Makes It Special
+    </h2>
 
     <p class="mb-4">Unlike web-based AI interfaces, GeminiOxide offers:</p>
 
     <div class="grid md:grid-cols-3 gap-4 mb-6">
-      <div class="text-center">
-        <div class="text-3xl mb-2">🚀</div>
+      <div class="text-center flex flex-col items-center">
+        <div class="mb-2"><IconRocket class="w-8 h-8" /></div>
         <div class="font-semibold text-(--isr-c-red)">Native Speed</div>
         <div class="text-sm">Rust performance with no browser overhead</div>
       </div>
 
-      <div class="text-center">
-        <div class="text-3xl mb-2">🔒</div>
+      <div class="text-center flex flex-col items-center">
+        <div class="mb-2"><IconLock class="w-8 h-8" /></div>
         <div class="font-semibold text-(--isr-c-red)">Privacy First</div>
         <div class="text-sm">Your API key stays local, no third-party servers</div>
       </div>
 
-      <div class="text-center">
-        <div class="text-3xl mb-2">🎨</div>
+      <div class="text-center flex flex-col items-center">
+        <div class="mb-2"><IconPalette class="w-8 h-8" /></div>
         <div class="font-semibold text-(--isr-c-red)">Rich UI</div>
         <div class="text-sm">Native desktop experience with markdown rendering</div>
       </div>
     </div>
 
-    <h2 class="text-(--isr-c-red) font-bold text-xl mb-4 mt-8">🔧 Development Experience</h2>
+    <h2 class="text-(--isr-c-red) font-bold text-xl mb-4 mt-8 flex items-center gap-2">
+      <IconWrench class="w-6 h-6" /> Development Experience
+    </h2>
 
     <p class="mb-4">The project includes comprehensive development tooling:</p>
 
@@ -235,7 +278,9 @@ const images = [
     </ul>
 
     <div class="bg-blue-900/20 backdrop-blur-sm border-l-4 border-blue-500 p-4 mb-6">
-      <h3 class="text-blue-300 font-semibold mb-2">🎓 Learning Project</h3>
+      <h3 class="text-blue-300 font-semibold mb-2 flex items-center gap-2">
+        <IconGraduationCap class="w-5 h-5" /> Learning Project
+      </h3>
       <p class="text-sm">
         This project served as an excellent learning experience for modern Rust GUI development,
         async programming patterns, and secure API integration. It demonstrates practical
@@ -243,7 +288,9 @@ const images = [
       </p>
     </div>
 
-    <h2 class="text-(--isr-c-red) font-bold text-xl mb-4 mt-8">📊 Project Stats</h2>
+    <h2 class="text-(--isr-c-red) font-bold text-xl mb-4 mt-8 flex items-center gap-2">
+      <IconChartBar class="w-6 h-6" /> Project Stats
+    </h2>
 
     <div class="grid md:grid-cols-2 gap-4 mb-6">
       <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg text-center">
@@ -265,8 +312,8 @@ const images = [
         href="https://github.com/isandrocks/GeminiOxide"
         target="_blank"
         rel="noopener noreferrer"
-        class="inline-block bg-(--isr-c-red) hover:bg-red-600 text-white font-bold py-2 px-6 rounded-lg
-          transition-colors">
+        class="inline-block bg-(--isr-c-red) hover:bg-red-600 text-white font-bold py-2 px-6
+          rounded-lg transition-colors">
         View on GitHub →
       </a>
     </div>

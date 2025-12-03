@@ -1,5 +1,15 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
+import IconGamepad from '@/components/icons/IconGamepad.vue'
+import IconTarget from '@/components/icons/IconTarget.vue'
+import IconRocket from '@/components/icons/IconRocket.vue'
+import IconPalette from '@/components/icons/IconPalette.vue'
+import IconSparkles from '@/components/icons/IconSparkles.vue'
+import IconGlobe from '@/components/icons/IconGlobe.vue'
+import IconBook from '@/components/icons/IconBook.vue'
+import IconTools from '@/components/icons/IconTools.vue'
+import IconGraduationCap from '@/components/icons/IconGraduationCap.vue'
+import IconBox from '@/components/icons/IconBox.vue'
 
 const selectedImage = ref(null)
 const windowWidth = ref(0)
@@ -41,7 +51,8 @@ const images = [new URL('@/assets/projectImgs/evKTlbYB.png', import.meta.url).hr
 </script>
 
 <template>
-  <article class="prose prose-lg max-w-3xl mx-auto px-4 py-4">
+  <article
+    class="prose prose-lg max-w-3xl mx-auto px-4 py-4 bg-[#131313cc] backdrop-blur-sm rounded-lg">
     <div class="space-y-6">
       <h1
         class="text-white text-center text-4xl lg:text-3xl font-extrabold
@@ -67,14 +78,16 @@ const images = [new URL('@/assets/projectImgs/evKTlbYB.png', import.meta.url).hr
         :key="index">
         <img
           :src="image"
-          class="object-contain w-full h-full top-0 rounded-s shadow-md cursor-zoom-in hover:scale-102
-            transition-transform"
+          class="object-contain w-full h-full top-0 rounded-s shadow-md cursor-zoom-in
+            hover:scale-102 transition-transform"
           @click="openImage(image)" />
       </el-carousel-item>
     </el-carousel>
 
     <div class="tech-stack text-center p-4 bg-gray-800/30 backdrop-blur-sm rounded-lg my-6">
-      <h3 class="text-(--isr-c-red) font-bold mb-2">Built with Godot 🎮</h3>
+      <h3 class="text-(--isr-c-red) font-bold mb-2 flex items-center justify-center gap-2">
+        Built with Godot <IconGamepad class="w-5 h-5" />
+      </h3>
       <div class="flex flex-wrap justify-center gap-2 text-sm">
         <span class="bg-blue-500/20 px-2 py-1 rounded">GDScript</span>
         <span class="bg-green-500/20 px-2 py-1 rounded">Custom Shaders</span>
@@ -98,13 +111,15 @@ const images = [new URL('@/assets/projectImgs/evKTlbYB.png', import.meta.url).hr
     <div class="text-center my-6">
       <button
         @click="goToGame"
-        class="bg-(--isr-c-red) hover:bg-red-600 text-white font-bold py-3 px-8 rounded-lg transition-colors
-          text-lg">
-        🎮 Play Game Now
+        class="bg-(--isr-c-red) hover:bg-red-600 text-white font-bold py-3 px-8 rounded-lg
+          transition-colors text-lg flex items-center justify-center gap-2 mx-auto">
+        <IconGamepad class="w-6 h-6" /> Play Game Now
       </button>
     </div>
 
-    <h2 class="text-(--isr-c-red) font-bold text-xl mb-4 mt-8">🎯 What is Lights Out?</h2>
+    <h2 class="text-(--isr-c-red) font-bold text-xl mb-4 mt-8 flex items-center gap-2">
+      <IconTarget class="w-6 h-6" /> What is Lights Out?
+    </h2>
 
     <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg mb-6">
       <p class="mb-4">
@@ -125,11 +140,15 @@ const images = [new URL('@/assets/projectImgs/evKTlbYB.png', import.meta.url).hr
       </ul>
     </div>
 
-    <h2 class="text-(--isr-c-red) font-bold text-xl mb-4 mt-8">🚀 Game Features</h2>
+    <h2 class="text-(--isr-c-red) font-bold text-xl mb-4 mt-8 flex items-center gap-2">
+      <IconRocket class="w-6 h-6" /> Game Features
+    </h2>
 
     <div class="grid md:grid-cols-2 gap-4 mb-6">
       <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg">
-        <h3 class="text-(--isr-c-red) font-semibold mb-2">🎨 Custom Assets</h3>
+        <h3 class="text-(--isr-c-red) font-semibold mb-2 flex items-center gap-2">
+          <IconPalette class="w-5 h-5" /> Custom Assets
+        </h3>
         <p class="text-sm">
           All graphics, sounds, and visual effects created from scratch for an authentic retro
           gaming experience.
@@ -137,31 +156,43 @@ const images = [new URL('@/assets/projectImgs/evKTlbYB.png', import.meta.url).hr
       </div>
 
       <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg">
-        <h3 class="text-(--isr-c-red) font-semibold mb-2">✨ Custom Shaders</h3>
+        <h3 class="text-(--isr-c-red) font-semibold mb-2 flex items-center gap-2">
+          <IconSparkles class="w-5 h-5" /> Custom Shaders
+        </h3>
         <p class="text-sm">
           Hand-written GLSL shaders for smooth lighting transitions and visual feedback effects.
         </p>
       </div>
 
       <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg">
-        <h3 class="text-(--isr-c-red) font-semibold mb-2">🌐 Web Playable</h3>
+        <h3 class="text-(--isr-c-red) font-semibold mb-2 flex items-center gap-2">
+          <IconGlobe class="w-5 h-5" /> Web Playable
+        </h3>
         <p class="text-sm">
           Compiled to WebAssembly for instant browser play with full desktop performance.
         </p>
       </div>
 
       <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg">
-        <h3 class="text-(--isr-c-red) font-semibold mb-2">📚 Open Source</h3>
+        <h3 class="text-(--isr-c-red) font-semibold mb-2 flex items-center gap-2">
+          <IconBook class="w-5 h-5" /> Open Source
+        </h3>
         <p class="text-sm">
           Available in Godot Asset Library under CC0 license - completely free for any use.
         </p>
       </div>
     </div>
 
-    <h2 class="text-(--isr-c-red) font-bold text-xl mb-4 mt-8">🛠️ Development Journey</h2>
+    <h2 class="text-(--isr-c-red) font-bold text-xl mb-4 mt-8 flex items-center gap-2">
+      <IconTools class="w-6 h-6" /> Development Journey
+    </h2>
 
-    <div class="bg-blue-900/20 backdrop-blur-sm border-l-4 border-blue-500/60 inset-ring-2 inset-ring-blue-400/40 p-4 mb-6">
-      <h3 class="text-blue-300 font-semibold mb-2">🎓 Learning Godot</h3>
+    <div
+      class="bg-blue-900/20 backdrop-blur-sm border-l-4 border-blue-500/60 inset-ring-2
+        inset-ring-blue-400/40 p-4 mb-6">
+      <h3 class="text-blue-300 font-semibold mb-2 flex items-center gap-2">
+        <IconGraduationCap class="w-5 h-5" /> Learning Godot
+      </h3>
       <p class="text-sm">
         This project served as my introduction to Godot Engine, covering essential concepts like
         scene management, GDScript programming, custom shaders, and web export. The simple game
@@ -170,7 +201,9 @@ const images = [new URL('@/assets/projectImgs/evKTlbYB.png', import.meta.url).hr
       </p>
     </div>
 
-    <h3 class="text-(--isr-c-red) font-semibold mb-2">🎯 Technical Challenges Solved</h3>
+    <h3 class="text-(--isr-c-red) font-semibold mb-2 flex items-center gap-2">
+      <IconTarget class="w-5 h-5" /> Technical Challenges Solved
+    </h3>
     <ul class="list-disc pl-6 mb-6 space-y-2">
       <li>
         <strong>State Management:</strong> Efficient tile state tracking and neighbor detection
@@ -188,34 +221,44 @@ const images = [new URL('@/assets/projectImgs/evKTlbYB.png', import.meta.url).hr
       </li>
     </ul>
 
-    <h2 class="text-(--isr-c-red) font-bold text-xl mb-4 mt-8">🎮 Play Options</h2>
+    <h2 class="text-(--isr-c-red) font-bold text-xl mb-4 mt-8 flex items-center gap-2">
+      <IconGamepad class="w-6 h-6" /> Play Options
+    </h2>
 
     <div class="grid md:grid-cols-2 gap-4 mb-6">
       <div class="text-center bg-gray-800/20 backdrop-blur-sm p-6 rounded-lg">
-        <h3 class="text-(--isr-c-red) font-semibold mb-2">🌐 Play Online</h3>
+        <h3 class="text-(--isr-c-red) font-semibold mb-2 flex items-center justify-center gap-2">
+          <IconGlobe class="w-5 h-5" /> Play Online
+        </h3>
         <p class="text-sm mb-4">Instant browser play with full features</p>
         <button
           @click="goToGame"
-          class="bg-(--isr-c-red) hover:bg-red-600 text-white font-bold py-2 px-4 rounded transition-colors">
+          class="bg-(--isr-c-red) hover:bg-red-600 text-white font-bold py-2 px-4 rounded
+            transition-colors">
           Launch Game
         </button>
       </div>
 
       <div class="text-center bg-gray-800/20 backdrop-blur-sm p-6 rounded-lg">
-        <h3 class="text-(--isr-c-red) font-semibold mb-2">📦 Godot Asset Library</h3>
+        <h3 class="text-(--isr-c-red) font-semibold mb-2 flex items-center justify-center gap-2">
+          <IconBox class="w-5 h-5" /> Godot Asset Library
+        </h3>
         <p class="text-sm mb-4">Download source and customize</p>
         <a
           href="https://godotengine.org/asset-library"
           target="_blank"
           rel="noopener noreferrer"
-          class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition-colors">
+          class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded
+            transition-colors">
           Asset Library
         </a>
       </div>
     </div>
 
     <div class="bg-green-900/20 backdrop-blur-sm border-l-4 border-green-500 p-4 mb-6">
-      <h3 class="text-green-300 font-semibold mb-2">🎯 Perfect for Learning</h3>
+      <h3 class="text-green-300 font-semibold mb-2 flex items-center gap-2">
+        <IconTarget class="w-5 h-5" /> Perfect for Learning
+      </h3>
       <p class="text-sm">
         This project demonstrates core Godot concepts in a compact, well-documented package. The
         source code includes comments explaining key techniques, making it an excellent starting
@@ -230,16 +273,17 @@ const images = [new URL('@/assets/projectImgs/evKTlbYB.png', import.meta.url).hr
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
         <button
           @click="goToGame"
-          class="bg-(--isr-c-red) hover:bg-red-600 text-white font-bold py-2 px-6 rounded-lg transition-colors">
-          🎮 Play Game
+          class="bg-(--isr-c-red) hover:bg-red-600 text-white font-bold py-2 px-6 rounded-lg
+            transition-colors flex items-center justify-center gap-2">
+          <IconGamepad class="w-5 h-5" /> Play Game
         </button>
         <a
           href="https://godotengine.org/asset-library"
           target="_blank"
           rel="noopener noreferrer"
-          class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg
-            transition-colors">
-          📦 Get Source Code
+          class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6
+            rounded-lg transition-colors items-center justify-center gap-2">
+          <IconBox class="w-5 h-5" /> Get Source Code
         </a>
       </div>
       <p class="text-sm mt-2 text-gray-400">CC0 License - Free for any use</p>
@@ -262,8 +306,6 @@ const images = [new URL('@/assets/projectImgs/evKTlbYB.png', import.meta.url).hr
 </template>
 
 <style scoped>
-
-
 .hover\:scale-102:hover {
   transform: scale(1.02);
 }

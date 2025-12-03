@@ -11,16 +11,16 @@
         String Art Generator
       </h1>
     </template>
-    <div class="grid grid-cols-3 max-w-screen max-h-[60vh] overflow-auto">
+    <div class="grid grid-cols-3 gap-2 max-w-screen overflow-hidden p-2">
       <img
         src="@/assets/projectImgs/e65vWU5N.png"
-        class="p-1 object-cover" />
+        class="w-full h-32 object-cover rounded-md" />
       <img
         src="@/assets/projectImgs/D8yVwkWK.png"
-        class="p-1 object-cover" />
+        class="w-full h-32 object-cover rounded-md" />
       <img
         src="@/assets/projectImgs/TlPm2xo3.png"
-        class="p-1 object-cover" />
+        class="w-full h-32 object-cover rounded-md" />
     </div>
     <p class="text-center border-t border-(--color-border)">
       A sophisticated Python application that converts digital images into string art using advanced

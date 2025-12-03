@@ -21,13 +21,13 @@ const goToPost = () => {
         Skyline_20K
       </h1>
     </template>
-    <div class="grid grid-cols-2 max-w-screen max-h-[60vh] overflow-auto">
+    <div class="grid grid-cols-2 gap-2 max-w-screen overflow-hidden p-2">
       <img
         src="@/assets/projectImgs/1j0ac8Mo.jpg"
-        class="p-2" />
+        class="w-full h-32 object-cover rounded-md" />
       <img
         src="@/assets/projectImgs/8UmyB7EU.png"
-        class="pb-2" />
+        class="w-full h-32 object-cover rounded-md" />
     </div>
     <p class="text-center border-t border-(--color-border)">
       Custom 20-key mechanical macropad with ultra-bright RGB underglow and modular breakaway

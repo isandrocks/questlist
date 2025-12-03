@@ -5,9 +5,11 @@ import LightsoutCard from './blog/cards/lightsoutCard.vue'
 import LLMInterface from './blog/cards/LLMInterface.vue'
 import StringArtCard from './blog/cards/StringArtCard.vue'
 import Skyline20KCard from './blog/cards/Skyline20KCard.vue'
+import GlShaderStudioCard from './blog/cards/glShaderStudioCard.vue'
 import { ref, onMounted, nextTick, markRaw } from 'vue'
 
 const cards = [
+  markRaw(GlShaderStudioCard),
   markRaw(CausewayTHTc),
   markRaw(LightsoutCard),
   markRaw(CodeSite),

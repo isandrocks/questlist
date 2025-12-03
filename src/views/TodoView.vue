@@ -4,11 +4,12 @@
 
     <div class="my-4 flex flex-row items-center justify-start gap-x-4 rounded-xl bg-white p-2.5">
       <input
-        class="h-5 w-5 rounded border-0 bg-gray-200 font-semibold text-zinc-800 focus:ring-0 focus:ring-transparent"
+        class="h-5 w-5 rounded border-0 bg-gray-200 font-semibold text-zinc-800 focus:ring-0
+          focus:ring-transparent"
         type="checkbox" />
       <input
-        class="border-0 bg-transparent p-0 font-semibold text-zinc-800 ring-0 placeholder:font-normal
-          focus:border-0 focus:outline-hidden focus:ring-0"
+        class="border-0 bg-transparent p-0 font-semibold text-zinc-800 ring-0
+          placeholder:font-normal focus:border-0 focus:outline-hidden focus:ring-0"
         v-model="newTask"
         type="text"
         placeholder="Add a new task"
@@ -26,13 +27,14 @@
         :key="index"
         class="flex flex-row items-center justify-start gap-x-4 rounded-xl bg-white p-2.5">
         <input
-          class="h-5 w-5 rounded border-0 bg-gray-200 text-zinc-800 focus:ring-0 focus:ring-transparent"
+          class="h-5 w-5 rounded border-0 bg-gray-200 text-zinc-800 focus:ring-0
+            focus:ring-transparent"
           type="checkbox"
           v-model="task.completed" />
         <span
-          class="relative font-semibold text-zinc-800 after:absolute after:left-0 after:top-1/2 after:h-[2px]
-            after:-translate-y-1/2 after:transform after:bg-zinc-800 after:transition-all after:duration-500
-            after:ease-in-out"
+          class="relative font-semibold text-zinc-800 after:absolute after:left-0 after:top-1/2
+            after:h-[2px] after:-translate-y-1/2 after:transform after:bg-zinc-800
+            after:transition-all after:duration-500 after:ease-in-out"
           :class="task.completed ? 'after:w-full' : 'after:w-0'">
           {{ task.text }}
         </span>

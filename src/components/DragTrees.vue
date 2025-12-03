@@ -402,8 +402,9 @@ const loadJson = (event: Event) => {
                   </template>
                   {{ node.label }}
                   <span
-                    class="relative col-span-2 after:absolute after:start-4 after:h-[2px] after:-translate-y-2.5
-                      after:transform after:bg-(--color-text) after:transition-all after:duration-500 after:ease-in-out"
+                    class="relative col-span-2 after:absolute after:start-4 after:h-[2px]
+                      after:-translate-y-2.5 after:transform after:bg-(--color-text)
+                      after:transition-all after:duration-500 after:ease-in-out"
                     :class="node.data.completed ? 'after:w-full' : 'after:w-0'">
                   </span>
                 </span>
@@ -426,14 +427,16 @@ const loadJson = (event: Event) => {
     </div>
     <div
       class="mt-4 inline-flex h-12 w-full self-center rounded border-2 border-solid
-        border-(--color-background-soft) bg-(--color-background-dark) hover:border-(--color-background-mute)">
+        border-(--color-background-soft) bg-(--color-background-dark)
+        hover:border-(--color-background-mute)">
       <PlusIcon
-        class="m-[1ex] h-[4ex] w-[4ex] cursor-pointer p-[0.5ex] transition-all duration-300 hover:rounded-xl
-          hover:bg-(--color-background-mute)"
+        class="m-[1ex] h-[4ex] w-[4ex] cursor-pointer p-[0.5ex] transition-all duration-300
+          hover:rounded-xl hover:bg-(--color-background-mute)"
         @click="appendRoot()" />
       <input
-        class="baseInput relative w-full border-none bg-inherit font-[1.2rem] placeholder-(--color-background-mute)
-          focus:border-none focus:bg-(--color-background-dark) focus:text-(--color-text) focus:outline-hidden"
+        class="baseInput relative w-full border-none bg-inherit font-[1.2rem]
+          placeholder-(--color-background-mute) focus:border-none focus:bg-(--color-background-dark)
+          focus:text-(--color-text) focus:outline-hidden"
         v-model="textFieldValue"
         :placeholder="dynamicPlaceholder()"
         @keyup.enter="appendRoot()" />

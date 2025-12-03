@@ -1,5 +1,23 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
+import IconWrench from '@/components/icons/IconWrench.vue'
+import IconLink from '@/components/icons/IconLink.vue'
+import IconTarget from '@/components/icons/IconTarget.vue'
+import IconTools from '@/components/icons/IconTools.vue'
+import IconPlug from '@/components/icons/IconPlug.vue'
+import IconLightbulb from '@/components/icons/IconLightbulb.vue'
+import IconPuzzle from '@/components/icons/IconPuzzle.vue'
+import IconLightning from '@/components/icons/IconLightning.vue'
+import IconLaptop from '@/components/icons/IconLaptop.vue'
+import IconPiano from '@/components/icons/IconPiano.vue'
+import IconPalette from '@/components/icons/IconPalette.vue'
+import IconGamepad from '@/components/icons/IconGamepad.vue'
+import IconChartBar from '@/components/icons/IconChartBar.vue'
+import IconRocket from '@/components/icons/IconRocket.vue'
+import IconGraduationCap from '@/components/icons/IconGraduationCap.vue'
+import IconClapperboard from '@/components/icons/IconClapperboard.vue'
+import IconStar from '@/components/icons/IconStar.vue'
+import IconBook from '@/components/icons/IconBook.vue'
 
 const selectedImage = ref(null)
 const windowWidth = ref(0)
@@ -43,7 +61,8 @@ const images = [
 </script>
 
 <template>
-  <article class="prose prose-lg max-w-3xl mx-auto px-4 py-4">
+  <article
+    class="prose prose-lg max-w-3xl mx-auto px-4 py-4 bg-[#131313cc] backdrop-blur-sm rounded-lg">
     <div>
       <h1
         class="text-white text-center text-4xl lg:text-3xl font-extrabold
@@ -73,14 +92,16 @@ const images = [
         :key="index">
         <img
           :src="image"
-          class="object-contain w-full h-full top-0 rounded-s shadow-md cursor-zoom-in hover:scale-102
-            transition-transform"
+          class="object-contain w-full h-full top-0 rounded-s shadow-md cursor-zoom-in
+            hover:scale-102 transition-transform"
           @click="openImage(image)" />
       </el-carousel-item>
     </el-carousel>
 
     <div class="tech-stack text-center p-4 bg-gray-800/30 backdrop-blur-sm rounded-lg my-6">
-      <h3 class="text-(--isr-c-red) font-bold mb-2">Built with Open Hardware 🔧</h3>
+      <h3 class="text-(--isr-c-red) font-bold mb-2 flex items-center justify-center gap-2">
+        Built with Open Hardware <IconWrench class="w-5 h-5" />
+      </h3>
       <div class="flex flex-wrap justify-center gap-2 text-sm">
         <span class="bg-blue-500/20 px-2 py-1 rounded">QMK Firmware</span>
         <span class="bg-green-500/20 px-2 py-1 rounded">KiCad PCB Design</span>
@@ -103,13 +124,15 @@ const images = [
         href="https://github.com/isandrocks/Skyline_20K"
         target="_blank"
         rel="noopener noreferrer"
-        class="bg-(--isr-c-red) hover:bg-red-600 text-white font-bold py-3 px-8 rounded-lg transition-colors
-          text-lg">
-        🔗 View GitHub Repository
+        class="bg-(--isr-c-red) hover:bg-red-600 text-white font-bold py-3 px-8 rounded-lg
+          transition-colors text-lg flex items-center justify-center gap-2 mx-auto">
+        <IconLink class="w-6 h-6" /> View GitHub Repository
       </a>
     </div>
 
-    <h2 class="text-(--isr-c-red) font-bold text-xl mb-4 mt-8">🎯 What Makes It Special</h2>
+    <h2 class="text-(--isr-c-red) font-bold text-xl mb-4 mt-8 flex items-center gap-2">
+      <IconTarget class="w-6 h-6" /> What Makes It Special
+    </h2>
 
     <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg mb-6">
       <p class="mb-4">
@@ -135,11 +158,15 @@ const images = [
       </ul>
     </div>
 
-    <h2 class="text-(--isr-c-red) font-bold text-xl mb-4 mt-8">🛠️ Hardware Engineering</h2>
+    <h2 class="text-(--isr-c-red) font-bold text-xl mb-4 mt-8 flex items-center gap-2">
+      <IconTools class="w-6 h-6" /> Hardware Engineering
+    </h2>
 
     <div class="grid md:grid-cols-2 gap-4 mb-6">
       <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg">
-        <h3 class="text-(--isr-c-red) font-semibold mb-2">🔌 PCB Design</h3>
+        <h3 class="text-(--isr-c-red) font-semibold mb-2 flex items-center gap-2">
+          <IconPlug class="w-5 h-5" /> PCB Design
+        </h3>
         <p class="text-sm">
           Complete KiCad project with 5×4 key matrix, breakpoints with reinforced traces, and
           optimized routing for both USB and RGB data lines.
@@ -147,7 +174,9 @@ const images = [
       </div>
 
       <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg">
-        <h3 class="text-(--isr-c-red) font-semibold mb-2">💡 RGB Engineering</h3>
+        <h3 class="text-(--isr-c-red) font-semibold mb-2 flex items-center gap-2">
+          <IconLightbulb class="w-5 h-5" /> RGB Engineering
+        </h3>
         <p class="text-sm">
           All LEDs face downward for maximum underglow effect. 4960 Neopixels provide significantly
           more brightness than standard WS2812B LEDs.
@@ -155,7 +184,9 @@ const images = [
       </div>
 
       <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg">
-        <h3 class="text-(--isr-c-red) font-semibold mb-2">🧩 Modular Innovation</h3>
+        <h3 class="text-(--isr-c-red) font-semibold mb-2 flex items-center gap-2">
+          <IconPuzzle class="w-5 h-5" /> Modular Innovation
+        </h3>
         <p class="text-sm">
           Intentional breakpoints allow sections to snap apart and serve as a stand, creating
           multiple form factors from a single PCB design.
@@ -163,7 +194,9 @@ const images = [
       </div>
 
       <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg">
-        <h3 class="text-(--isr-c-red) font-semibold mb-2">⚡ Power Management</h3>
+        <h3 class="text-(--isr-c-red) font-semibold mb-2 flex items-center gap-2">
+          <IconLightning class="w-5 h-5" /> Power Management
+        </h3>
         <p class="text-sm">
           USB bus-powered with intelligent brightness limiting to stay within USB 2.0 current
           specifications while maximizing visual impact.
@@ -171,10 +204,14 @@ const images = [
       </div>
     </div>
 
-    <h2 class="text-(--isr-c-red) font-bold text-xl mb-4 mt-8">💻 Firmware & Software</h2>
+    <h2 class="text-(--isr-c-red) font-bold text-xl mb-4 mt-8 flex items-center gap-2">
+      <IconLaptop class="w-6 h-6" /> Firmware & Software
+    </h2>
 
     <div class="bg-blue-900/20 backdrop-blur-sm border-l-4 border-blue-500 p-4 mb-6">
-      <h3 class="text-blue-300 font-semibold mb-2">🎹 QMK Firmware Foundation</h3>
+      <h3 class="text-blue-300 font-semibold mb-2 flex items-center gap-2">
+        <IconPiano class="w-5 h-5" /> QMK Firmware Foundation
+      </h3>
       <p class="text-sm">
         Built on the industry-standard QMK firmware framework with full N-key rollover, multiple
         layers, and extensive customization options. Includes both default and Vial-compatible
@@ -182,7 +219,9 @@ const images = [
       </p>
     </div>
 
-    <h3 class="text-(--isr-c-red) font-semibold mb-2">🔧 Technical Implementation</h3>
+    <h3 class="text-(--isr-c-red) font-semibold mb-2 flex items-center gap-2">
+      <IconTools class="w-5 h-5" /> Technical Implementation
+    </h3>
     <ul class="list-disc pl-6 mb-6 space-y-2">
       <li><strong>Matrix Scanning:</strong> 5 rows × 4 columns with COL2ROW diode configuration</li>
       <li>
@@ -200,7 +239,9 @@ const images = [
     </ul>
 
     <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg mb-6">
-      <h3 class="text-(--isr-c-red) font-semibold mb-2">🎨 RGB Programming</h3>
+      <h3 class="text-(--isr-c-red) font-semibold mb-2 flex items-center gap-2">
+        <IconPalette class="w-5 h-5" /> RGB Programming
+      </h3>
       <p class="text-sm">
         Custom rainbow mood lighting with configurable parameters. The firmware includes precise
         timing calculations for the 4960 Neopixel protocol and intelligent brightness management to
@@ -208,11 +249,15 @@ const images = [
       </p>
     </div>
 
-    <h2 class="text-(--isr-c-red) font-bold text-xl mb-4 mt-8">🎯 Use Cases & Applications</h2>
+    <h2 class="text-(--isr-c-red) font-bold text-xl mb-4 mt-8 flex items-center gap-2">
+      <IconTarget class="w-6 h-6" /> Use Cases & Applications
+    </h2>
 
     <div class="grid md:grid-cols-2 gap-4 mb-6">
       <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg">
-        <h3 class="text-(--isr-c-red) font-semibold mb-2">💻 Developer Productivity</h3>
+        <h3 class="text-(--isr-c-red) font-semibold mb-2 flex items-center gap-2">
+          <IconLaptop class="w-5 h-5" /> Developer Productivity
+        </h3>
         <p class="text-sm">
           Program Git commands, build shortcuts, and IDE functions. Perfect for rapid development
           workflows.
@@ -220,7 +265,9 @@ const images = [
       </div>
 
       <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg">
-        <h3 class="text-(--isr-c-red) font-semibold mb-2">🎮 Content Creation</h3>
+        <h3 class="text-(--isr-c-red) font-semibold mb-2 flex items-center gap-2">
+          <IconGamepad class="w-5 h-5" /> Content Creation
+        </h3>
         <p class="text-sm">
           Stream controls, OBS shortcuts, Discord functions. RGB provides visual feedback for stream
           status.
@@ -228,7 +275,9 @@ const images = [
       </div>
 
       <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg">
-        <h3 class="text-(--isr-c-red) font-semibold mb-2">🎨 Creative Software</h3>
+        <h3 class="text-(--isr-c-red) font-semibold mb-2 flex items-center gap-2">
+          <IconPalette class="w-5 h-5" /> Creative Software
+        </h3>
         <p class="text-sm">
           Tool selection in Photoshop, timeline navigation in video editors, brush controls for
           digital art.
@@ -236,17 +285,23 @@ const images = [
       </div>
 
       <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg">
-        <h3 class="text-(--isr-c-red) font-semibold mb-2">📊 Data Entry</h3>
+        <h3 class="text-(--isr-c-red) font-semibold mb-2 flex items-center gap-2">
+          <IconChartBar class="w-5 h-5" /> Data Entry
+        </h3>
         <p class="text-sm">
           Dedicated numpad functionality with ergonomic positioning and reduced hand travel.
         </p>
       </div>
     </div>
 
-    <h2 class="text-(--isr-c-red) font-bold text-xl mb-4 mt-8">🚀 Development Journey</h2>
+    <h2 class="text-(--isr-c-red) font-bold text-xl mb-4 mt-8 flex items-center gap-2">
+      <IconRocket class="w-6 h-6" /> Development Journey
+    </h2>
 
     <div class="bg-green-900/20 backdrop-blur-sm border-l-4 border-green-500 p-4 mb-6">
-      <h3 class="text-green-300 font-semibold mb-2">🎓 Learning Platform</h3>
+      <h3 class="text-green-300 font-semibold mb-2 flex items-center gap-2">
+        <IconGraduationCap class="w-5 h-5" /> Learning Platform
+      </h3>
       <p class="text-sm">
         This project serves as a comprehensive learning resource covering PCB design, embedded
         programming, USB protocols, and open-source hardware development. Complete documentation
@@ -255,7 +310,9 @@ const images = [
     </div>
 
     <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg mb-6">
-      <h3 class="text-(--isr-c-red) font-semibold mb-2">🎬 Build Process Video</h3>
+      <h3 class="text-(--isr-c-red) font-semibold mb-2 flex items-center gap-2">
+        <IconClapperboard class="w-5 h-5" /> Build Process Video
+      </h3>
       <p class="text-sm mb-4">
         Watch the complete assembly process from PCB soldering to final testing. This build video
         demonstrates the hands-on construction techniques and provides visual guidance for anyone
@@ -266,13 +323,16 @@ const images = [
           href="https://youtu.be/h0hoNd8aZaA?autoplay=1&mute=1"
           target="_blank"
           rel="noopener noreferrer"
-          class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg transition-colors inline-flex items-center gap-2">
-          🎬 Watch Build Video on YouTube
+          class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg
+            transition-colors inline-flex items-center gap-2">
+          <IconClapperboard class="w-5 h-5" /> Watch Build Video on YouTube
         </a>
       </div>
     </div>
 
-    <h3 class="text-(--isr-c-red) font-semibold mb-2">🛠️ Current Status & Known Issues</h3>
+    <h3 class="text-(--isr-c-red) font-semibold mb-2 flex items-center gap-2">
+      <IconTools class="w-5 h-5" /> Current Status & Known Issues
+    </h3>
     <ul class="list-disc pl-6 mb-6 space-y-2">
       <li><strong>Prototype Complete:</strong> Functional hardware with documented minor issues</li>
       <li>
@@ -285,11 +345,15 @@ const images = [
       </li>
     </ul>
 
-    <h2 class="text-(--isr-c-red) font-bold text-xl mb-4 mt-8">🌟 Community Impact</h2>
+    <h2 class="text-(--isr-c-red) font-bold text-xl mb-4 mt-8 flex items-center gap-2">
+      <IconStar class="w-6 h-6" /> Community Impact
+    </h2>
 
     <div class="grid md:grid-cols-2 gap-4 mb-6">
       <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg">
-        <h3 class="text-(--isr-c-red) font-semibold mb-2">📚 Educational Resource</h3>
+        <h3 class="text-(--isr-c-red) font-semibold mb-2 flex items-center gap-2">
+          <IconBook class="w-5 h-5" /> Educational Resource
+        </h3>
         <p class="text-sm">
           Complete open-source design teaches PCB engineering, firmware development, and product
           lifecycle.
@@ -297,58 +361,50 @@ const images = [
       </div>
 
       <div class="bg-gray-800/20 backdrop-blur-sm p-4 rounded-lg">
-        <h3 class="text-(--isr-c-red) font-semibold mb-2">🔧 Customization Platform</h3>
+        <h3 class="text-(--isr-c-red) font-semibold mb-2 flex items-center gap-2">
+          <IconTools class="w-5 h-5" /> Customization Platform
+        </h3>
         <p class="text-sm">
           Foundation for community modifications, variants, and improvements in the maker ecosystem.
         </p>
       </div>
     </div>
 
-    <div class="bg-orange-900/20 border-l-4 border-orange-500 p-4 mb-6">
-      <h3 class="text-orange-300 font-semibold mb-2">🚀 Future Roadmap</h3>
+    <div class="bg-orange-900/20 backdrop-blur-sm border-l-4 border-orange-500 p-4 mb-6">
+      <h3 class="text-orange-300 font-semibold mb-2 flex items-center gap-2">
+        <IconRocket class="w-5 h-5" /> Future Roadmap
+      </h3>
       <p class="text-sm">
-        Planned improvements include PCB revision for LED alignment, wireless variants, hot-swap
-        socket support, and potential group buy organization for wider community access.
+        The next iteration (Skyline 40K) is already in development, featuring wireless connectivity
+        via ZMK, hot-swap sockets, and an integrated OLED display for system stats.
       </p>
     </div>
 
     <div class="text-center mt-8 p-4 bg-gray-800/30 backdrop-blur-sm rounded-lg">
       <p class="mb-4">
-        <strong>Ready to build your own or contribute to the project?</strong>
+        <strong>Ready to build your own?</strong>
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
         <a
           href="https://github.com/isandrocks/Skyline_20K"
           target="_blank"
           rel="noopener noreferrer"
-          class="bg-(--isr-c-red) hover:bg-red-600 text-white font-bold py-2 px-6 rounded-lg transition-colors">
-          🔗 GitHub Repository
+          class="bg-(--isr-c-red) hover:bg-red-600 text-white font-bold py-2 px-6 rounded-lg
+            transition-colors flex items-center justify-center gap-2">
+          <IconLink class="w-5 h-5" /> GitHub Repository
         </a>
         <a
           href="https://docs.qmk.fm/"
           target="_blank"
           rel="noopener noreferrer"
-          class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg transition-colors">
-          📖 QMK Documentation
+          class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg
+            transition-colors flex items-center justify-center gap-2">
+          <IconBook class="w-5 h-5" /> QMK Documentation
         </a>
       </div>
       <p class="text-sm mt-2 text-gray-400">GPL-2.0 License • Open Source Hardware</p>
     </div>
   </article>
-
-  <!-- Image zoom modal -->
-  <div
-    v-if="selectedImage"
-    class="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50"
-    @click="closeImage"
-    @wheel="handleWheel">
-    <div class="relative flex">
-      <img
-        :src="selectedImage"
-        class="max-w-[99vw] max-h-[85vh] rounded-lg"
-        :style="{ transform: `scale(${zoomLevel})`, transition: 'transform 0.1s ease' }" />
-    </div>
-  </div>
 </template>
 
 <style scoped>
