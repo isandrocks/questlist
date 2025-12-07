@@ -29,13 +29,12 @@ const openExternalLink = (url) => {
         Con-Save
       </h1>
       <p class="ml-2 mr-2 py-2 border-b border-(--color-border)">
-        I'm
+        Hi, I'm
         <span
           class="text-red-500 cursor-pointer"
           @click="$router.push('/about')"
           >Sean</span
-        >
-        Online, you'll often find me as
+        >. <br></br>Online, you'll often find me as
         <span
           class="text-red-500 cursor-pointer"
           @click="() => openExternalLink('https://bsky.app/profile/isandrocks.bsky.social')"
