@@ -9,11 +9,11 @@ import DragTrees from '../components/DragTrees.vue'
       class="backdrop-blur-lg bg-white/10 rounded-sm border border-white/20 p-8 md:p-12 mb-8
         shadow-2xl lg:ml-8 lg:w-[40%] max-xl:overflow-y-auto max-xl:max-h-[80vh]">
       <div class="text-center space-y-6">
-        <h1
+        <h2
           class="text-4xl md:text-6xl font-bold bg-gradient-to-r from-white via-red-200 to-red-300
             bg-clip-text text-transparent">
           To-Do <span class="text-red-500">List</span> App
-        </h1>
+        </h2>
         <p class="text-sm 2xl:text-lg text-gray-100 leading-relaxed">
           This interactive List management system features a custom hierarchical tree structure with
           drag-and-drop reordering, inline editing, and animated completion states. Built with

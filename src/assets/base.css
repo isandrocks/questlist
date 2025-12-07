@@ -29,9 +29,10 @@
 }
 
 /* custom font */
-.zen-dots-regular {
-  font-family: 'Zen Dots', sans-serif;
-  font-weight: 400;
+.sofia-sans-extra-condensed-isr {
+  font-family: 'Sofia Sans Extra Condensed', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
   font-style: normal;
 }
 
@@ -206,7 +207,7 @@ body {
   line-height: 1.6;
   font-family:
     'Tomorrow',
-    'Zen Dots',
+    'Sofia Sans Extra Condensed',
     Inter,
     -apple-system,
     BlinkMacSystemFont,
@@ -226,5 +227,14 @@ body {
 }
 
 h1 {
-  font-family: 'Zen Dots';
+  text-shadow: -1px 1px 2px #030303cc;
+  font-family: 'Sixtyfour Convergence', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+    'BLED' 5,
+    'SCAN' -40,
+    'XELA' -10,
+    'YELA' -10;
 }

@@ -6,7 +6,7 @@
     class="cursor-pointer hover:shadow-lg transition-shadow backdrop-blur-lg">
     <template #header>
       <h1
-        class="text-white text-center text-xl lg:text-3xl font-extrabold
+        class="text-transparent bg-white bg-clip-text text-center text-xl lg:text-3xl font-extrabold
           [text-shadow:-1px_-1px_0_black,1px_-1px_0_black,-1px_1px_0_black,1px_1px_0_black]">
         GeminiOxide
       </h1>

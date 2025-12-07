@@ -10,6 +10,10 @@ const navItems = [
   { label: 'About', href: '/about' },
   { label: 'Game', href: '/game' }
 ]
+
+const openExternalLink = (url) => {
+  window.open(url, '_blank')
+}
 </script>
 
 <template>
@@ -27,18 +31,20 @@ const navItems = [
       <p class="ml-2 mr-2 py-2 border-b border-(--color-border)">
         I'm
         <span
-          class="text-(--isr-c-red) cursor-pointer"
+          class="text-red-500 cursor-pointer"
           @click="$router.push('/about')"
           >Sean</span
-        >, a Senior Analyst by day and a programmer, maker, and designer whenever I have time.
+        >
+        Online, you'll often find me as
+        <span
+          class="text-red-500 cursor-pointer"
+          @click="() => openExternalLink('https://bsky.app/profile/isandrocks.bsky.social')"
+          >iSandRocks</span
+        >. I am a developer and maker trying to bridge the gap between software and the
+        physical world.
       </p>
       <p class="ml-2 mr-2 mt-2 pb-2 border-b border-(--color-border)">
-        This site showcases my various projects and may eventually serve as a storefront if I decide
-        to set one up.
-      </p>
-      <p class="ml-2 mr-2 mt-2 pb-2 border-b border-(--color-border)">
-        This site is still very much a work in progress, so please be patient with me as I continue
-        adding more content.
+        This site showcases my various projects and a blog for my design and engineering journey.
       </p>
       <img
         alt="Con-Save logo"
@@ -68,8 +74,7 @@ const navItems = [
               <!-- Background highlight -->
               <span
                 v-if="$route.path === item.href || (item.href === '/' && $route.path === '/')"
-                class="absolute inset-0 bg-red-500/10 backdrop-blur-sm rounded-sm border
-                  border-red-500/20" />
+                class="absolute inset-0 bg-red-500/10 backdrop-blur-sm rounded-sm " />
 
               <!-- Hover effect -->
               <span
@@ -82,8 +87,7 @@ const navItems = [
               <!-- Active indicator line -->
               <span
                 v-if="$route.path === item.href || (item.href === '/' && $route.path === '/')"
-                class="absolute bottom-0 left-1/2 -translate-x-1/2 w-8 h-0.5 bg-gradient-to-r
-                  from-transparent via-red-500 to-transparent" />
+                class="absolute bottom-0 left-1/2 -translate-x-1/2 w-8 h-0.5 " />
             </RouterLink>
           </div>
         </nav>

@@ -7,42 +7,35 @@ import LogoConsave from '../components/icons/LogoConsave.vue'
     <div class="relative z-10 container mx-auto px-6 py-16 max-w-4xl">
       <!-- Hero Section -->
       <div
-        class="backdrop-blur-lg bg-white/10 rounded-3xl border border-white/20 p-8 md:p-12 mb-8
+        class="backdrop-blur-lg bg-white/10 rounded-xl border border-white/20 p-8 md:p-12 mb-8
           shadow-2xl">
         <div class="text-center space-y-6">
-          <h1
-            class="text-4xl md:text-6xl font-bold bg-gradient-to-r from-white via-red-200 to-red-300
-              bg-clip-text text-transparent">
-            About <span class="text-red-500">me</span>
-          </h1>
+          <h1 class="text-4xl md:text-6xl font-bold text-red-400 bg-clip-text">About me</h1>
 
           <div class="space-y-6 text-lg md:text-xl leading-relaxed text-gray-100">
             <p>
-              Hi I'm <span class="font-bold text-red-300">Sean</span>! Online, you'll often find me
-              as <span class="text-red-400 font-semibold">iSandRock</span> in games, on social
-              media, or tinkering with new projects. I've always loved building things, solving
-              problems, and bringing ideas to life through code, design, and hands-on making.
+              Hi, I'm <span class="font-bold text-red-500">Sean</span>! Online, you'll often find me
+              as <span class="text-red-500 font-semibold">iSandRocks</span>. I am a developer and
+              maker passionate about bridging the gap between software and the physical world.
             </p>
 
             <p>
-              Professionally, I work as a
-              <span class="text-red-300 font-semibold">Senior Analyst</span>, where I've spent the
-              past decade delivering high-quality IT solutions. My expertise includes Windows
-              systems, Active Directory, internal/client specific software management, internal
-              networks/VPNs, and customer-focused technical support. Along the way, I've developed
-              strong skills in application development, AI, and Rust, combining problem-solving with
-              a passion for learning.
+              I specialize in
+              <strong>web app development, AI integration, and functional design</strong>, but my
+              love for engineering goes beyond code. I design and build custom mechanical keyboards
+              and game controllers from scratch! Handling the entire process from PCB design and
+              soldering to CAD modeling and case fabrication with 3D printing.
             </p>
 
             <p>
-              This site doubles as my personal portfolio and the starting point for my company,
-              <span class="text-red-400 font-semibold">Con-Save Customs</span>, where I'm exploring
-              custom-made electronics, keyboards, and controllers. It's a space to share both my
-              professional journey and my creative projects.
+              This site acts as a portfolio for my technical projects and a blog for my engineering
+              journey. It demonstrates my ability to take complex ideas and turn them into tangible,
+              functioning products.
             </p>
 
             <p class="text-red-200 italic">
-              Whether you're here to explore my work, collaborate, or just passing through, welcome!
+              I am currently open to freelance or full-time opportunities. Whether you're here to
+              review my work or just passing by, welcome!
             </p>
           </div>
         </div>
@@ -50,13 +43,13 @@ import LogoConsave from '../components/icons/LogoConsave.vue'
 
       <!-- Con-Save Explanation Section -->
       <div
-        class="backdrop-blur-lg bg-white/10 rounded-3xl border border-white/20 p-8 md:p-12 mb-8
+        class="backdrop-blur-lg bg-white/10 rounded-xl border border-white/20 p-8 md:p-12 mb-8
           shadow-2xl">
         <div class="text-center space-y-6">
           <h2
             class="text-3xl md:text-5xl font-bold bg-gradient-to-r from-red-400 to-red-400
               bg-clip-text text-transparent">
-            What is a <span class="text-red-400">Con-Save</span>?
+            What is a <span class="text-red-500">Con-Save</span>?
           </h2>
 
           <div class="space-y-4 text-lg md:text-xl leading-relaxed text-gray-100">
@@ -82,7 +75,7 @@ import LogoConsave from '../components/icons/LogoConsave.vue'
 
       <!-- Contact Section -->
       <div
-        class="backdrop-blur-lg bg-white/10 rounded-3xl border border-white/20 p-8 md:p-12 mb-8
+        class="backdrop-blur-lg bg-white/10 rounded-xl border border-white/20 p-8 md:p-12 mb-8
           shadow-2xl">
         <div class="text-center space-y-6">
           <h2
@@ -115,7 +108,7 @@ import LogoConsave from '../components/icons/LogoConsave.vue'
 
       <!-- Logo Section -->
       <div class="flex justify-center">
-        <div class="backdrop-blur-lg bg-white/5 rounded-3xl border border-white/10 p-8 shadow-2xl">
+        <div class="backdrop-blur-lg bg-white/5 rounded-xl border border-white/10 p-8 shadow-2xl">
           <LogoConsave
             class="max-w-full h-auto opacity-90 hover:opacity-100 transition-opacity duration-300" />
         </div>
