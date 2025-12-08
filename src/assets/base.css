@@ -197,7 +197,6 @@ body {
   min-height: 100vh;
   color: var(--color-text);
   background: var(--color-background);
-  background-image: url('@/assets/cartoon1h.svg');
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;

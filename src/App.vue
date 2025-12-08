@@ -1,9 +1,27 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import FaultyTerminal from '@/components/FaultyTerminal.vue'
+import logoUrl from '@/assets/cartoon1h.svg'
 
 const isOpen = ref(false)
+const isLoading = ref(true)
+
+onMounted(() => {
+  // Wait for window load to ensure all assets are loaded
+  const handleLoad = () => {
+    // Minimum display time for the animation
+    setTimeout(() => {
+      isLoading.value = false
+    }, 1500)
+  }
+
+  if (document.readyState === 'complete') {
+    handleLoad()
+  } else {
+    window.addEventListener('load', handleLoad)
+  }
+})
 
 const navItems = [
   { label: 'Home', href: '/' },
@@ -18,7 +36,17 @@ const openExternalLink = (url) => {
 </script>
 
 <template>
-    <div class="fixed inset-0 z-[-5]">
+  <!-- Loading Screen -->
+  <Transition name="fade">
+    <div
+      v-if="isLoading"
+      class="fixed inset-0 z-[9999] flex items-center justify-center bg-[var(--color-background)]"
+    >
+      <img :src="logoUrl" class="w-48 h-48 startup-logo" alt="Loading..." />
+    </div>
+  </Transition>
+
+  <div class="fixed inset-0 z-[-5]">
     <FaultyTerminal
     :scale="1.5" 
     :tint="'#646464'"/>
@@ -189,5 +217,33 @@ nav a:first-of-type {
   align-items: center;
   justify-content: center;
   right: 14px;
+}
+
+/* Loading Screen Animations */
+.fade-leave-active {
+  transition: opacity 1.0s ease;
+}
+
+.fade-leave-to {
+  opacity: 0;
+}
+
+.startup-logo {
+  animation: expandPulse 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+@keyframes expandPulse {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 </style>
