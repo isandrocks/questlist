@@ -1,6 +1,7 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
 import { ref } from 'vue'
+import FaultyTerminal from '@/components/FaultyTerminal.vue'
 
 const isOpen = ref(false)
 
@@ -17,14 +18,19 @@ const openExternalLink = (url) => {
 </script>
 
 <template>
-  <el-container class="overflow-hidden">
+    <div class="fixed inset-0 z-[-5]">
+    <FaultyTerminal
+    :scale="1.5" 
+    :tint="'#646464'"/>
+  </div>
+  <el-container class="overflow-hidden ">
     <el-aside
       width="200px"
-      class="hidden md:flex flex-col border-r border-(--color-border) overflow-hidden">
+      class="hidden md:flex flex-col border-r border-(--color-border) overflow-hidden bg-[color-mix(in_srgb,var(--color-background)_90%,transparent)]">
       <h1
         class="h-[41px] text-(--isr-c-red) md:text-2xl lg:text-2xl text-nowrap relative
           justify-self-end self-center border-b border-(--color-border) sixtyfour-convergence-isr
-          overflow-clip cursor-pointer"
+          overflow-clip cursor-pointer pt-2"
         @click="$router.push('/')">
         Con-Save
       </h1>
@@ -56,7 +62,7 @@ const openExternalLink = (url) => {
     <el-container>
       <el-header
         height="41px"
-        class="flex flex-row-reverse lg:flex-row border-b border-(--color-border)">
+        class="flex flex-row-reverse lg:flex-row border-b border-(--color-border)  bg-[color-mix(in_srgb,var(--color-background)_90%,transparent)]">
         <!-- Desktop Navigation -->
         <nav class="hidden lg:flex w-full">
           <div class="flex items-center justify-end top-1">
