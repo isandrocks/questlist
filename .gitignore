@@ -33,3 +33,4 @@ pending_posts
 upload.bat
 uploadToGCloud.bat
 dist.zip
+package-lock.json

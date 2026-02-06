@@ -86,7 +86,7 @@ import LogoConsave from '../components/icons/LogoConsave.vue'
 
           <div class="space-y-4 text-lg md:text-xl leading-relaxed text-gray-100">
             <p>
-              If you're interested in custom electronics, keyboards, controllers, or just want to
+              If you're interested in any of my projects, keyboards or controllers, or just want to
               say hello, feel free to reach out!
             </p>
 

@@ -1,6 +1,6 @@
 <script setup>
 import { ref, defineAsyncComponent, markRaw } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
+import { useRoute, useRouter, RouterLink } from 'vue-router'
 
 const route = useRoute()
 const router = useRouter()
@@ -69,12 +69,11 @@ loadComponent()
 
 <template>
   <div class="flex flex-col w-full items-center">
-    <a
-      href="/"
+    <RouterLink
+      to="/"
       class="back-arrow"
       style="text-decoration: underline; font-size: 16px"
-      >&lt; Back</a
-    >
+      >&lt; Back</RouterLink>
     <component
       :is="component"
       v-if="component && !error" />
@@ -85,11 +84,10 @@ loadComponent()
       <p>Redirecting to home page...</p>
     </div>
     <p v-else>Loading post...</p>
-    <a
-      href="/"
+    <RouterLink
+      to="/"
       class="back-arrow"
       style="text-decoration: underline; font-size: 16px"
-      >&lt; Back</a
-    >
+      >&lt; Back</RouterLink>
   </div>
 </template>
