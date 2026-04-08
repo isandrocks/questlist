@@ -17,7 +17,8 @@ const allowedSlugs = [
   'geminiOxide',
   'stringArt',
   'skyLine20k',
-  'glShaderStudio'
+  'glShaderStudio',
+  'GLSLProg'
 ]
 
 // Sanitize and validate slug

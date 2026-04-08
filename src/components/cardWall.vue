@@ -6,16 +6,18 @@ import LLMInterface from './blog/cards/LLMInterface.vue'
 import StringArtCard from './blog/cards/StringArtCard.vue'
 import Skyline20KCard from './blog/cards/Skyline20KCard.vue'
 import GlShaderStudioCard from './blog/cards/glShaderStudioCard.vue'
+import GLSLProg from './blog/cards/GLSLProgCard.vue'
 import { ref, onMounted, nextTick, markRaw } from 'vue'
 
 const cards = [
+  markRaw(GLSLProg),
   markRaw(GlShaderStudioCard),
-  markRaw(CausewayTHTc),
   markRaw(LightsoutCard),
-  markRaw(CodeSite),
   markRaw(LLMInterface),
   markRaw(StringArtCard),
-  markRaw(Skyline20KCard)
+  markRaw(CausewayTHTc),  
+  markRaw(Skyline20KCard),
+  markRaw(CodeSite)
 ]
 
 const masonry = ref(null)

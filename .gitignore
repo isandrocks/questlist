@@ -34,3 +34,4 @@ upload.bat
 uploadToGCloud.bat
 dist.zip
 package-lock.json
+BLOG_DRAFT.md
