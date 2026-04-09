@@ -16,26 +16,24 @@ import LogoConsave from '../components/icons/LogoConsave.vue'
             <p>
               Hi, I'm <span class="font-bold text-red-500">Sean</span>! Online, you'll often find me
               as <span class="text-red-500 font-semibold">iSandRocks</span>. I am a developer and
-              maker passionate about bridging the gap between software and the physical world.
+              maker with a keen interest in emerging media, live-streaming subcultures, and virtual performance technology.
             </p>
 
             <p>
               I specialize in
-              <strong>web app development, AI integration, and functional design</strong>, but my
-              love for engineering goes beyond code. I design and build custom mechanical keyboards
-              and game controllers from scratch! Handling the entire process from PCB design and
-              soldering to CAD modeling and case fabrication with 3D printing.
+              <strong>web application development, AI integration, and functional design</strong>.
+              My approach to engineering bridges the gap between software and hardware; I design and
+              manufacture custom peripherals, managing the entire lifecycle from PCB layout and
+              soldering to CAD modeling and additive manufacturing.
             </p>
 
             <p>
-              This site acts as a portfolio for my technical projects and a blog for my engineering
-              journey. It demonstrates my ability to take complex ideas and turn them into tangible,
-              functioning products.
+              This portfolio tracks my engineering journey and the logic behind my builds,
+              demonstrating a full-stack approach to solving technical problems.
             </p>
 
             <p class="text-red-200 italic">
-              I am currently open to freelance or full-time opportunities. Whether you're here to
-              review my work or just passing by, welcome!
+              Open to new professional opportunities and collaborations.
             </p>
           </div>
         </div>
