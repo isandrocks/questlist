@@ -28,12 +28,26 @@
   --isr-c-bg-red: #9c3f4d44;
 }
 
-/* custom font */
+
+/* card title shared styles */
+.card-title {
+@apply text-transparent bg-gradient-to-r from-gray-200 via-white to-gray-200 bg-clip-text text-center text-3xl lg:text-4xl font-bold;
+}
+
 .sofia-sans-extra-condensed-isr {
   font-family: 'Sofia Sans Extra Condensed', sans-serif;
   font-optical-sizing: auto;
   font-weight: 500;
   font-style: normal;
+}
+
+.tourney-isr {
+  font-family: "Tourney", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 800;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 95;
 }
 
 .tomorrow-thin {
@@ -227,13 +241,8 @@ body {
 
 h1 {
   text-shadow: -1px 1px 2px #030303cc;
-  font-family: 'Sixtyfour Convergence', sans-serif;
+  font-family: 'Tourney', sans-serif;
   font-optical-sizing: auto;
-  font-weight: 400;
+  font-weight: 600;
   font-style: normal;
-  font-variation-settings:
-    'BLED' 5,
-    'SCAN' -40,
-    'XELA' -10,
-    'YELA' -10;
 }
